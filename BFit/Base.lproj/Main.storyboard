@@ -14,12 +14,12 @@
         <scene sceneID="7Op-37-2Yp">
             <objects>
                 <viewController id="78S-Du-zF4" userLabel="Post" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="RE6-nM-K6D">
+                    <view key="view" contentMode="center" id="RE6-nM-K6D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Three" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOD-kv-3h9">
-                                <rect key="frame" x="137" y="310" width="101" height="47"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New Post" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOD-kv-3h9">
+                                <rect key="frame" x="100" y="310" width="174" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -29,7 +29,7 @@
                         <color key="backgroundColor" red="0.0" green="0.70924974789999995" blue="0.75480854090000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="n0I-XK-OTC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="New Post" id="ja7-wQ-ixa" userLabel="One"/>
+                    <tabBarItem key="tabBarItem" title="New Post" image="Sed-08-512 (1)" id="ja7-wQ-ixa" userLabel="One"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sf7-ak-YU0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -68,8 +68,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Four" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kbe-rl-ljA">
-                                <rect key="frame" x="146" y="310" width="82" height="47"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kbe-rl-ljA">
+                                <rect key="frame" x="131" y="310" width="113" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -79,7 +79,7 @@
                         <color key="backgroundColor" red="1" green="0.68838692492162878" blue="0.31585577685178168" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="VIC-nc-f7b"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="mZl-tS-owg"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="user-4-xxl" id="mZl-tS-owg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1iD-pr-tHf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -104,7 +104,7 @@
                         <color key="backgroundColor" red="1" green="0.41658693839050542" blue="0.76667876519637379" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="GGM-2d-eUK"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Search" id="NEq-Sx-D3n"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="search-3-xxl" id="NEq-Sx-D3n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IrF-YL-06w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -119,6 +119,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.1803921568627451" green="0.25098039215686274" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.18039215689999999" green="0.25098039220000001" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="4K0-Y0-prI"/>
@@ -133,6 +135,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Sed-08-512 (1)" width="46" height="46"/>
         <image name="house-xxl 2.1" width="30" height="30"/>
+        <image name="search-3-xxl" width="24" height="24"/>
+        <image name="user-4-xxl" width="26" height="26"/>
     </resources>
 </document>
