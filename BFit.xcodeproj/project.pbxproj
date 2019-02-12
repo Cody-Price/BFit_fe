@@ -61,11 +61,11 @@
 		28E6B82F221227BE00658B9C /* BFit */ = {
 			isa = PBXGroup;
 			children = (
+				28E6B834221227BE00658B9C /* Main.storyboard */,
+				28E6B839221227BF00658B9C /* LaunchScreen.storyboard */,
 				28E6B830221227BE00658B9C /* AppDelegate.swift */,
 				28E6B832221227BE00658B9C /* ViewController.swift */,
-				28E6B834221227BE00658B9C /* Main.storyboard */,
 				28E6B837221227BF00658B9C /* Assets.xcassets */,
-				28E6B839221227BF00658B9C /* LaunchScreen.storyboard */,
 				28E6B83C221227BF00658B9C /* Info.plist */,
 			);
 			path = BFit;
