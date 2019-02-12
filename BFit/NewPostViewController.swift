@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  NewPostViewController.swift
 //  BFit
 //
 //  Created by Jamie Rushford on 2/11/19.
@@ -8,11 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class NewPostViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        // Do any additional setup after loading the view.
         setGradientBackground()
     }
     
@@ -27,6 +28,16 @@ class ViewController: UIViewController {
         
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
 
 }
-

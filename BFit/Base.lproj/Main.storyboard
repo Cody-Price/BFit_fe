@@ -13,7 +13,7 @@
         <!--Post-->
         <scene sceneID="7Op-37-2Yp">
             <objects>
-                <viewController id="78S-Du-zF4" userLabel="Post" sceneMemberID="viewController">
+                <viewController id="78S-Du-zF4" userLabel="Post" customClass="NewPostViewController" customModule="BFit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="center" id="RE6-nM-K6D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,10 +26,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.70924974789999995" blue="0.75480854090000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
                         <viewLayoutGuide key="safeArea" id="n0I-XK-OTC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="New Post" image="Sed-08-512 (1)" id="ja7-wQ-ixa" userLabel="One"/>
+                    <tabBarItem key="tabBarItem" title="" image="12137-heavy-plus-sign" id="ja7-wQ-ixa" userLabel="One">
+                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-13"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sf7-ak-YU0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -51,10 +53,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.64333649780000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="house-xxl 2.1" id="NU1-Il-Jkg"/>
+                    <tabBarItem key="tabBarItem" title="" image="house-xxl 2.1" id="NU1-Il-Jkg">
+                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-13"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -63,7 +67,7 @@
         <!--Profile-->
         <scene sceneID="3VZ-np-KvR">
             <objects>
-                <viewController id="oDR-a8-rOm" userLabel="Profile" sceneMemberID="viewController">
+                <viewController id="oDR-a8-rOm" userLabel="Profile" customClass="ProfileViewController" customModule="BFit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hTD-FK-yyO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -76,10 +80,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.68838692492162878" blue="0.31585577685178168" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
                         <viewLayoutGuide key="safeArea" id="VIC-nc-f7b"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="user-4-xxl" id="mZl-tS-owg"/>
+                    <tabBarItem key="tabBarItem" title="" image="user-4-xxl" id="mZl-tS-owg">
+                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-13"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1iD-pr-tHf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -88,7 +94,7 @@
         <!--Search-->
         <scene sceneID="RjV-VB-t3x">
             <objects>
-                <viewController id="Bpe-l3-1t1" userLabel="Search" sceneMemberID="viewController">
+                <viewController id="Bpe-l3-1t1" userLabel="Search" customClass="SearchViewController" customModule="BFit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="43C-vC-lEZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,10 +107,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.41658693839050542" blue="0.76667876519637379" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
                         <viewLayoutGuide key="safeArea" id="GGM-2d-eUK"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Search" image="search-3-xxl" id="NEq-Sx-D3n"/>
+                    <tabBarItem key="tabBarItem" title="" image="search-3-xxl" id="NEq-Sx-D3n">
+                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-13"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IrF-YL-06w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -115,10 +123,10 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="a4a-Or-UOH" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="S5E-YQ-y9e">
+                    <tabBar key="tabBar" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="S5E-YQ-y9e">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <color key="tintColor" red="0.1803921568627451" green="0.25098039215686274" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" red="0.18039215689999999" green="0.25098039220000001" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
@@ -135,7 +143,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Sed-08-512 (1)" width="46" height="46"/>
+        <image name="12137-heavy-plus-sign" width="22" height="22"/>
         <image name="house-xxl 2.1" width="30" height="30"/>
         <image name="search-3-xxl" width="24" height="24"/>
         <image name="user-4-xxl" width="26" height="26"/>
