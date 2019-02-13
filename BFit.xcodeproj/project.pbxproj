@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		28175DFF22126E7B00C7536F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28175DFE22126E7B00C7536F /* SearchViewController.swift */; };
 		28175E0122126F0B00C7536F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28175E0022126F0B00C7536F /* ProfileViewController.swift */; };
 		28175E0322126F1900C7536F /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28175E0222126F1900C7536F /* NewPostViewController.swift */; };
+		284E050F2214B5DA00B8C4D5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284E050E2214B5DA00B8C4D5 /* SearchViewController.swift */; };
 		28A92ECD2214979500878C8B /* AddWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A92ECC2214979500878C8B /* AddWorkoutViewController.swift */; };
 		28A92ECF221497B000878C8B /* AddMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A92ECE221497B000878C8B /* AddMealViewController.swift */; };
 		28A92ED12214A8A300878C8B /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A92ED02214A8A300878C8B /* FollowingViewController.swift */; };
@@ -22,9 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		28175DFE22126E7B00C7536F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = /Users/jarushford/iOS/BFit/BFit/SearchViewController.swift; sourceTree = "<absolute>"; };
 		28175E0022126F0B00C7536F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		28175E0222126F1900C7536F /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		284E050E2214B5DA00B8C4D5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		28A92ECC2214979500878C8B /* AddWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutViewController.swift; sourceTree = "<group>"; };
 		28A92ECE221497B000878C8B /* AddMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealViewController.swift; sourceTree = "<group>"; };
 		28A92ED02214A8A300878C8B /* FollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
@@ -57,9 +57,9 @@
 			children = (
 				28E6B830221227BE00658B9C /* AppDelegate.swift */,
 				28175E0022126F0B00C7536F /* ProfileViewController.swift */,
-				28175DFE22126E7B00C7536F /* SearchViewController.swift */,
 				28A92ECC2214979500878C8B /* AddWorkoutViewController.swift */,
 				28175E0222126F1900C7536F /* NewPostViewController.swift */,
+				284E050E2214B5DA00B8C4D5 /* SearchViewController.swift */,
 				28A92ED02214A8A300878C8B /* FollowingViewController.swift */,
 				28E6B832221227BE00658B9C /* ViewController.swift */,
 				28A92ECE221497B000878C8B /* AddMealViewController.swift */,
@@ -79,6 +79,7 @@
 			children = (
 				28E6B834221227BE00658B9C /* Main.storyboard */,
 				28E6B839221227BF00658B9C /* LaunchScreen.storyboard */,
+				28E6B837221227BF00658B9C /* Assets.xcassets */,
 			);
 			name = View;
 			path = "New Group";
@@ -108,7 +109,6 @@
 				28A92ED42214B29C00878C8B /* View */,
 				28A92ED32214B29300878C8B /* Model */,
 				28A92ED22214B25700878C8B /* Controller */,
-				28E6B837221227BF00658B9C /* Assets.xcassets */,
 				28E6B83C221227BF00658B9C /* Info.plist */,
 			);
 			path = BFit;
@@ -254,8 +254,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				28A92ED12214A8A300878C8B /* FollowingViewController.swift in Sources */,
-				28175DFF22126E7B00C7536F /* SearchViewController.swift in Sources */,
 				28E6B833221227BE00658B9C /* ViewController.swift in Sources */,
+				284E050F2214B5DA00B8C4D5 /* SearchViewController.swift in Sources */,
 				28A92ECD2214979500878C8B /* AddWorkoutViewController.swift in Sources */,
 				28175E0122126F0B00C7536F /* ProfileViewController.swift in Sources */,
 				28A92ECF221497B000878C8B /* AddMealViewController.swift in Sources */,

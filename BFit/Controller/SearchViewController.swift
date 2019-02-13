@@ -1,8 +1,9 @@
 //
 //  SearchViewController.swift
-//  
+//  BFit
 //
-//  Created by Jamie Rushford on 2/11/19.
+//  Created by Jamie Rushford on 2/13/19.
+//  Copyright © 2019 Jamie Rushford. All rights reserved.
 //
 
 import UIKit
