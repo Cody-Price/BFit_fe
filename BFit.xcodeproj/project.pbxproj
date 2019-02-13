@@ -52,6 +52,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28A92ED22214B25700878C8B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				28E6B830221227BE00658B9C /* AppDelegate.swift */,
+				28175E0022126F0B00C7536F /* ProfileViewController.swift */,
+				28175DFE22126E7B00C7536F /* SearchViewController.swift */,
+				28A92ECC2214979500878C8B /* AddWorkoutViewController.swift */,
+				28175E0222126F1900C7536F /* NewPostViewController.swift */,
+				28A92ED02214A8A300878C8B /* FollowingViewController.swift */,
+				28E6B832221227BE00658B9C /* ViewController.swift */,
+				28A92ECE221497B000878C8B /* AddMealViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		28A92ED32214B29300878C8B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		28A92ED42214B29C00878C8B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				28E6B834221227BE00658B9C /* Main.storyboard */,
+				28E6B839221227BF00658B9C /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		28E6B824221227BE00658B9C = {
 			isa = PBXGroup;
 			children = (
@@ -73,16 +105,9 @@
 		28E6B82F221227BE00658B9C /* BFit */ = {
 			isa = PBXGroup;
 			children = (
-				28E6B834221227BE00658B9C /* Main.storyboard */,
-				28175DFE22126E7B00C7536F /* SearchViewController.swift */,
-				28E6B839221227BF00658B9C /* LaunchScreen.storyboard */,
-				28E6B830221227BE00658B9C /* AppDelegate.swift */,
-				28175E0022126F0B00C7536F /* ProfileViewController.swift */,
-				28175E0222126F1900C7536F /* NewPostViewController.swift */,
-				28A92ECC2214979500878C8B /* AddWorkoutViewController.swift */,
-				28A92ED02214A8A300878C8B /* FollowingViewController.swift */,
-				28E6B832221227BE00658B9C /* ViewController.swift */,
-				28A92ECE221497B000878C8B /* AddMealViewController.swift */,
+				28A92ED42214B29C00878C8B /* View */,
+				28A92ED32214B29300878C8B /* Model */,
+				28A92ED22214B25700878C8B /* Controller */,
 				28E6B837221227BF00658B9C /* Assets.xcassets */,
 				28E6B83C221227BF00658B9C /* Info.plist */,
 			);
