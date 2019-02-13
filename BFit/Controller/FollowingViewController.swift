@@ -14,17 +14,11 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setGradientBackground()
         followingView.register(UITableViewCell.self, forCellReuseIdentifier: "myCell")
         followingView.dataSource = self
         followingView.delegate = self
-        
-
-        // Do any additional setup after loading the view.
-        setGradientBackground()
-        populateFollowingTable()
-        
     }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mockData.list.count
@@ -33,11 +27,9 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath as IndexPath)
         cell.textLabel!.text = "\(mockData.list[indexPath.row].userName)"
+        cell.backgroundColor = UIColor(white: 1, alpha: 0)
+        cell.textLabel?.textColor = UIColor(white: 1, alpha: 1)
         return cell
-    }
-    
-    
-    func populateFollowingTable() {
     }
     
     func setGradientBackground() {
