@@ -35,7 +35,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sf7-ak-YU0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="993" y="-695"/>
+            <point key="canvasLocation" x="1588" y="-329"/>
         </scene>
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
@@ -62,7 +62,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="992.79999999999995" y="27.436281859070466"/>
+            <point key="canvasLocation" x="846" y="-328"/>
         </scene>
         <!--Profile-->
         <scene sceneID="3VZ-np-KvR">
@@ -89,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1iD-pr-tHf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="54" y="887"/>
+            <point key="canvasLocation" x="1588" y="412"/>
         </scene>
         <!--Search-->
         <scene sceneID="RjV-VB-t3x">
@@ -99,15 +99,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6na-zT-cmD">
-                                <rect key="frame" x="124" y="310" width="126" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" placeholder="Search for a user" translatesAutoresizingMaskIntoConstraints="NO" id="2FK-of-jI7">
+                                <rect key="frame" x="0.0" y="28" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xNb-k4-xIR">
+                                <rect key="frame" x="0.0" y="97" width="375" height="521"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
+                        <constraints>
+                            <constraint firstItem="xNb-k4-xIR" firstAttribute="bottom" secondItem="GGM-2d-eUK" secondAttribute="bottom" id="6gK-W7-QTk"/>
+                            <constraint firstItem="xNb-k4-xIR" firstAttribute="top" secondItem="2FK-of-jI7" secondAttribute="bottom" constant="13" id="PJZ-OA-f8f"/>
+                            <constraint firstItem="2FK-of-jI7" firstAttribute="trailing" secondItem="GGM-2d-eUK" secondAttribute="trailing" id="UVx-H8-VGm"/>
+                            <constraint firstItem="2FK-of-jI7" firstAttribute="leading" secondItem="GGM-2d-eUK" secondAttribute="leading" id="ZYv-RQ-GXB"/>
+                            <constraint firstItem="xNb-k4-xIR" firstAttribute="leading" secondItem="GGM-2d-eUK" secondAttribute="leading" id="ZjA-8q-HSz"/>
+                            <constraint firstItem="2FK-of-jI7" firstAttribute="top" secondItem="GGM-2d-eUK" secondAttribute="top" constant="8" id="rsR-0C-hbj"/>
+                            <constraint firstItem="xNb-k4-xIR" firstAttribute="trailing" secondItem="GGM-2d-eUK" secondAttribute="trailing" id="xBB-Ds-bua"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="GGM-2d-eUK"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="search-3-xxl" id="NEq-Sx-D3n">
@@ -116,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IrF-YL-06w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="993" y="776"/>
+            <point key="canvasLocation" x="845.60000000000002" y="412.44377811094455"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="D3W-zV-11a">
