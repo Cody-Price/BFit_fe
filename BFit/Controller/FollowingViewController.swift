@@ -8,13 +8,36 @@
 
 import UIKit
 
-class FollowingViewController: UIViewController {
-
+class FollowingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var followingView: UITableView!
+    let mockData = FollowingMockData()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        followingView.register(UITableViewCell.self, forCellReuseIdentifier: "myCell")
+        followingView.dataSource = self
+        followingView.delegate = self
+        
 
         // Do any additional setup after loading the view.
         setGradientBackground()
+        populateFollowingTable()
+        
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return mockData.list.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath as IndexPath)
+        cell.textLabel!.text = "\(mockData.list[indexPath.row].userName)"
+        return cell
+    }
+    
+    
+    func populateFollowingTable() {
     }
     
     func setGradientBackground() {

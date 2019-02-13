@@ -19,6 +19,8 @@
 		28E6B838221227BF00658B9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28E6B837221227BF00658B9C /* Assets.xcassets */; };
 		28E6B83B221227BF00658B9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E6B839221227BF00658B9C /* LaunchScreen.storyboard */; };
 		A2E7C789E20936A051808BE9 /* Pods_BFit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89BD0C472D7871616B812797 /* Pods_BFit.framework */; };
+		AA0CE76F2214B72C009ED79E /* FollowingMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CE76E2214B72C009ED79E /* FollowingMockData.swift */; };
+		AA0CE7712214B80F009ED79E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CE7702214B80F009ED79E /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		28E6B83A221227BF00658B9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		28E6B83C221227BF00658B9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89BD0C472D7871616B812797 /* Pods_BFit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BFit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0CE76E2214B72C009ED79E /* FollowingMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingMockData.swift; sourceTree = "<group>"; };
+		AA0CE7702214B80F009ED79E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B76C7B66EEC4572EF706644A /* Pods-BFit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BFit/Pods-BFit.debug.xcconfig"; sourceTree = "<group>"; };
 		BFA189CA498C22D60C78C24D /* Pods-BFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFit.release.xcconfig"; path = "Pods/Target Support Files/Pods-BFit/Pods-BFit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,13 +69,6 @@
 				28A92ECE221497B000878C8B /* AddMealViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		28A92ED32214B29300878C8B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		28A92ED42214B29C00878C8B /* View */ = {
@@ -106,8 +103,8 @@
 		28E6B82F221227BE00658B9C /* BFit */ = {
 			isa = PBXGroup;
 			children = (
+				AA0CE76D2214B708009ED79E /* Model */,
 				28A92ED42214B29C00878C8B /* View */,
-				28A92ED32214B29300878C8B /* Model */,
 				28A92ED22214B25700878C8B /* Controller */,
 				28E6B83C221227BF00658B9C /* Info.plist */,
 			);
@@ -120,6 +117,15 @@
 				89BD0C472D7871616B812797 /* Pods_BFit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AA0CE76D2214B708009ED79E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AA0CE76E2214B72C009ED79E /* FollowingMockData.swift */,
+				AA0CE7702214B80F009ED79E /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		FD0FEB87B86546D8BCD4621F /* Pods */ = {
@@ -254,12 +260,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				28A92ED12214A8A300878C8B /* FollowingViewController.swift in Sources */,
+				AA0CE76F2214B72C009ED79E /* FollowingMockData.swift in Sources */,
 				28E6B833221227BE00658B9C /* ViewController.swift in Sources */,
 				284E050F2214B5DA00B8C4D5 /* SearchViewController.swift in Sources */,
 				28A92ECD2214979500878C8B /* AddWorkoutViewController.swift in Sources */,
 				28175E0122126F0B00C7536F /* ProfileViewController.swift in Sources */,
 				28A92ECF221497B000878C8B /* AddMealViewController.swift in Sources */,
 				28E6B831221227BE00658B9C /* AppDelegate.swift in Sources */,
+				AA0CE7712214B80F009ED79E /* User.swift in Sources */,
 				28175E0322126F1900C7536F /* NewPostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
