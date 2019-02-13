@@ -428,6 +428,54 @@
                                 <rect key="frame" x="0.0" y="83" width="375" height="584"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="meD-eW-Wbf" customClass="Cell" customModule="BFit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="meD-eW-Wbf" id="05W-gk-ruw">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nfh-0Y-B3b">
+                                                    <rect key="frame" x="15" y="0.0" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="4Fy-Uy-e1Y"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48x-kW-m8x">
+                                                    <rect key="frame" x="67" y="0.0" width="206" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o5g-Zm-6u6">
+                                                    <rect key="frame" x="304" y="6" width="46" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="46" id="Qtd-xl-H3V"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="o5g-Zm-6u6" firstAttribute="top" secondItem="05W-gk-ruw" secondAttribute="topMargin" constant="-14" id="23X-DT-YmK"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="o5g-Zm-6u6" secondAttribute="trailing" constant="9" id="8cI-cR-NwP"/>
+                                                <constraint firstItem="nfh-0Y-B3b" firstAttribute="centerY" secondItem="05W-gk-ruw" secondAttribute="centerY" id="9Cj-eu-lJb"/>
+                                                <constraint firstItem="nfh-0Y-B3b" firstAttribute="bottom" secondItem="48x-kW-m8x" secondAttribute="bottom" id="CoV-Jf-yd1"/>
+                                                <constraint firstItem="o5g-Zm-6u6" firstAttribute="centerY" secondItem="05W-gk-ruw" secondAttribute="centerY" id="Ptd-wV-vxs"/>
+                                                <constraint firstItem="nfh-0Y-B3b" firstAttribute="top" secondItem="48x-kW-m8x" secondAttribute="top" id="VZi-3h-cOj"/>
+                                                <constraint firstItem="o5g-Zm-6u6" firstAttribute="leading" secondItem="48x-kW-m8x" secondAttribute="trailing" constant="31" id="ZLu-vb-cVT"/>
+                                                <constraint firstItem="48x-kW-m8x" firstAttribute="leading" secondItem="nfh-0Y-B3b" secondAttribute="trailing" constant="8" symbolic="YES" id="Zl2-vf-iKz"/>
+                                                <constraint firstItem="nfh-0Y-B3b" firstAttribute="top" secondItem="05W-gk-ruw" secondAttribute="top" id="pEt-rD-NAo"/>
+                                                <constraint firstItem="nfh-0Y-B3b" firstAttribute="leading" secondItem="05W-gk-ruw" secondAttribute="leadingMargin" constant="-1" id="x3o-0f-3dN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="button" destination="o5g-Zm-6u6" id="kQa-c5-PlW"/>
+                                            <outlet property="userImage" destination="nfh-0Y-B3b" id="myf-ep-MdU"/>
+                                            <outlet property="username" destination="48x-kW-m8x" id="31a-rv-dCl"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="wWM-eE-rS4" id="Pjg-2G-lhi"/>
                                     <outlet property="delegate" destination="wWM-eE-rS4" id="d9F-DJ-yYz"/>

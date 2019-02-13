@@ -10,8 +10,10 @@ import Foundation
 
 class User {
     let userName : String
+    let isFollowing : Bool
     
-    init(name: String) {
+    init(name: String, follow: Bool) {
         userName = name
+        isFollowing = follow
     }
 }

@@ -15,22 +15,44 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground()
-        followingView.register(UITableViewCell.self, forCellReuseIdentifier: "myCell")
+        self.followingView.register(Cell.self, forCellReuseIdentifier: "cell")
         followingView.dataSource = self
         followingView.delegate = self
+        
+        print("viewdidload")
+        
+        self.followingView.reloadData()
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mockData.list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath as IndexPath)
-        cell.textLabel!.text = "\(mockData.list[indexPath.row].userName)"
-        cell.backgroundColor = UIColor(white: 1, alpha: 0)
-        cell.textLabel?.textColor = UIColor(white: 1, alpha: 1)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! Cell
+        cell.user = mockData.list[indexPath.row]
+//        cell.username.text = "\(mockData.list[indexPath.row].userName)"
+//        cell.backgroundColor = UIColor(white: 1, alpha: 0)
+//        cell.username.textColor = UIColor(white: 1, alpha: 1)
+//        if mockData.list[indexPath.row].isFollowing {
+//            cell.button.setTitle("Stop Spotting", for: .normal)
+//        }
+//        print("tableview run")
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let Cell = tableView.cellForRow(at: indexPath)
+//        Cell?.textLabel?.textColor = UIColor.red // for text color
+        Cell?.backgroundColor = UIColor.red
+    }
+    
+
+    
+
+
     
     func setGradientBackground() {
         let colorTop =  UIColor(red: 46.0/255.0, green: 64.0/255.0, blue: 87.0/255.0, alpha: 1.0).cgColor
