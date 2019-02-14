@@ -36,7 +36,10 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
         
         let customButton = UIButton.init(type: .custom) as UIButton
         customButton.setTitle("Unfollow", for: .normal)
-        customButton.frame = CGRect(x: 0, y: 0, width: 120, height: 50)
+        customButton.frame = CGRect(x: 0, y: 0, width: 120, height: 30)
+        customButton.layer.cornerRadius = 5
+        customButton.layer.borderWidth = 1
+        customButton.layer.borderColor = UIColor.white.cgColor
         customButton.addTarget(self, action: #selector(didButtonClick), for: .touchUpInside)
         cell.accessoryView = customButton as UIView
         

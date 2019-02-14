@@ -355,6 +355,9 @@
                                         <rect key="frame" x="141" y="-7" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="Plus-512"/>
+                                        <connections>
+                                            <action selector="addProfilePic:" destination="oDR-a8-rOm" eventType="touchUpInside" id="9YP-xN-mx8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -400,6 +403,9 @@
                     <tabBarItem key="tabBarItem" title="" image="user-4-xxl" id="mZl-tS-owg">
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-13"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="profilePic" destination="8Bp-KB-ebA" id="Crh-1f-Lda"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1iD-pr-tHf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
