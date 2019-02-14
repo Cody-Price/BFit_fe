@@ -234,56 +234,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMC-Mh-Weq">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMC-Mh-Weq">
                                 <rect key="frame" x="123" y="503" width="128" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="nog-GP-v9V"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Share">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UX5-xG-Rdw">
-                                <rect key="frame" x="0.0" y="42" width="375" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UX5-xG-Rdw">
+                                <rect key="frame" x="0.0" y="101" width="186" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="186" id="fVJ-ye-dhn"/>
+                                </constraints>
                             </pickerView>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yrm-Ye-Y1s">
-                                <rect key="frame" x="0.0" y="119" width="375" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ji3-Vo-Td4">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ji3-Vo-Td4">
                                 <rect key="frame" x="33" y="375" width="139" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7b7-kq-jRa">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7b7-kq-jRa">
                                 <rect key="frame" x="207" y="375" width="139" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHU-bK-snA">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHU-bK-snA">
                                 <rect key="frame" x="33" y="335" width="78" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMa-oU-UBv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMa-oU-UBv">
                                 <rect key="frame" x="207" y="334" width="60" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1p-6A-MV2">
+                                <rect key="frame" x="189" y="101" width="186" height="216"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <color key="tintColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="c1p-6A-MV2" firstAttribute="leading" secondItem="UX5-xG-Rdw" secondAttribute="trailing" constant="3" id="1t5-4x-qdt"/>
+                            <constraint firstItem="Ji3-Vo-Td4" firstAttribute="top" secondItem="mHU-bK-snA" secondAttribute="bottom" constant="8" symbolic="YES" id="5oe-pN-iMe"/>
+                            <constraint firstItem="mHU-bK-snA" firstAttribute="leading" secondItem="Ji3-Vo-Td4" secondAttribute="leading" id="7J7-hb-aC4"/>
+                            <constraint firstItem="OMa-oU-UBv" firstAttribute="leading" secondItem="7b7-kq-jRa" secondAttribute="leading" id="EGn-Lc-7W1"/>
+                            <constraint firstItem="sFk-c7-psd" firstAttribute="trailing" secondItem="7b7-kq-jRa" secondAttribute="trailing" constant="29" id="GHB-hf-LA5"/>
+                            <constraint firstItem="mHU-bK-snA" firstAttribute="leading" secondItem="sFk-c7-psd" secondAttribute="leading" constant="33" id="MpI-yd-dzV"/>
+                            <constraint firstItem="7b7-kq-jRa" firstAttribute="top" secondItem="OMa-oU-UBv" secondAttribute="bottom" constant="9" id="UcH-Qd-W6e"/>
+                            <constraint firstItem="OMa-oU-UBv" firstAttribute="leading" secondItem="mHU-bK-snA" secondAttribute="trailing" constant="96" id="Z3c-gx-BeN"/>
+                            <constraint firstItem="mHU-bK-snA" firstAttribute="top" secondItem="UX5-xG-Rdw" secondAttribute="bottom" constant="18" id="cee-PJ-5Tw"/>
+                            <constraint firstItem="Ji3-Vo-Td4" firstAttribute="baseline" secondItem="7b7-kq-jRa" secondAttribute="baseline" id="hxw-WQ-dwV"/>
+                            <constraint firstItem="UX5-xG-Rdw" firstAttribute="leading" secondItem="PrL-25-Lcb" secondAttribute="leading" id="jqm-g7-ADB"/>
+                            <constraint firstItem="CMC-Mh-Weq" firstAttribute="leading" secondItem="sFk-c7-psd" secondAttribute="leading" constant="123" id="mTt-QJ-d5X"/>
+                            <constraint firstItem="CMC-Mh-Weq" firstAttribute="top" secondItem="Ji3-Vo-Td4" secondAttribute="bottom" constant="98" id="nIL-5p-Gab"/>
+                            <constraint firstItem="CMC-Mh-Weq" firstAttribute="centerX" secondItem="PrL-25-Lcb" secondAttribute="centerX" id="nZp-GW-Rym"/>
+                            <constraint firstItem="7b7-kq-jRa" firstAttribute="leading" secondItem="Ji3-Vo-Td4" secondAttribute="trailing" constant="35" id="ojZ-Kd-u5K"/>
+                            <constraint firstAttribute="trailing" secondItem="c1p-6A-MV2" secondAttribute="trailing" id="sQh-r6-kOi"/>
+                            <constraint firstItem="c1p-6A-MV2" firstAttribute="top" secondItem="UX5-xG-Rdw" secondAttribute="top" id="uj2-7q-tPg"/>
+                            <constraint firstItem="UX5-xG-Rdw" firstAttribute="top" secondItem="sFk-c7-psd" secondAttribute="top" constant="37" id="wED-WZ-KR9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="sFk-c7-psd"/>
                     </view>
+                    <connections>
+                        <outlet property="exercisePicker" destination="c1p-6A-MV2" id="TET-NT-IpW"/>
+                        <outlet property="musclePicker" destination="UX5-xG-Rdw" id="qUb-aa-DmM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="umF-c9-xHA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -525,7 +548,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tra-as-hrh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53.600000000000001" y="27.436281859070466"/>
+            <point key="canvasLocation" x="1" y="20"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JVR-45-auz">
