@@ -244,6 +244,9 @@
                                 <state key="normal" title="Share">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="submitWorkout:" destination="t7W-E2-9G4" eventType="touchUpInside" id="X1G-H6-62p"/>
+                                </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UX5-xG-Rdw">
                                 <rect key="frame" x="0.0" y="101" width="186" height="216"/>
@@ -256,6 +259,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="submitWorkout:" destination="t7W-E2-9G4" eventType="editingDidEnd" id="hrq-5Y-3f2"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7b7-kq-jRa">
                                 <rect key="frame" x="207" y="375" width="139" height="30"/>
@@ -306,6 +312,8 @@
                     <connections>
                         <outlet property="exercisePicker" destination="c1p-6A-MV2" id="TET-NT-IpW"/>
                         <outlet property="musclePicker" destination="UX5-xG-Rdw" id="qUb-aa-DmM"/>
+                        <outlet property="repsORDistance" destination="7b7-kq-jRa" id="TcF-g1-l4p"/>
+                        <outlet property="weightORTime" destination="Ji3-Vo-Td4" id="Cku-66-Eob"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="umF-c9-xHA" userLabel="First Responder" sceneMemberID="firstResponder"/>

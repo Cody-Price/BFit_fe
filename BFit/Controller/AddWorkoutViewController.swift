@@ -7,16 +7,21 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class AddWorkoutViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     let mockMuscleData = muscleGroupMockData().workoutsDictionary
     var listOfMuscles : [String] = [String]()
     var listOfExercises : [String] = [String]()
+    var muscle : String = ""
+    var exercise : String = ""
 
     
     @IBOutlet weak var musclePicker: UIPickerView!
     @IBOutlet weak var exercisePicker: UIPickerView!
+    @IBOutlet weak var weightORTime: UITextField!
+    @IBOutlet weak var repsORDistance: UITextField!
     
     
     override func viewDidLoad() {
@@ -30,7 +35,7 @@ class AddWorkoutViewController: UIViewController, UIPickerViewDataSource, UIPick
 
         // Do any additional setup after loading the view.
         setGradientBackground()
-        print(mockMuscleData)
+        
     }
     
     func setGradientBackground() {
@@ -59,11 +64,17 @@ class AddWorkoutViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         if pickerView == musclePicker {
-            return listOfMuscles[row]
+            let titleData = listOfMuscles[row]
+            muscle = titleData
+            let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 15.0)!,NSAttributedString.Key.foregroundColor:UIColor.white])
+            return myTitle
         } else {
-            return listOfExercises[row]
+            let titleData = listOfExercises[row]
+            exercise = titleData
+            let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 15.0)!,NSAttributedString.Key.foregroundColor:UIColor.white])
+            return myTitle
         }
     }
     
@@ -78,6 +89,19 @@ class AddWorkoutViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     func setExercisesList(muscle : String) {
         self.listOfExercises = mockMuscleData[muscle]!
+    }
+    
+    @IBAction func submitWorkout(_ sender: Any) {
+        let WOT = weightORTime.text
+        let ROD = repsORDistance.text
+        let data = [
+            "muscle" : muscle,
+            "exercise" : exercise,
+            "weightORTime" : WOT,
+            "repsORDistance" : ROD
+        ]
+        let jsonObj = JSON(data)
+        print(jsonObj)
     }
     
 
