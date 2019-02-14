@@ -21,6 +21,9 @@
 		A2E7C789E20936A051808BE9 /* Pods_BFit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89BD0C472D7871616B812797 /* Pods_BFit.framework */; };
 		AA0CE76F2214B72C009ED79E /* FollowingMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CE76E2214B72C009ED79E /* FollowingMockData.swift */; };
 		AA0CE7712214B80F009ED79E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CE7702214B80F009ED79E /* User.swift */; };
+		AA0CE77522160A97009ED79E /* Muscles.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CE77422160A97009ED79E /* Muscles.swift */; };
+		AA0CE77722160E3B009ED79E /* BicepExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CE77622160E3B009ED79E /* BicepExercise.swift */; };
+		AA0CE77922160EE3009ED79E /* QuadricepExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CE77822160EE3009ED79E /* QuadricepExercise.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		89BD0C472D7871616B812797 /* Pods_BFit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BFit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0CE76E2214B72C009ED79E /* FollowingMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingMockData.swift; sourceTree = "<group>"; };
 		AA0CE7702214B80F009ED79E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AA0CE77422160A97009ED79E /* Muscles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Muscles.swift; sourceTree = "<group>"; };
+		AA0CE77622160E3B009ED79E /* BicepExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BicepExercise.swift; sourceTree = "<group>"; };
+		AA0CE77822160EE3009ED79E /* QuadricepExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadricepExercise.swift; sourceTree = "<group>"; };
 		B76C7B66EEC4572EF706644A /* Pods-BFit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BFit/Pods-BFit.debug.xcconfig"; sourceTree = "<group>"; };
 		BFA189CA498C22D60C78C24D /* Pods-BFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFit.release.xcconfig"; path = "Pods/Target Support Files/Pods-BFit/Pods-BFit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +130,9 @@
 			children = (
 				AA0CE76E2214B72C009ED79E /* FollowingMockData.swift */,
 				AA0CE7702214B80F009ED79E /* User.swift */,
+				AA0CE77422160A97009ED79E /* Muscles.swift */,
+				AA0CE77622160E3B009ED79E /* BicepExercise.swift */,
+				AA0CE77822160EE3009ED79E /* QuadricepExercise.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -260,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28A92ED12214A8A300878C8B /* FollowingViewController.swift in Sources */,
+				AA0CE77722160E3B009ED79E /* BicepExercise.swift in Sources */,
 				AA0CE76F2214B72C009ED79E /* FollowingMockData.swift in Sources */,
 				28E6B833221227BE00658B9C /* ViewController.swift in Sources */,
 				284E050F2214B5DA00B8C4D5 /* SearchViewController.swift in Sources */,
@@ -267,7 +277,9 @@
 				28175E0122126F0B00C7536F /* ProfileViewController.swift in Sources */,
 				28A92ECF221497B000878C8B /* AddMealViewController.swift in Sources */,
 				28E6B831221227BE00658B9C /* AppDelegate.swift in Sources */,
+				AA0CE77922160EE3009ED79E /* QuadricepExercise.swift in Sources */,
 				AA0CE7712214B80F009ED79E /* User.swift in Sources */,
+				AA0CE77522160A97009ED79E /* Muscles.swift in Sources */,
 				28175E0322126F1900C7536F /* NewPostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
