@@ -429,7 +429,7 @@
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="meD-eW-Wbf" customClass="Cell" customModule="BFit" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="meD-eW-Wbf" customClass="Cell" customModule="BFit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="meD-eW-Wbf" id="05W-gk-ruw">
@@ -477,8 +477,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="wWM-eE-rS4" id="Pjg-2G-lhi"/>
-                                    <outlet property="delegate" destination="wWM-eE-rS4" id="d9F-DJ-yYz"/>
+                                    <outlet property="dataSource" destination="Quu-bM-TTB" id="U1E-0H-DkM"/>
+                                    <outlet property="delegate" destination="Quu-bM-TTB" id="p6T-sM-DoM"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -494,7 +494,7 @@
                         <viewLayoutGuide key="safeArea" id="Oin-34-SyY"/>
                     </view>
                     <connections>
-                        <outlet property="followingView" destination="0kp-i3-BFD" id="M14-ho-kl6"/>
+                        <outlet property="followingView" destination="0kp-i3-BFD" id="baG-gb-jLc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JyB-ba-cVO" userLabel="First Responder" sceneMemberID="firstResponder"/>

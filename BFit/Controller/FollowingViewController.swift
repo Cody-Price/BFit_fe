@@ -14,14 +14,16 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setGradientBackground()
-        self.followingView.register(Cell.self, forCellReuseIdentifier: "cell")
+        self.followingView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         followingView.dataSource = self
         followingView.delegate = self
         
-        print("viewdidload")
-        
-        self.followingView.reloadData()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
     
     
@@ -30,29 +32,26 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! Cell
-        cell.user = mockData.list[indexPath.row]
-//        cell.username.text = "\(mockData.list[indexPath.row].userName)"
-//        cell.backgroundColor = UIColor(white: 1, alpha: 0)
-//        cell.username.textColor = UIColor(white: 1, alpha: 1)
-//        if mockData.list[indexPath.row].isFollowing {
-//            cell.button.setTitle("Stop Spotting", for: .normal)
-//        }
-//        print("tableview run")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
+        
+        let customButton = UIButton.init(type: .custom) as UIButton
+        customButton.setTitle("Unfollow", for: .normal)
+        customButton.frame = CGRect(x: 0, y: 0, width: 120, height: 50)
+        customButton.addTarget(self, action: #selector(didButtonClick), for: .touchUpInside)
+        cell.accessoryView = customButton as UIView
+        
+        cell.textLabel?.text = "\(mockData.list[indexPath.row].userName)"
+        cell.backgroundColor = UIColor(white: 1, alpha: 0)
+        cell.textLabel?.textColor = UIColor(white: 1, alpha: 1)
+    
         return cell
+        
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let Cell = tableView.cellForRow(at: indexPath)
-//        Cell?.textLabel?.textColor = UIColor.red // for text color
-        Cell?.backgroundColor = UIColor.red
+    @objc func didButtonClick(_ sender: UIButton) {
+        print("yay")
     }
     
-
-    
-
-
     
     func setGradientBackground() {
         let colorTop =  UIColor(red: 46.0/255.0, green: 64.0/255.0, blue: 87.0/255.0, alpha: 1.0).cgColor
@@ -71,16 +70,4 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
         self.dismiss(animated: true, completion: nil)
     }
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
