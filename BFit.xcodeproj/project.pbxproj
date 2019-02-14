@@ -21,7 +21,6 @@
 		A2E7C789E20936A051808BE9 /* Pods_BFit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89BD0C472D7871616B812797 /* Pods_BFit.framework */; };
 		AA0CE76F2214B72C009ED79E /* FollowingMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CE76E2214B72C009ED79E /* FollowingMockData.swift */; };
 		AA0CE7712214B80F009ED79E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CE7702214B80F009ED79E /* User.swift */; };
-		AA0CE7732214C7EA009ED79E /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CE7722214C7EA009ED79E /* Cell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +40,6 @@
 		89BD0C472D7871616B812797 /* Pods_BFit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BFit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0CE76E2214B72C009ED79E /* FollowingMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingMockData.swift; sourceTree = "<group>"; };
 		AA0CE7702214B80F009ED79E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		AA0CE7722214C7EA009ED79E /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		B76C7B66EEC4572EF706644A /* Pods-BFit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BFit/Pods-BFit.debug.xcconfig"; sourceTree = "<group>"; };
 		BFA189CA498C22D60C78C24D /* Pods-BFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFit.release.xcconfig"; path = "Pods/Target Support Files/Pods-BFit/Pods-BFit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,7 +65,6 @@
 				28175E0222126F1900C7536F /* NewPostViewController.swift */,
 				284E050E2214B5DA00B8C4D5 /* SearchViewController.swift */,
 				28A92ED02214A8A300878C8B /* FollowingViewController.swift */,
-				AA0CE7722214C7EA009ED79E /* Cell.swift */,
 				28E6B832221227BE00658B9C /* ViewController.swift */,
 				28A92ECE221497B000878C8B /* AddMealViewController.swift */,
 			);
@@ -270,7 +267,6 @@
 				28175E0122126F0B00C7536F /* ProfileViewController.swift in Sources */,
 				28A92ECF221497B000878C8B /* AddMealViewController.swift in Sources */,
 				28E6B831221227BE00658B9C /* AppDelegate.swift in Sources */,
-				AA0CE7732214C7EA009ED79E /* Cell.swift in Sources */,
 				AA0CE7712214B80F009ED79E /* User.swift in Sources */,
 				28175E0322126F1900C7536F /* NewPostViewController.swift in Sources */,
 			);
