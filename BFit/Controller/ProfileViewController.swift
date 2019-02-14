@@ -8,13 +8,41 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var profilePic: UIImageView!
+    
+    let imagePicker = UIImagePickerController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setGradientBackground()
+        imagePicker.delegate = self
+    }
+    
+    
+
+    
+    @IBAction func addProfilePic(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            imagePicker.allowsEditing = false
+            imagePicker.sourceType = .photoLibrary
+            present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        profilePic.image = pickedImage
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
     
     func setGradientBackground() {
@@ -28,16 +56,5 @@ class ProfileViewController: UIViewController {
         
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
