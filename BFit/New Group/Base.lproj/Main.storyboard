@@ -525,6 +525,10 @@
                     <tabBarItem key="tabBarItem" title="" image="search-3-xxl" id="NEq-Sx-D3n">
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-13"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="searchInput" destination="2FK-of-jI7" id="96N-v8-bsG"/>
+                        <outlet property="searchTable" destination="tnd-ED-UCg" id="YpV-dN-30g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IrF-YL-06w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
