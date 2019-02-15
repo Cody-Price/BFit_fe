@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SwiftyJSON
 
-class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     @IBOutlet weak var searchInput: UISearchBar!
     @IBOutlet weak var searchTable: UITableView!
     let mockSearchData = SearchData().data
@@ -20,6 +21,24 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         self.searchTable.register(UITableViewCell.self, forCellReuseIdentifier: "searchCell")
         searchTable.dataSource = self
         searchTable.delegate = self
+        searchInput.delegate = self
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchInput.setShowsCancelButton(true, animated: true)
+        searchInput.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchInput.text = nil
+        searchInput.showsCancelButton = false
+        searchInput.endEditing(true)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let searchValue = JSON(searchInput.text!)
+        print(searchValue)
+        searchInput.endEditing(true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
