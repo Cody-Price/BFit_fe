@@ -181,7 +181,7 @@
                                         <attributedString key="attributedText">
                                             <fragment content="Meal Name">
                                                 <attributes>
-                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <font key="NSFont" size="24" name="HelveticaNeue-Thin"/>
                                                 </attributes>
                                             </fragment>
@@ -202,6 +202,9 @@
                                 <state key="normal" title="Share">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="submitMeal:" destination="Lja-tO-LGd" eventType="touchUpInside" id="sqY-bO-ELl"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -221,6 +224,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZgW-H1-wgk"/>
                     </view>
+                    <connections>
+                        <outlet property="calFive" destination="OGg-eb-2aP" id="7qn-a9-tgG"/>
+                        <outlet property="calFour" destination="6Ya-1y-dJY" id="yWD-wu-8UN"/>
+                        <outlet property="calOne" destination="Igu-VH-jY3" id="2PQ-6c-mf3"/>
+                        <outlet property="calThree" destination="p0a-oA-s6M" id="j7x-1J-m43"/>
+                        <outlet property="calTwo" destination="pzq-ht-leP" id="rP2-i1-teu"/>
+                        <outlet property="foodFive" destination="jhQ-aH-jn5" id="3PZ-IL-tsy"/>
+                        <outlet property="foodFour" destination="aKK-BI-3sn" id="sgr-nu-TYX"/>
+                        <outlet property="foodOne" destination="Pxm-qI-dtn" id="YRB-ne-Qdx"/>
+                        <outlet property="foodThree" destination="4dM-6d-Vm1" id="2nG-ri-RLI"/>
+                        <outlet property="foodTwo" destination="xge-9k-CxS" id="da0-FO-Cac"/>
+                        <outlet property="mealName" destination="fOV-y5-Sba" id="qLd-jD-Rdz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8sM-fA-c5t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

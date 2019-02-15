@@ -7,8 +7,20 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class AddMealViewController: UIViewController {
+    @IBOutlet weak var mealName: UITextField!
+    @IBOutlet weak var foodOne: UITextField!
+    @IBOutlet weak var calOne: UITextField!
+    @IBOutlet weak var foodTwo: UITextField!
+    @IBOutlet weak var calTwo: UITextField!
+    @IBOutlet weak var foodThree: UITextField!
+    @IBOutlet weak var calThree: UITextField!
+    @IBOutlet weak var foodFour: UITextField!
+    @IBOutlet weak var calFour: UITextField!
+    @IBOutlet weak var foodFive: UITextField!
+    @IBOutlet weak var calFive: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +40,36 @@ class AddMealViewController: UIViewController {
         
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
+    
+    @IBAction func submitMeal(_ sender: Any) {
+        let mealNameText = mealName.text
+        let foodOneText = foodOne.text
+        let calOneText = calOne.text
+        let foodTwoText = foodTwo.text
+        let calTwoText = calTwo.text
+        let foodThreeText = foodThree.text
+        let calThreeText = calThree.text
+        let foodFourText = foodFour.text
+        let calFourText = calFour.text
+        let foodFiveText = foodFive.text
+        let calFiveText = calFive.text
+        let data = [
+            "mealName" : mealNameText,
+            "foodOne" : foodOneText,
+            "calOne" : calOneText,
+            "foodTwo" : foodTwoText,
+            "calTwo" : calTwoText,
+            "foodThree" : foodThreeText,
+            "calThree" : calThreeText,
+            "foodFour" : foodFourText,
+            "calFour" : calFourText,
+            "foodFive" : foodFiveText,
+            "calFive" : calFiveText
+        ]
+        let jsonObj = JSON(data)
+        print(jsonObj)
+    }
+    
     
 
     /*
