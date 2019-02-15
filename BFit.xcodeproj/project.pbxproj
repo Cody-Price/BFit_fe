@@ -13,6 +13,7 @@
 		28A92ECD2214979500878C8B /* AddWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A92ECC2214979500878C8B /* AddWorkoutViewController.swift */; };
 		28A92ECF221497B000878C8B /* AddMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A92ECE221497B000878C8B /* AddMealViewController.swift */; };
 		28A92ED12214A8A300878C8B /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A92ED02214A8A300878C8B /* FollowingViewController.swift */; };
+		28ACAB892216664F0049DE43 /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ACAB882216664F0049DE43 /* SearchData.swift */; };
 		28E6B831221227BE00658B9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E6B830221227BE00658B9C /* AppDelegate.swift */; };
 		28E6B833221227BE00658B9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E6B832221227BE00658B9C /* ViewController.swift */; };
 		28E6B836221227BE00658B9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E6B834221227BE00658B9C /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 		28A92ECC2214979500878C8B /* AddWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutViewController.swift; sourceTree = "<group>"; };
 		28A92ECE221497B000878C8B /* AddMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealViewController.swift; sourceTree = "<group>"; };
 		28A92ED02214A8A300878C8B /* FollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
+		28ACAB882216664F0049DE43 /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
 		28E6B82D221227BE00658B9C /* BFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E6B830221227BE00658B9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28E6B832221227BE00658B9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				AA0CE77422160A97009ED79E /* Muscles.swift */,
 				AA0CE77622160E3B009ED79E /* BicepExercise.swift */,
 				AA0CE77822160EE3009ED79E /* QuadricepExercise.swift */,
+				28ACAB882216664F0049DE43 /* SearchData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				28175E0122126F0B00C7536F /* ProfileViewController.swift in Sources */,
 				28A92ECF221497B000878C8B /* AddMealViewController.swift in Sources */,
 				28E6B831221227BE00658B9C /* AppDelegate.swift in Sources */,
+				28ACAB892216664F0049DE43 /* SearchData.swift in Sources */,
 				AA0CE77922160EE3009ED79E /* QuadricepExercise.swift in Sources */,
 				AA0CE7712214B80F009ED79E /* User.swift in Sources */,
 				AA0CE77522160A97009ED79E /* Muscles.swift in Sources */,

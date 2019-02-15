@@ -500,6 +500,7 @@
                         <subviews>
                             <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" placeholder="Search for a user" translatesAutoresizingMaskIntoConstraints="NO" id="2FK-of-jI7">
                                 <rect key="frame" x="0.0" y="28" width="375" height="56"/>
+                                <color key="tintColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tnd-ED-UCg">
@@ -525,6 +526,10 @@
                     <tabBarItem key="tabBarItem" title="" image="search-3-xxl" id="NEq-Sx-D3n">
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-13"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="searchInput" destination="2FK-of-jI7" id="96N-v8-bsG"/>
+                        <outlet property="searchTable" destination="tnd-ED-UCg" id="YpV-dN-30g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IrF-YL-06w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
