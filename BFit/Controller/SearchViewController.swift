@@ -71,7 +71,11 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     @objc func didButtonClick(_ sender: UIButton) {
-        print("Follow")
+        if sender.titleLabel!.text == "Follow" {
+            sender.setTitle("Unfollow", for: .normal)
+        } else {
+            sender.setTitle("Follow", for: .normal)
+        }
     }
     
     func setGradientBackground() {
