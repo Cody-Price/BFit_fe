@@ -251,13 +251,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMC-Mh-Weq">
-                                <rect key="frame" x="123" y="503" width="128" height="51"/>
+                                <rect key="frame" x="123" y="519" width="128" height="51"/>
                                 <color key="backgroundColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="nog-GP-v9V"/>
+                                    <constraint firstAttribute="height" constant="51" id="d7x-OT-7Kn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Share">
+                                <state key="normal" title="Post Exercise">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -300,28 +300,41 @@
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1p-6A-MV2">
                                 <rect key="frame" x="189" y="101" width="186" height="216"/>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqg-ok-5gk">
+                                <rect key="frame" x="123" y="448" width="129" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Add Set">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addSet:" destination="t7W-E2-9G4" eventType="touchUpInside" id="CXQ-xj-218"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <color key="tintColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="c1p-6A-MV2" firstAttribute="leading" secondItem="UX5-xG-Rdw" secondAttribute="trailing" constant="3" id="1t5-4x-qdt"/>
                             <constraint firstItem="Ji3-Vo-Td4" firstAttribute="top" secondItem="mHU-bK-snA" secondAttribute="bottom" constant="8" symbolic="YES" id="5oe-pN-iMe"/>
+                            <constraint firstItem="CMC-Mh-Weq" firstAttribute="top" secondItem="lqg-ok-5gk" secondAttribute="bottom" constant="53" id="6kV-y7-sAx"/>
                             <constraint firstItem="mHU-bK-snA" firstAttribute="leading" secondItem="Ji3-Vo-Td4" secondAttribute="leading" id="7J7-hb-aC4"/>
+                            <constraint firstItem="CMC-Mh-Weq" firstAttribute="leading" secondItem="lqg-ok-5gk" secondAttribute="leading" id="7NM-tp-lGU"/>
+                            <constraint firstItem="CMC-Mh-Weq" firstAttribute="centerX" secondItem="PrL-25-Lcb" secondAttribute="centerX" id="8TX-zU-Vj7"/>
                             <constraint firstItem="OMa-oU-UBv" firstAttribute="leading" secondItem="7b7-kq-jRa" secondAttribute="leading" id="EGn-Lc-7W1"/>
                             <constraint firstItem="sFk-c7-psd" firstAttribute="trailing" secondItem="7b7-kq-jRa" secondAttribute="trailing" constant="29" id="GHB-hf-LA5"/>
                             <constraint firstItem="mHU-bK-snA" firstAttribute="leading" secondItem="sFk-c7-psd" secondAttribute="leading" constant="33" id="MpI-yd-dzV"/>
                             <constraint firstItem="7b7-kq-jRa" firstAttribute="top" secondItem="OMa-oU-UBv" secondAttribute="bottom" constant="9" id="UcH-Qd-W6e"/>
                             <constraint firstItem="OMa-oU-UBv" firstAttribute="leading" secondItem="mHU-bK-snA" secondAttribute="trailing" constant="96" id="Z3c-gx-BeN"/>
                             <constraint firstItem="mHU-bK-snA" firstAttribute="top" secondItem="UX5-xG-Rdw" secondAttribute="bottom" constant="18" id="cee-PJ-5Tw"/>
+                            <constraint firstItem="lqg-ok-5gk" firstAttribute="top" secondItem="Ji3-Vo-Td4" secondAttribute="bottom" constant="31" id="fXZ-TP-gc1"/>
                             <constraint firstItem="Ji3-Vo-Td4" firstAttribute="baseline" secondItem="7b7-kq-jRa" secondAttribute="baseline" id="hxw-WQ-dwV"/>
                             <constraint firstItem="UX5-xG-Rdw" firstAttribute="leading" secondItem="PrL-25-Lcb" secondAttribute="leading" id="jqm-g7-ADB"/>
-                            <constraint firstItem="CMC-Mh-Weq" firstAttribute="leading" secondItem="sFk-c7-psd" secondAttribute="leading" constant="123" id="mTt-QJ-d5X"/>
-                            <constraint firstItem="CMC-Mh-Weq" firstAttribute="top" secondItem="Ji3-Vo-Td4" secondAttribute="bottom" constant="98" id="nIL-5p-Gab"/>
-                            <constraint firstItem="CMC-Mh-Weq" firstAttribute="centerX" secondItem="PrL-25-Lcb" secondAttribute="centerX" id="nZp-GW-Rym"/>
                             <constraint firstItem="7b7-kq-jRa" firstAttribute="leading" secondItem="Ji3-Vo-Td4" secondAttribute="trailing" constant="35" id="ojZ-Kd-u5K"/>
+                            <constraint firstItem="CMC-Mh-Weq" firstAttribute="trailing" secondItem="lqg-ok-5gk" secondAttribute="trailing" id="qtz-Kv-mdf"/>
                             <constraint firstAttribute="trailing" secondItem="c1p-6A-MV2" secondAttribute="trailing" id="sQh-r6-kOi"/>
                             <constraint firstItem="c1p-6A-MV2" firstAttribute="top" secondItem="UX5-xG-Rdw" secondAttribute="top" id="uj2-7q-tPg"/>
                             <constraint firstItem="UX5-xG-Rdw" firstAttribute="top" secondItem="sFk-c7-psd" secondAttribute="top" constant="37" id="wED-WZ-KR9"/>
+                            <constraint firstItem="CMC-Mh-Weq" firstAttribute="leading" secondItem="sFk-c7-psd" secondAttribute="leading" constant="123" id="xrv-gO-yjM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sFk-c7-psd"/>
                     </view>

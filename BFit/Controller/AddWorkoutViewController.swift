@@ -91,6 +91,11 @@ class AddWorkoutViewController: UIViewController, UIPickerViewDataSource, UIPick
         self.listOfExercises = mockMuscleData[muscle]!
     }
     
+    @IBAction func addSet(_ sender: Any) {
+        
+    }
+    
+    
     @IBAction func submitWorkout(_ sender: Any) {
         let WOT = weightORTime.text
         let ROD = repsORDistance.text
