@@ -497,40 +497,48 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24 Following" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0e1-kH-HBA">
-                                <rect key="frame" x="140.5" y="318" width="94" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="KIg-fW-bYI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jxO-Vf-9Ha">
                                 <rect key="frame" x="0.0" y="367" width="375" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dA-YF-lh5">
+                                <rect key="frame" x="147" y="320" width="81" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="6BY-Sa-zbJ"/>
+                                    <constraint firstAttribute="width" constant="81" id="zBq-9W-48X"/>
+                                </constraints>
+                                <state key="normal" title="Follow">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleFollow:" destination="dPG-Hw-fet" eventType="touchUpInside" id="fVF-sM-eJL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
                         <color key="tintColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="juO-RM-QvU" firstAttribute="top" secondItem="B5a-2b-Qui" secondAttribute="bottom" constant="18" id="1cv-sA-wl5"/>
-                            <constraint firstItem="jxO-Vf-9Ha" firstAttribute="top" secondItem="0e1-kH-HBA" secondAttribute="bottom" constant="18" id="4Ql-vp-Rl5"/>
                             <constraint firstItem="juO-RM-QvU" firstAttribute="centerX" secondItem="7AX-MF-gUd" secondAttribute="centerX" id="GWJ-SV-HCz"/>
                             <constraint firstAttribute="bottom" secondItem="jxO-Vf-9Ha" secondAttribute="bottom" id="HHv-x0-ORd"/>
                             <constraint firstItem="B5a-2b-Qui" firstAttribute="top" secondItem="7AX-MF-gUd" secondAttribute="top" constant="96" id="IKk-Za-krw"/>
                             <constraint firstAttribute="trailing" secondItem="jxO-Vf-9Ha" secondAttribute="trailing" id="PoO-TL-peM"/>
-                            <constraint firstItem="0e1-kH-HBA" firstAttribute="top" secondItem="juO-RM-QvU" secondAttribute="bottom" constant="6" id="ReX-mQ-Imz"/>
                             <constraint firstItem="juO-RM-QvU" firstAttribute="top" secondItem="B5a-2b-Qui" secondAttribute="bottom" constant="18" id="c2p-D6-mpb"/>
-                            <constraint firstItem="0e1-kH-HBA" firstAttribute="centerX" secondItem="7AX-MF-gUd" secondAttribute="centerX" id="dOL-AB-zG6"/>
-                            <constraint firstItem="jxO-Vf-9Ha" firstAttribute="top" secondItem="0e1-kH-HBA" secondAttribute="bottom" constant="18" id="hnk-d5-lNW"/>
+                            <constraint firstItem="2dA-YF-lh5" firstAttribute="centerX" secondItem="7AX-MF-gUd" secondAttribute="centerX" id="haq-e6-L2o"/>
                             <constraint firstItem="B5a-2b-Qui" firstAttribute="centerX" secondItem="7AX-MF-gUd" secondAttribute="centerX" id="mCK-YQ-f4q"/>
                             <constraint firstItem="jxO-Vf-9Ha" firstAttribute="leading" secondItem="7AX-MF-gUd" secondAttribute="leading" id="mNM-I0-rke"/>
-                            <constraint firstItem="0e1-kH-HBA" firstAttribute="top" secondItem="juO-RM-QvU" secondAttribute="bottom" constant="6" id="ufO-cd-ylM"/>
+                            <constraint firstItem="2dA-YF-lh5" firstAttribute="top" secondItem="juO-RM-QvU" secondAttribute="bottom" constant="8" id="v00-fn-kfc"/>
+                            <constraint firstItem="jxO-Vf-9Ha" firstAttribute="top" secondItem="2dA-YF-lh5" secondAttribute="bottom" constant="15" id="v92-Nd-6fa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YMO-Kk-2g0"/>
                     </view>
+                    <connections>
+                        <outlet property="btnStyle" destination="2dA-YF-lh5" id="ZtK-qw-C9G"/>
+                        <outlet property="userFeed" destination="jxO-Vf-9Ha" id="CJB-LN-eVf"/>
+                        <outlet property="userImage" destination="B5a-2b-Qui" id="7OS-eu-THv"/>
+                        <outlet property="userName" destination="juO-RM-QvU" id="9zQ-w4-Bk3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iM4-OL-4wd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

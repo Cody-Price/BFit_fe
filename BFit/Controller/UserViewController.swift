@@ -10,11 +10,20 @@ import UIKit
 
 class UserViewController: UIViewController {
 
+    @IBOutlet weak var btnStyle: UIButton!
+    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var userFeed: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setGradientBackground()
+        btnStyle.layer.cornerRadius = 5
+        btnStyle.layer.borderWidth = 1
+        btnStyle.layer.borderColor = UIColor.white.cgColor
     }
     
     func setGradientBackground() {
@@ -29,4 +38,11 @@ class UserViewController: UIViewController {
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
 
+    @IBAction func toggleFollow(_ sender: UIButton) {
+        if sender.titleLabel!.text == "Follow" {
+            sender.setTitle("Unfollow", for: .normal)
+        } else {
+            sender.setTitle("Follow", for: .normal)
+        }
+    }
 }
