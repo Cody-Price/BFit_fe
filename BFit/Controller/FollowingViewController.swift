@@ -51,6 +51,11 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        performSegue(withIdentifier: "showUser", sender: cell)
+    }
+    
     @objc func didButtonClick(_ sender: UIButton) {
         print("yay")
     }

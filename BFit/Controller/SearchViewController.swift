@@ -70,6 +70,11 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        performSegue(withIdentifier: "showUser", sender: cell)
+    }
+    
     @objc func didButtonClick(_ sender: UIButton) {
         if sender.titleLabel!.text == "Follow" {
             sender.setTitle("Unfollow", for: .normal)
