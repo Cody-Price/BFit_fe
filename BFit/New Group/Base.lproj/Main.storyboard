@@ -449,14 +449,59 @@
                     <view key="view" contentMode="scaleToFill" id="7AX-MF-gUd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B5a-2b-Qui">
+                                <rect key="frame" x="105.5" y="96" width="164" height="164"/>
+                                <color key="backgroundColor" red="0.99204951519999995" green="0.99221879239999999" blue="0.99203878639999998" alpha="0.48392016269999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="164" id="OXq-wE-BlR"/>
+                                    <constraint firstAttribute="height" constant="164" id="Tpf-6f-NhO"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Person McHuman" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juO-RM-QvU">
+                                <rect key="frame" x="82.5" y="278" width="210" height="34"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24 Following" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0e1-kH-HBA">
+                                <rect key="frame" x="140.5" y="318" width="94" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="KIg-fW-bYI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jxO-Vf-9Ha">
+                                <rect key="frame" x="0.0" y="367" width="375" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
                         <color key="tintColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="juO-RM-QvU" firstAttribute="top" secondItem="B5a-2b-Qui" secondAttribute="bottom" constant="18" id="1cv-sA-wl5"/>
+                            <constraint firstItem="jxO-Vf-9Ha" firstAttribute="top" secondItem="0e1-kH-HBA" secondAttribute="bottom" constant="18" id="4Ql-vp-Rl5"/>
+                            <constraint firstItem="juO-RM-QvU" firstAttribute="centerX" secondItem="7AX-MF-gUd" secondAttribute="centerX" id="GWJ-SV-HCz"/>
+                            <constraint firstAttribute="bottom" secondItem="jxO-Vf-9Ha" secondAttribute="bottom" id="HHv-x0-ORd"/>
+                            <constraint firstItem="B5a-2b-Qui" firstAttribute="top" secondItem="7AX-MF-gUd" secondAttribute="top" constant="96" id="IKk-Za-krw"/>
+                            <constraint firstAttribute="trailing" secondItem="jxO-Vf-9Ha" secondAttribute="trailing" id="PoO-TL-peM"/>
+                            <constraint firstItem="0e1-kH-HBA" firstAttribute="top" secondItem="juO-RM-QvU" secondAttribute="bottom" constant="6" id="ReX-mQ-Imz"/>
+                            <constraint firstItem="juO-RM-QvU" firstAttribute="top" secondItem="B5a-2b-Qui" secondAttribute="bottom" constant="18" id="c2p-D6-mpb"/>
+                            <constraint firstItem="0e1-kH-HBA" firstAttribute="centerX" secondItem="7AX-MF-gUd" secondAttribute="centerX" id="dOL-AB-zG6"/>
+                            <constraint firstItem="jxO-Vf-9Ha" firstAttribute="top" secondItem="0e1-kH-HBA" secondAttribute="bottom" constant="18" id="hnk-d5-lNW"/>
+                            <constraint firstItem="B5a-2b-Qui" firstAttribute="centerX" secondItem="7AX-MF-gUd" secondAttribute="centerX" id="mCK-YQ-f4q"/>
+                            <constraint firstItem="jxO-Vf-9Ha" firstAttribute="leading" secondItem="7AX-MF-gUd" secondAttribute="leading" id="mNM-I0-rke"/>
+                            <constraint firstItem="0e1-kH-HBA" firstAttribute="top" secondItem="juO-RM-QvU" secondAttribute="bottom" constant="6" id="ufO-cd-ylM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="YMO-Kk-2g0"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iM4-OL-4wd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2863" y="1181"/>
+            <point key="canvasLocation" x="2861.5999999999999" y="1180.6596701649175"/>
         </scene>
         <!--Following-->
         <scene sceneID="SaZ-bH-CIc">
