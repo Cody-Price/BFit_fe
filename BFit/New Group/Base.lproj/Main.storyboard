@@ -67,71 +67,65 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qis-bF-4tU">
                                 <rect key="frame" x="16" y="221" width="343" height="244"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jhQ-aH-jn5">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jhQ-aH-jn5">
                                         <rect key="frame" x="8" y="206" width="196" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aKK-BI-3sn">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aKK-BI-3sn">
                                         <rect key="frame" x="8" y="168" width="196" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4dM-6d-Vm1">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4dM-6d-Vm1">
                                         <rect key="frame" x="8" y="130" width="196" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xge-9k-CxS">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xge-9k-CxS">
                                         <rect key="frame" x="8" y="92" width="196" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pxm-qI-dtn">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pxm-qI-dtn">
                                         <rect key="frame" x="8" y="53" width="196" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OGg-eb-2aP">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OGg-eb-2aP">
                                         <rect key="frame" x="232" y="206" width="103" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Ya-1y-dJY">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Ya-1y-dJY">
                                         <rect key="frame" x="232" y="168" width="103" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p0a-oA-s6M">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p0a-oA-s6M">
                                         <rect key="frame" x="232" y="130" width="103" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pzq-ht-leP">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pzq-ht-leP">
                                         <rect key="frame" x="232" y="92" width="103" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Igu-VH-jY3">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Igu-VH-jY3">
                                         <rect key="frame" x="232" y="54" width="103" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="103" id="VhP-gx-p7p"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -162,12 +156,40 @@
                                     </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="Pxm-qI-dtn" firstAttribute="top" secondItem="h1Q-Ne-TyD" secondAttribute="bottom" constant="6" id="134-GE-a8t"/>
                                     <constraint firstItem="ZnP-cX-DAM" firstAttribute="baseline" secondItem="h1Q-Ne-TyD" secondAttribute="baseline" id="21R-Bx-hKu"/>
+                                    <constraint firstItem="OGg-eb-2aP" firstAttribute="bottom" secondItem="Qis-bF-4tU" secondAttribute="bottomMargin" id="3Po-cO-FnI"/>
+                                    <constraint firstItem="Igu-VH-jY3" firstAttribute="leading" secondItem="pzq-ht-leP" secondAttribute="leading" id="3xD-vZ-c1K"/>
+                                    <constraint firstItem="Pxm-qI-dtn" firstAttribute="leading" secondItem="aKK-BI-3sn" secondAttribute="leading" id="HMe-x2-h5d"/>
+                                    <constraint firstItem="Pxm-qI-dtn" firstAttribute="leading" secondItem="h1Q-Ne-TyD" secondAttribute="leading" id="LRa-II-Ieh"/>
+                                    <constraint firstItem="Pxm-qI-dtn" firstAttribute="trailing" secondItem="4dM-6d-Vm1" secondAttribute="trailing" id="LlD-Y4-KaN"/>
+                                    <constraint firstItem="xge-9k-CxS" firstAttribute="top" secondItem="Pxm-qI-dtn" secondAttribute="bottom" constant="9" id="NfW-b5-dEU"/>
+                                    <constraint firstItem="Igu-VH-jY3" firstAttribute="trailing" secondItem="pzq-ht-leP" secondAttribute="trailing" id="OC5-DP-1Ic"/>
+                                    <constraint firstItem="Igu-VH-jY3" firstAttribute="trailing" secondItem="6Ya-1y-dJY" secondAttribute="trailing" id="OLp-Fa-0en"/>
+                                    <constraint firstItem="Pxm-qI-dtn" firstAttribute="leading" secondItem="jhQ-aH-jn5" secondAttribute="leading" id="RE7-oe-8Bs"/>
+                                    <constraint firstItem="Pxm-qI-dtn" firstAttribute="trailing" secondItem="xge-9k-CxS" secondAttribute="trailing" id="T2K-xg-NcL"/>
+                                    <constraint firstItem="OGg-eb-2aP" firstAttribute="leading" secondItem="jhQ-aH-jn5" secondAttribute="trailing" constant="28" id="VL9-ZR-cjf"/>
+                                    <constraint firstItem="Igu-VH-jY3" firstAttribute="trailing" secondItem="Qis-bF-4tU" secondAttribute="trailingMargin" id="WG1-jN-bVL"/>
+                                    <constraint firstItem="Igu-VH-jY3" firstAttribute="leading" secondItem="Pxm-qI-dtn" secondAttribute="trailing" constant="28" id="YKM-cr-zWk"/>
+                                    <constraint firstItem="Pxm-qI-dtn" firstAttribute="leading" secondItem="4dM-6d-Vm1" secondAttribute="leading" id="Zc4-zW-CHo"/>
+                                    <constraint firstItem="Igu-VH-jY3" firstAttribute="leading" secondItem="OGg-eb-2aP" secondAttribute="leading" id="a44-pw-wbT"/>
+                                    <constraint firstItem="pzq-ht-leP" firstAttribute="top" secondItem="Igu-VH-jY3" secondAttribute="bottom" constant="8" symbolic="YES" id="anx-Tj-cLm"/>
                                     <constraint firstItem="Igu-VH-jY3" firstAttribute="top" secondItem="ZnP-cX-DAM" secondAttribute="bottom" constant="7" id="b7E-I9-cQW"/>
+                                    <constraint firstItem="Pxm-qI-dtn" firstAttribute="leading" secondItem="xge-9k-CxS" secondAttribute="leading" id="dAZ-qF-4wg"/>
                                     <constraint firstItem="ZnP-cX-DAM" firstAttribute="leading" secondItem="h1Q-Ne-TyD" secondAttribute="trailing" constant="201" id="dth-Nf-rW0"/>
+                                    <constraint firstItem="Igu-VH-jY3" firstAttribute="leading" secondItem="6Ya-1y-dJY" secondAttribute="leading" id="fHY-4X-CS7"/>
                                     <constraint firstItem="h1Q-Ne-TyD" firstAttribute="leading" secondItem="Qis-bF-4tU" secondAttribute="leading" constant="8" id="ifO-Pr-fCV"/>
                                     <constraint firstAttribute="trailing" secondItem="ZnP-cX-DAM" secondAttribute="trailing" constant="13" id="jrf-jy-vr8"/>
+                                    <constraint firstItem="aKK-BI-3sn" firstAttribute="baseline" secondItem="6Ya-1y-dJY" secondAttribute="baseline" id="jzb-Gg-ved"/>
                                     <constraint firstItem="ZnP-cX-DAM" firstAttribute="top" secondItem="Qis-bF-4tU" secondAttribute="top" constant="18" id="nij-ui-Y45"/>
+                                    <constraint firstItem="OGg-eb-2aP" firstAttribute="baseline" secondItem="jhQ-aH-jn5" secondAttribute="baseline" id="oPE-1O-pOf"/>
+                                    <constraint firstItem="aKK-BI-3sn" firstAttribute="top" secondItem="4dM-6d-Vm1" secondAttribute="bottom" constant="8" symbolic="YES" id="pni-TQ-SvT"/>
+                                    <constraint firstItem="p0a-oA-s6M" firstAttribute="baseline" secondItem="4dM-6d-Vm1" secondAttribute="baseline" id="qCW-b7-Lcg"/>
+                                    <constraint firstItem="Igu-VH-jY3" firstAttribute="trailing" secondItem="p0a-oA-s6M" secondAttribute="trailing" id="qll-Kf-Y4Y"/>
+                                    <constraint firstItem="OGg-eb-2aP" firstAttribute="top" secondItem="6Ya-1y-dJY" secondAttribute="bottom" constant="8" symbolic="YES" id="qqb-BZ-aO0"/>
+                                    <constraint firstItem="Igu-VH-jY3" firstAttribute="trailing" secondItem="OGg-eb-2aP" secondAttribute="trailing" id="rzf-Hz-iDV"/>
+                                    <constraint firstItem="Pxm-qI-dtn" firstAttribute="trailing" secondItem="aKK-BI-3sn" secondAttribute="trailing" id="yuk-jc-WDs"/>
+                                    <constraint firstItem="Igu-VH-jY3" firstAttribute="leading" secondItem="p0a-oA-s6M" secondAttribute="leading" id="zvd-Gn-Rxq"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dzx-oq-xue">
@@ -234,7 +256,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8sM-fA-c5t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5146.3999999999996" y="139.880059970015"/>
+            <point key="canvasLocation" x="3249" y="-329"/>
         </scene>
         <!--Add Workout View Controller-->
         <scene sceneID="bzD-tO-g3c">
@@ -329,7 +351,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="umF-c9-xHA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3268" y="-576.1619190404798"/>
+            <point key="canvasLocation" x="3250" y="-1028"/>
         </scene>
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
@@ -360,7 +382,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="845.60000000000002" y="-328.78560719640183"/>
+            <point key="canvasLocation" x="844" y="-660"/>
         </scene>
         <!--Profile-->
         <scene sceneID="3VZ-np-KvR">
@@ -606,7 +628,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IrF-YL-06w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1783.2" y="411.544227886057"/>
+            <point key="canvasLocation" x="1588" y="966"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="D3W-zV-11a">
@@ -680,7 +702,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Eb-lb-Inr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="844" y="411.544227886057"/>
+            <point key="canvasLocation" x="694" y="966"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iPs-6g-umN">
@@ -712,6 +734,6 @@
         <image name="user-4-xxl" width="26" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="i94-Qe-oY6"/>
+        <segue reference="iWa-ts-rqG"/>
     </inferredMetricsTieBreakers>
 </document>
