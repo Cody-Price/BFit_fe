@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import SwiftyJSON
+import Alamofire
 
 class SignupViewController: UIViewController {
-
+    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var password: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground() 
@@ -28,6 +33,33 @@ class SignupViewController: UIViewController {
         
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
+    
+
+    @IBAction func signUpUser(_ sender: Any) {
+        let usernameValue = username.text!
+        let emailValue = email.text!
+        let passwordValue = password.text!
+        let urlString = "https://bfit-api.herokuapp.com/api/v1/users"
+        
+        let data = [
+            "username" : usernameValue,
+            "email" : emailValue,
+            "avatar" : "",
+            "password" : passwordValue
+        ]
+        
+        print(data)
+        
+        Alamofire.request(urlString, method: .post, parameters: data, encoding: JSONEncoding.default, headers: ["Content-Type" : "application/x-www-form-urlencoded"]).responseJSON {
+            response in
+            if response.result.isSuccess {
+                print("success: \(response.result)")
+            } else {
+                print("failure: \(String(describing: response.response?.statusCode)) \(String(describing: response.result.error))")
+            }
+        }
+    }
+
     
 
     /*

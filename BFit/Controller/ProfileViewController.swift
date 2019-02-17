@@ -23,7 +23,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     
-
+    @IBAction func logout(_ sender: Any) {
+        let def = UserDefaults.standard
+        def.set(false, forKey: "is_loggedIn")
+        def.set(nil, forKey: "id")
+        def.synchronize()
+    }
+    
     
     @IBAction func addProfilePic(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){

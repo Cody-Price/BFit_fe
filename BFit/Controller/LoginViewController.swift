@@ -29,7 +29,20 @@ class LoginViewController: UIViewController {
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
+//    func validateLogin() -> Bool {
+//        if {
+//            return true
+//        } else {
+//            return false
+//        }
+//    }
 
+    @IBAction func login(_ sender: Any) {
+        let def = UserDefaults.standard
+        def.set(true, forKey: "is_loggedIn")
+        def.set(2, forKey: "id")
+        def.synchronize()
+    }
     /*
     // MARK: - Navigation
 

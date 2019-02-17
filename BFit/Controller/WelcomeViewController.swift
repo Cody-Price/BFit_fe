@@ -10,9 +10,20 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
 
+    override func viewDidAppear(_ animated: Bool) {
+        let def = UserDefaults.standard
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let is_loggedIn = def.bool(forKey: "is_loggedIn")
+        print("is_loggedIn: \(is_loggedIn)")
+        if is_loggedIn {
+            let homeViewController = storyBoard.instantiateViewController(withIdentifier: "Home") as! HomeViewController
+            self.present(homeViewController, animated: true, completion: nil)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground()
+
 
         // Do any additional setup after loading the view.
     }

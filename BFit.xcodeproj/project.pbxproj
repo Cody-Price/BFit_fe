@@ -29,6 +29,7 @@
 		AA0CE77B221A052D009ED79E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CE77A221A052D009ED79E /* WelcomeViewController.swift */; };
 		AA0CE77D221A0834009ED79E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CE77C221A0834009ED79E /* LoginViewController.swift */; };
 		AA0CE77F221A084F009ED79E /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CE77E221A084F009ED79E /* SignupViewController.swift */; };
+		AA0CE781221A1E25009ED79E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CE780221A1E25009ED79E /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		AA0CE77A221A052D009ED79E /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		AA0CE77C221A0834009ED79E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AA0CE77E221A084F009ED79E /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		AA0CE780221A1E25009ED79E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B76C7B66EEC4572EF706644A /* Pods-BFit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BFit/Pods-BFit.debug.xcconfig"; sourceTree = "<group>"; };
 		BFA189CA498C22D60C78C24D /* Pods-BFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFit.release.xcconfig"; path = "Pods/Target Support Files/Pods-BFit/Pods-BFit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +89,7 @@
 				AA0CE77A221A052D009ED79E /* WelcomeViewController.swift */,
 				AA0CE77C221A0834009ED79E /* LoginViewController.swift */,
 				AA0CE77E221A084F009ED79E /* SignupViewController.swift */,
+				AA0CE780221A1E25009ED79E /* HomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 			files = (
 				AA0CE77F221A084F009ED79E /* SignupViewController.swift in Sources */,
 				28A92ED12214A8A300878C8B /* FollowingViewController.swift in Sources */,
+				AA0CE781221A1E25009ED79E /* HomeViewController.swift in Sources */,
 				2857F45B2219E7A100FF57F9 /* UserViewController.swift in Sources */,
 				AA0CE77722160E3B009ED79E /* BicepExercise.swift in Sources */,
 				AA0CE76F2214B72C009ED79E /* FollowingMockData.swift in Sources */,
