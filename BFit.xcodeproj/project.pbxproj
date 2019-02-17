@@ -26,6 +26,10 @@
 		AA0CE77522160A97009ED79E /* Muscles.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CE77422160A97009ED79E /* Muscles.swift */; };
 		AA0CE77722160E3B009ED79E /* BicepExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CE77622160E3B009ED79E /* BicepExercise.swift */; };
 		AA0CE77922160EE3009ED79E /* QuadricepExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CE77822160EE3009ED79E /* QuadricepExercise.swift */; };
+		AA0CE77B221A052D009ED79E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CE77A221A052D009ED79E /* WelcomeViewController.swift */; };
+		AA0CE77D221A0834009ED79E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CE77C221A0834009ED79E /* LoginViewController.swift */; };
+		AA0CE77F221A084F009ED79E /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CE77E221A084F009ED79E /* SignupViewController.swift */; };
+		AA0CE781221A1E25009ED79E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CE780221A1E25009ED79E /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +54,10 @@
 		AA0CE77422160A97009ED79E /* Muscles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Muscles.swift; sourceTree = "<group>"; };
 		AA0CE77622160E3B009ED79E /* BicepExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BicepExercise.swift; sourceTree = "<group>"; };
 		AA0CE77822160EE3009ED79E /* QuadricepExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadricepExercise.swift; sourceTree = "<group>"; };
+		AA0CE77A221A052D009ED79E /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		AA0CE77C221A0834009ED79E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AA0CE77E221A084F009ED79E /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		AA0CE780221A1E25009ED79E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B76C7B66EEC4572EF706644A /* Pods-BFit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BFit/Pods-BFit.debug.xcconfig"; sourceTree = "<group>"; };
 		BFA189CA498C22D60C78C24D /* Pods-BFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFit.release.xcconfig"; path = "Pods/Target Support Files/Pods-BFit/Pods-BFit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +86,10 @@
 				28E6B832221227BE00658B9C /* ViewController.swift */,
 				28A92ECE221497B000878C8B /* AddMealViewController.swift */,
 				2857F45A2219E7A100FF57F9 /* UserViewController.swift */,
+				AA0CE77A221A052D009ED79E /* WelcomeViewController.swift */,
+				AA0CE77C221A0834009ED79E /* LoginViewController.swift */,
+				AA0CE77E221A084F009ED79E /* SignupViewController.swift */,
+				AA0CE780221A1E25009ED79E /* HomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -274,7 +286,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA0CE77F221A084F009ED79E /* SignupViewController.swift in Sources */,
 				28A92ED12214A8A300878C8B /* FollowingViewController.swift in Sources */,
+				AA0CE781221A1E25009ED79E /* HomeViewController.swift in Sources */,
 				2857F45B2219E7A100FF57F9 /* UserViewController.swift in Sources */,
 				AA0CE77722160E3B009ED79E /* BicepExercise.swift in Sources */,
 				AA0CE76F2214B72C009ED79E /* FollowingMockData.swift in Sources */,
@@ -286,6 +300,8 @@
 				28E6B831221227BE00658B9C /* AppDelegate.swift in Sources */,
 				28ACAB892216664F0049DE43 /* SearchData.swift in Sources */,
 				AA0CE77922160EE3009ED79E /* QuadricepExercise.swift in Sources */,
+				AA0CE77B221A052D009ED79E /* WelcomeViewController.swift in Sources */,
+				AA0CE77D221A0834009ED79E /* LoginViewController.swift in Sources */,
 				AA0CE7712214B80F009ED79E /* User.swift in Sources */,
 				AA0CE77522160A97009ED79E /* Muscles.swift in Sources */,
 				28175E0322126F1900C7536F /* NewPostViewController.swift in Sources */,
