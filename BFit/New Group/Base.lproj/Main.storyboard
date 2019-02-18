@@ -714,6 +714,7 @@
                         <viewLayoutGuide key="safeArea" id="IfE-tK-yTD"/>
                     </view>
                     <connections>
+                        <outlet property="errorMsg" destination="pWz-Wa-X92" id="qq9-ss-PEB"/>
                         <segue destination="a4a-Or-UOH" kind="show" identifier="login" id="Sm6-lt-Izb"/>
                     </connections>
                 </viewController>
@@ -776,9 +777,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOJ-9W-6Me">
-                                <rect key="frame" x="166" y="516" width="43" height="36"/>
+                                <rect key="frame" x="164" y="515" width="46" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="Back">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -787,7 +788,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CwW-bL-DHO">
-                                <rect key="frame" x="138" y="366" width="99" height="42"/>
+                                <rect key="frame" x="116" y="366" width="142" height="42"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="29"/>
                                 <state key="normal" title="Sign up">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -799,7 +800,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.64260193170000002" blue="0.23825358990000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="CwW-bL-DHO" firstAttribute="leading" secondItem="v67-Lu-Y0P" secondAttribute="leading" constant="138" id="1sM-O8-k0t"/>
+                            <constraint firstItem="CwW-bL-DHO" firstAttribute="leading" secondItem="v67-Lu-Y0P" secondAttribute="leading" constant="116" id="1sM-O8-k0t"/>
                             <constraint firstItem="JQY-eV-Cfc" firstAttribute="centerX" secondItem="CwW-bL-DHO" secondAttribute="centerX" id="2iE-J6-CCC"/>
                             <constraint firstItem="EkK-2V-g0z" firstAttribute="leading" secondItem="Z4W-qk-F2v" secondAttribute="leading" id="6MN-u7-acu"/>
                             <constraint firstItem="Z4W-qk-F2v" firstAttribute="leading" secondItem="JQY-eV-Cfc" secondAttribute="leading" id="AQb-uY-YAN"/>
@@ -816,8 +817,10 @@
                     </view>
                     <connections>
                         <outlet property="email" destination="Z4W-qk-F2v" id="b4B-do-zj9"/>
+                        <outlet property="emailError" destination="dOI-ER-X1F" id="MGr-EO-n2R"/>
                         <outlet property="password" destination="JQY-eV-Cfc" id="9ow-o2-Tzp"/>
                         <outlet property="username" destination="EkK-2V-g0z" id="OAy-s8-1sP"/>
+                        <outlet property="usernameError" destination="Pv8-vI-HOO" id="ULE-ab-rAh"/>
                         <segue destination="a4a-Or-UOH" kind="show" identifier="signup" id="cdG-PN-kxm"/>
                     </connections>
                 </viewController>
@@ -913,7 +916,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m7a-dR-MFB">
                                 <rect key="frame" x="132" y="347" width="111" height="42"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="29"/>
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>

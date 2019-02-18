@@ -10,6 +10,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var errorMsg: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground() 
@@ -27,6 +29,7 @@ class LoginViewController: UIViewController {
         gradientLayer.frame = self.view.bounds
         
         self.view.layer.insertSublayer(gradientLayer, at: 0)
+        errorMsg.textColor = UIColor.clear
     }
     
 //    func validateLogin() -> Bool {

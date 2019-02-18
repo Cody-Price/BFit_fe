@@ -14,10 +14,15 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var usernameError: UILabel!
+    @IBOutlet weak var emailError: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground()
+        usernameError.textColor = UIColor.clear
+        emailError.textColor = UIColor.clear
     }
     
     func setGradientBackground() {
