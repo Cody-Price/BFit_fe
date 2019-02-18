@@ -14,12 +14,15 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var usernameError: UILabel!
+    @IBOutlet weak var emailError: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setGradientBackground() 
-
-        // Do any additional setup after loading the view.
+        setGradientBackground()
+        usernameError.textColor = UIColor.clear
+        emailError.textColor = UIColor.clear
     }
     
     func setGradientBackground() {
@@ -34,7 +37,6 @@ class SignupViewController: UIViewController {
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
-
     @IBAction func signUpUser(_ sender: Any) {
         let usernameValue = username.text!
         let emailValue = email.text!
@@ -48,28 +50,26 @@ class SignupViewController: UIViewController {
             "password" : passwordValue
         ]
         
-        print(data)
         
-        Alamofire.request(urlString, method: .post, parameters: data, encoding: JSONEncoding.default, headers: ["Content-Type" : "application/x-www-form-urlencoded"]).responseJSON {
+        Alamofire.request(urlString, method: .post, parameters: data, encoding: JSONEncoding.default).responseJSON {
             response in
             if response.result.isSuccess {
-                print("success: \(response.result)")
+                let userJSON : JSON = JSON(response.result.value!)
+                let id = userJSON["user"]["id"].stringValue
+                let def = UserDefaults.standard
+                def.set(true, forKey: "is_loggedIn")
+                def.set(id, forKey: "id")
+                def.synchronize()
+                self.performSegue(withIdentifier: "signup", sender: sender)
             } else {
                 print("failure: \(String(describing: response.response?.statusCode)) \(String(describing: response.result.error))")
             }
         }
     }
-
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func backToWelcome(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
-    */
-
+    
 }
