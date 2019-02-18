@@ -8,5 +8,6 @@ target 'BFit' do
 
     pod 'SwiftyJSON'
     pod 'Alamofire'
+    pod 'Cloudinary', '~> 2.0'
 
 end

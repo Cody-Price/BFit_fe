@@ -9,22 +9,24 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Cloudinary
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var userName: UILabel!
     let imagePicker = UIImagePickerController()
     let id = UserDefaults.standard.string(forKey: "id")!
-    
+    let config = CLDConfiguration(cloudName: "dykczjzsa", secure: true)
+    lazy var cloudinary = CLDCloudinary(configuration: config)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setGradientBackground()
         imagePicker.delegate = self
         getCurrentUser()
     }
-    
     
     func getCurrentUser() {
         let url = "https://bfit-api.herokuapp.com/api/v1/users/\(id)"
@@ -40,7 +42,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    
     @IBAction func logout(_ sender: Any) {
         let def = UserDefaults.standard
         def.set(false, forKey: "is_loggedIn")
@@ -51,7 +52,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.present(welcomeViewController, animated: true, completion: nil)
     }
     
-    
     @IBAction func addProfilePic(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             imagePicker.allowsEditing = false
@@ -60,18 +60,28 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let imageURL = info[UIImagePickerController.InfoKey.imageURL] as! URL
         let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         profilePic.image = pickedImage
+        postImage(imgURL: imageURL as URL)
         dismiss(animated: true, completion: nil)
     }
     
+    func postImage(imgURL : URL) {
+        cloudinary.createUploader().upload(url: imgURL, uploadPreset: "rgflevhw")
+            .response({ (response, error) in
+                if let result = response {
+                    print(result.url!)
+                } else if (error != nil) {
+                    print("error:", error as Any)
+                }
+            })
+    }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
-    
     
     func setGradientBackground() {
         let colorTop =  UIColor(red: 46.0/255.0, green: 64.0/255.0, blue: 87.0/255.0, alpha: 1.0).cgColor
@@ -82,5 +92,4 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
-
 }
