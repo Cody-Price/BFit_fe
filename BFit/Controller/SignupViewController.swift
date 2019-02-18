@@ -61,5 +61,10 @@ class SignupViewController: UIViewController {
             }
         }
     }
-
+    
+    
+    @IBAction func backToWelcome(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }

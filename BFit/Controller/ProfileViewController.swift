@@ -29,11 +29,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         def.set(nil, forKey: "id")
         def.synchronize()
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let is_loggedIn = def.bool(forKey: "is_loggedIn")
-        if is_loggedIn {
-            let welcomeViewController = storyBoard.instantiateViewController(withIdentifier: "Welcome") as! WelcomeViewController
-            self.present(welcomeViewController, animated: true, completion: nil)
-        }
+        let welcomeViewController = storyBoard.instantiateViewController(withIdentifier: "Welcome") as! WelcomeViewController
+        self.present(welcomeViewController, animated: true, completion: nil)
     }
     
     
