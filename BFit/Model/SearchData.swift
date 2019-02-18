@@ -12,10 +12,10 @@ class SearchData {
     var data : [User] = [User]()
     
     init() {
-        data.append(User(name: "Bob", follow: false))
-        data.append(User(name: "Bobby", follow: true))
-        data.append(User(name: "Bobberton", follow: false))
-        data.append(User(name: "Bobble", follow: false))
-        data.append(User(name: "Bobert", follow: false))
+        data.append(User(name: "Bob", follow: false, userId: 1))
+        data.append(User(name: "Bobby", follow: true, userId: 2))
+        data.append(User(name: "Bobberton", follow: false, userId: 3))
+        data.append(User(name: "Bobble", follow: false, userId: 4))
+        data.append(User(name: "Bobert", follow: false, userId: 5))
     }
 }

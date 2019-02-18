@@ -11,6 +11,7 @@ import UIKit
 class FollowingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var followingView: UITableView!
     let mockData = FollowingMockData()
+    var selectedId : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,8 +49,17 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showUser" {
+            let userVC = segue.destination as! UserViewController
+            userVC.data = String(selectedId)
+        }
+    }
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
+        selectedId = mockData.list[indexPath.row].id
         performSegue(withIdentifier: "showUser", sender: cell)
     }
     

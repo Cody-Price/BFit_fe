@@ -7,16 +7,37 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var profilePic: UIImageView!
+    @IBOutlet weak var userName: UILabel!
     let imagePicker = UIImagePickerController()
+    let id = UserDefaults.standard.string(forKey: "id")!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground()
         imagePicker.delegate = self
+        getCurrentUser()
+    }
+    
+    
+    func getCurrentUser() {
+        let url = "https://bfit-api.herokuapp.com/api/v1/users/\(id)"
+        Alamofire.request(url, method: .get).responseJSON {
+            response in
+            if response.result.isSuccess {
+                let data = JSON(response.data!)
+                self.profilePic.image = UIImage(named: data["user"]["avatar"].stringValue)
+                self.userName.text = data["user"]["username"].stringValue
+            } else {
+                print("Failure")
+            }
+        }
     }
     
     

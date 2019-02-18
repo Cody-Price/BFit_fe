@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class UserViewController: UIViewController {
 
@@ -16,12 +18,31 @@ class UserViewController: UIViewController {
     @IBOutlet weak var userFeed: UITableView!
     
     
+    var data = ""
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground()
         btnStyle.layer.cornerRadius = 5
         btnStyle.layer.borderWidth = 1
         btnStyle.layer.borderColor = UIColor.white.cgColor
+        getUserData()
+    }
+    
+    
+    func getUserData() {
+        let url = "https://bfit-api.herokuapp.com/api/v1/users/\(data)"
+        Alamofire.request(url, method: .get).responseJSON {
+            response in
+            if response.result.isSuccess {
+                let data = JSON(response.data!)
+                self.userImage.image = UIImage(named: data["user"]["avatar"].stringValue)
+                self.userName.text = data["user"]["username"].stringValue
+            } else {
+                print("Failure")
+            }
+        }
     }
     
     
