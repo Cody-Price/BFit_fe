@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class UserViewController: UIViewController {
 
@@ -30,7 +32,17 @@ class UserViewController: UIViewController {
     
     
     func getUserData() {
-        
+        let url = "https://bfit-api.herokuapp.com/api/v1/users/\(data)"
+        Alamofire.request(url, method: .get).responseJSON {
+            response in
+            if response.result.isSuccess {
+                let data = JSON(response.data!)
+                self.userImage.image = UIImage(named: data["user"]["avatar"].stringValue)
+                self.userName.text = data["user"]["username"].stringValue
+            } else {
+                print("Failure")
+            }
+        }
     }
     
     
