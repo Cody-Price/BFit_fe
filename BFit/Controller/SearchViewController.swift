@@ -14,9 +14,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var searchTable: UITableView!
     let mockSearchData = SearchData().data
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setGradientBackground()
         self.searchTable.register(UITableViewCell.self, forCellReuseIdentifier: "searchCell")
         searchTable.dataSource = self
@@ -24,10 +24,12 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         searchInput.delegate = self
     }
     
+    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchInput.setShowsCancelButton(true, animated: true)
         searchInput.showsCancelButton = true
     }
+    
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchInput.text = nil
@@ -35,19 +37,21 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         searchInput.endEditing(true)
     }
     
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let searchValue = JSON(searchInput.text!)
         print(searchValue)
         searchInput.endEditing(true)
     }
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mockSearchData.count
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as UITableViewCell
-        
         let customButton = UIButton.init(type: .custom) as UIButton
         
         if mockSearchData[indexPath.row].isFollowing {
@@ -66,14 +70,15 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         cell.textLabel?.text = "\(mockSearchData[indexPath.row].userName)"
         cell.backgroundColor = UIColor(white: 1, alpha: 0)
         cell.textLabel?.textColor = UIColor(white: 1, alpha: 1)
-        
         return cell
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         performSegue(withIdentifier: "showUser", sender: cell)
     }
+    
     
     @objc func didButtonClick(_ sender: UIButton) {
         if sender.titleLabel!.text == "Follow" {
@@ -83,15 +88,14 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
+    
     func setGradientBackground() {
         let colorTop =  UIColor(red: 46.0/255.0, green: 64.0/255.0, blue: 87.0/255.0, alpha: 1.0).cgColor
         let colorBottom = UIColor(red: 254.0/255.0, green: 93.0/255.0, blue: 38.0/255.0, alpha: 1.0).cgColor
-        
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [colorTop, colorBottom]
         gradientLayer.locations = [0.0, 1.0]
         gradientLayer.frame = self.view.bounds
-        
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
     

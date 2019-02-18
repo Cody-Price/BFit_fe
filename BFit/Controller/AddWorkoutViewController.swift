@@ -32,21 +32,17 @@ class AddWorkoutViewController: UIViewController, UIPickerViewDataSource, UIPick
         exercisePicker.dataSource = self
         listOfMuscles = Array(mockMuscleData.keys)
         listOfExercises = mockMuscleData[Array(mockMuscleData.keys)[0]]!
-
-        // Do any additional setup after loading the view.
         setGradientBackground()
-        
     }
+    
     
     func setGradientBackground() {
         let colorTop =  UIColor(red: 46.0/255.0, green: 64.0/255.0, blue: 87.0/255.0, alpha: 1.0).cgColor
         let colorBottom = UIColor(red: 254.0/255.0, green: 93.0/255.0, blue: 38.0/255.0, alpha: 1.0).cgColor
-        
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [colorTop, colorBottom]
         gradientLayer.locations = [0.0, 1.0]
         gradientLayer.frame = self.view.bounds
-        
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
@@ -54,6 +50,7 @@ class AddWorkoutViewController: UIViewController, UIPickerViewDataSource, UIPick
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
+    
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == musclePicker {
@@ -78,6 +75,7 @@ class AddWorkoutViewController: UIViewController, UIPickerViewDataSource, UIPick
         }
     }
     
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == musclePicker {
             let muscleRow = row
@@ -87,9 +85,11 @@ class AddWorkoutViewController: UIViewController, UIPickerViewDataSource, UIPick
         }
     }
     
+    
     func setExercisesList(muscle : String) {
         self.listOfExercises = mockMuscleData[muscle]!
     }
+    
     
     @IBAction func submitWorkout(_ sender: Any) {
         let WOT = weightORTime.text
@@ -103,16 +103,6 @@ class AddWorkoutViewController: UIViewController, UIPickerViewDataSource, UIPick
         let jsonObj = JSON(data)
         print(jsonObj)
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
