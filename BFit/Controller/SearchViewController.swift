@@ -85,6 +85,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
         selectedId = mockSearchData[indexPath.row].id
         performSegue(withIdentifier: "showUser", sender: cell)
     }

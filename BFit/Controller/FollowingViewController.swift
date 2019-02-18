@@ -59,6 +59,7 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
         selectedId = mockData.list[indexPath.row].id
         performSegue(withIdentifier: "showUser", sender: cell)
     }
