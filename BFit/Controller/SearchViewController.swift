@@ -13,6 +13,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var searchInput: UISearchBar!
     @IBOutlet weak var searchTable: UITableView!
     let mockSearchData = SearchData().data
+    var selectedId : Int = 0
     
     
     override func viewDidLoad() {
@@ -74,8 +75,17 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showUser" {
+            let userVC = segue.destination as! UserViewController
+            userVC.data = String(selectedId)
+        }
+    }
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
+        selectedId = mockSearchData[indexPath.row].id
         performSegue(withIdentifier: "showUser", sender: cell)
     }
     

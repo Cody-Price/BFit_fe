@@ -16,12 +16,21 @@ class UserViewController: UIViewController {
     @IBOutlet weak var userFeed: UITableView!
     
     
+    var data = ""
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground()
         btnStyle.layer.cornerRadius = 5
         btnStyle.layer.borderWidth = 1
         btnStyle.layer.borderColor = UIColor.white.cgColor
+        getUserData()
+    }
+    
+    
+    func getUserData() {
+        
     }
     
     

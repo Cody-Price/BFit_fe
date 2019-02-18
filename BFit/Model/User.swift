@@ -11,9 +11,11 @@ import Foundation
 class User {
     let userName : String
     let isFollowing : Bool
+    let id : Int
     
-    init(name: String, follow: Bool) {
+    init(name: String, follow: Bool, userId: Int) {
         userName = name
         isFollowing = follow
+        id = userId
     }
 }
