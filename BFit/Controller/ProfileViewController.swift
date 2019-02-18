@@ -9,17 +9,20 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Cloudinary
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var userName: UILabel!
     let imagePicker = UIImagePickerController()
     let id = UserDefaults.standard.string(forKey: "id")!
-    
+    let config = CLDConfiguration(cloudinaryUrl: "CLOUDINARY_URL=cloudinary://148813547915756:Y_y4m41alEX5GvYv0oRQINujMiM@dykczjzsa")
+    lazy var cloudinary = CLDCloudinary(configuration: config)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setGradientBackground()
         imagePicker.delegate = self
         getCurrentUser()
@@ -62,9 +65,18 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let imageURL = info[UIImagePickerController.InfoKey.referenceURL] as! NSURL
         let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         profilePic.image = pickedImage
+        postImage(img: pickedImage!, imgURL: imageURL)
         dismiss(animated: true, completion: nil)
+    }
+    
+    func postImage(img : Any, imgURL : NSURL) {
+        print("img", img)
+        print("imgURL", imgURL)
+        print(cloudinary)
+        
     }
     
     
