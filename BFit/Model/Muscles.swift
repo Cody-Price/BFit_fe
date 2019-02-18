@@ -23,6 +23,36 @@ class muscleGroupMockData {
             "Run over there",
             "Run back",
             "Sqwatz"
+        ],
+        "Triceps" : [
+            "Dips",
+            "Pushing things",
+            "Weighted dips",
+            "Pull things down"
+        ],
+        "Hamstrings" : [
+            "Leg curl",
+            "Run over there",
+            "Deadlift"
+        ],
+        "Pectorals" : [
+            "Bench press",
+            "Chest fly",
+            "Pushups"
+        ],
+        "Deltoids" : [
+            "Upright row",
+            "Shoulder press",
+            "Military press",
+            "Lateral raise"
+        ],
+        "Abs" : [
+            "Crunches",
+            "V-ups",
+            "Bicycles",
+            "Front lever",
+            "Plank",
+            "Toes to bar"
         ]
     ]
 }
