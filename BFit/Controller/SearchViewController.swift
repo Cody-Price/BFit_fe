@@ -23,6 +23,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         searchTable.dataSource = self
         searchTable.delegate = self
         searchInput.delegate = self
+        searchTable.tableFooterView = UIView()
     }
     
     
