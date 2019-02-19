@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Cloudinary
 
 class UserViewController: UIViewController {
 
@@ -16,7 +17,8 @@ class UserViewController: UIViewController {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userFeed: UITableView!
-    
+    let config = CLDConfiguration(cloudName: "dykczjzsa", secure: true)
+    lazy var cloudinary = CLDCloudinary(configuration: config)
     
     var data = ""
     
@@ -28,6 +30,7 @@ class UserViewController: UIViewController {
         btnStyle.layer.borderWidth = 1
         btnStyle.layer.borderColor = UIColor.white.cgColor
         getUserData()
+        
     }
     
     
@@ -37,7 +40,8 @@ class UserViewController: UIViewController {
             response in
             if response.result.isSuccess {
                 let data = JSON(response.data!)
-                self.userImage.image = UIImage(named: data["user"]["avatar"].stringValue)
+                let url = data["user"]["avatar"].stringValue
+                self.userImage.cldSetImage(self.cloudinary.createUrl().generate(url)!, cloudinary: self.cloudinary)
                 self.userName.text = data["user"]["username"].stringValue
             } else {
                 let alert = UIAlertController(title: "Error", message: "Could not fetch user data", preferredStyle: .alert)
