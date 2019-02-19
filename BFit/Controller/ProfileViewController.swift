@@ -34,7 +34,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             response in
             if response.result.isSuccess {
                 let data = JSON(response.data!)
-                self.profilePic.image = UIImage(named: data["user"]["avatar"].stringValue)
+                let url = data["user"]["avatar"].stringValue
+                self.profilePic.cldSetImage(self.cloudinary.createUrl().generate(url)!, cloudinary: self.cloudinary)
                 self.userName.text = data["user"]["username"].stringValue
             } else {
                 let alert = UIAlertController(title: "Error", message: "Could not fetch user data", preferredStyle: .alert)
@@ -77,9 +78,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     let publicID = result.publicId!
                     let format = result.format!
                     let url = "\(publicID).\(format)"
-                    print(url)
-                    // patch image to user goes here passing in url:
-                    // self.patchUserWithImage(url: url)
+//                    self.patchUserWithImage(url: url)
                 } else if (error != nil) {
                     let alert = UIAlertController(title: "Error", message: "Could not fetch upload image", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default))
