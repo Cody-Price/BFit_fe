@@ -19,6 +19,7 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
         self.followingView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         followingView.dataSource = self
         followingView.delegate = self
+        followingView.tableFooterView = UIView()
     }
     
     

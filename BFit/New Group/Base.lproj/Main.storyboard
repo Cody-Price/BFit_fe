@@ -433,7 +433,11 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6yz-6k-MXA">
                                 <rect key="frame" x="16" y="50" width="55" height="30"/>
                                 <state key="normal" title="Log Out">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="logout:" destination="oDR-a8-rOm" eventType="touchUpInside" id="8Sk-Xu-KyD"/>
@@ -795,7 +799,7 @@
                         <color key="backgroundColor" red="1" green="0.64260193170000002" blue="0.23825358990000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="EkK-2V-g0z" firstAttribute="leading" secondItem="Z4W-qk-F2v" secondAttribute="leading" id="6MN-u7-acu"/>
-                            <constraint firstItem="Z4W-qk-F2v" firstAttribute="leading" secondItem="JQY-eV-Cfc" secondAttribute="leading" id="AQb-uY-YAN"/>
+                            <constraint firstItem="JQY-eV-Cfc" firstAttribute="centerX" secondItem="CwW-bL-DHO" secondAttribute="centerX" id="CYB-kf-CAf"/>
                             <constraint firstItem="EkK-2V-g0z" firstAttribute="leading" secondItem="QbF-aJ-Fmf" secondAttribute="leadingMargin" id="DRg-pJ-YXu"/>
                             <constraint firstItem="EkK-2V-g0z" firstAttribute="top" secondItem="Pv8-vI-HOO" secondAttribute="bottom" constant="8" symbolic="YES" id="FD5-CL-aSg"/>
                             <constraint firstItem="dOI-ER-X1F" firstAttribute="leading" secondItem="Z4W-qk-F2v" secondAttribute="leading" id="La1-6d-DfN"/>
@@ -811,7 +815,6 @@
                             <constraint firstItem="CwW-bL-DHO" firstAttribute="centerX" secondItem="JQY-eV-Cfc" secondAttribute="centerX" id="lj3-F3-4zD"/>
                             <constraint firstItem="CwW-bL-DHO" firstAttribute="leading" secondItem="v67-Lu-Y0P" secondAttribute="leading" constant="116" id="mFl-E6-Ds0"/>
                             <constraint firstItem="EkK-2V-g0z" firstAttribute="trailing" secondItem="Z4W-qk-F2v" secondAttribute="trailing" id="v1g-lt-EEZ"/>
-                            <constraint firstItem="JQY-eV-Cfc" firstAttribute="top" secondItem="Z4W-qk-F2v" secondAttribute="bottom" constant="68" id="xcY-O0-Bmf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="v67-Lu-Y0P"/>
                     </view>

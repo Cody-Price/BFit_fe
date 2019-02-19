@@ -43,26 +43,35 @@ class SignupViewController: UIViewController {
         let passwordValue = password.text!
         let urlString = "https://bfit-api.herokuapp.com/api/v1/users"
         
-        let data = [
-            "username" : usernameValue,
-            "email" : emailValue,
-            "avatar" : "",
-            "password" : passwordValue
-        ]
+        if usernameValue == ""  || emailValue == "" || passwordValue == "" {
+            let alert = UIAlertController(title: "Error", message: "Please enter a username, email, and password", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true, completion: nil)
+        } else {
         
-        
-        Alamofire.request(urlString, method: .post, parameters: data, encoding: JSONEncoding.default).responseJSON {
-            response in
-            if response.result.isSuccess {
-                let userJSON : JSON = JSON(response.result.value!)
-                let id = userJSON["user"]["id"].stringValue
-                let def = UserDefaults.standard
-                def.set(true, forKey: "is_loggedIn")
-                def.set(id, forKey: "id")
-                def.synchronize()
-                self.performSegue(withIdentifier: "signup", sender: sender)
-            } else {
-                print("failure: \(String(describing: response.response?.statusCode)) \(String(describing: response.result.error))")
+            let data = [
+                "username" : usernameValue,
+                "email" : emailValue,
+                "avatar" : "",
+                "password" : passwordValue
+            ]
+            
+            
+            Alamofire.request(urlString, method: .post, parameters: data, encoding: JSONEncoding.default).responseJSON {
+                response in
+                if response.result.isSuccess {
+                    let userJSON : JSON = JSON(response.result.value!)
+                    let id = userJSON["user"]["id"].stringValue
+                    let def = UserDefaults.standard
+                    def.set(true, forKey: "is_loggedIn")
+                    def.set(id, forKey: "id")
+                    def.synchronize()
+                    self.performSegue(withIdentifier: "signup", sender: sender)
+                } else {
+                    let alert = UIAlertController(title: "Error", message: "Could not create account", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
         }
     }
