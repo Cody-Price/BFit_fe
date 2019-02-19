@@ -62,7 +62,9 @@ class SignupViewController: UIViewController {
                 def.synchronize()
                 self.performSegue(withIdentifier: "signup", sender: sender)
             } else {
-                print("failure: \(String(describing: response.response?.statusCode)) \(String(describing: response.result.error))")
+                let alert = UIAlertController(title: "Error", message: "Could not create account", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }

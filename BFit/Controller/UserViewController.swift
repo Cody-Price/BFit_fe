@@ -40,7 +40,9 @@ class UserViewController: UIViewController {
                 self.userImage.image = UIImage(named: data["user"]["avatar"].stringValue)
                 self.userName.text = data["user"]["username"].stringValue
             } else {
-                print("Failure")
+                let alert = UIAlertController(title: "Error", message: "Could not fetch user data", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }

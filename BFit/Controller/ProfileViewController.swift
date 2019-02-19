@@ -32,12 +32,14 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let url = "https://bfit-api.herokuapp.com/api/v1/users/\(id)"
         Alamofire.request(url, method: .get).responseJSON {
             response in
-            if response.result.isSuccess {
+            if response.result.isFailure {
                 let data = JSON(response.data!)
                 self.profilePic.image = UIImage(named: data["user"]["avatar"].stringValue)
                 self.userName.text = data["user"]["username"].stringValue
             } else {
-                print("Failure")
+                let alert = UIAlertController(title: "Error", message: "Could not fetch user data", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }
@@ -74,7 +76,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 if let result = response {
                     print(result.url!)
                 } else if (error != nil) {
-                    print("error:", error as Any)
+                    let alert = UIAlertController(title: "Error", message: "Could not fetch user data", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(alert, animated: true, completion: nil)
                 }
             })
     }
