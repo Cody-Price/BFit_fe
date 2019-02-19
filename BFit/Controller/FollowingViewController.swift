@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Cloudinary
 
 class FollowingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var followingView: UITableView!
     let mockData = FollowingMockData()
     var selectedId : Int = 0
+    let config = CLDConfiguration(cloudName: "dykczjzsa", secure: true)
+    lazy var cloudinary = CLDCloudinary(configuration: config)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,16 +36,42 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
         let customButton = UIButton.init(type: .custom) as UIButton
-        customButton.setTitle("Unfollow", for: .normal)
+        let thumbnail = UIImageView.init() as UIImageView
+        let textLabel = UILabel.init() as UILabel
+        
+        thumbnail.cldSetImage(self.cloudinary.createUrl().generate("fwdyfioiphjx1rhhovd2.jpg")!, cloudinary: self.cloudinary)
+        thumbnail.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        thumbnail.layer.masksToBounds = true
+        thumbnail.layer.cornerRadius = 15
+        thumbnail.frame.origin.x = 10
+        thumbnail.frame.origin.y = 7
+        
+        if mockData.list[indexPath.row].isFollowing {
+            customButton.setTitle("Unfollow", for: .normal)
+        } else {
+            customButton.setTitle("Follow", for: .normal)
+        }
+        
         customButton.frame = CGRect(x: 0, y: 0, width: 120, height: 30)
+        customButton.frame.origin.x = self.view!.bounds.width - 140
+        customButton.frame.origin.y = 7
         customButton.layer.cornerRadius = 5
         customButton.layer.borderWidth = 1
         customButton.layer.borderColor = UIColor.white.cgColor
         customButton.addTarget(self, action: #selector(didButtonClick), for: .touchUpInside)
-        cell.accessoryView = customButton as UIView
-        cell.textLabel?.text = "\(mockData.list[indexPath.row].userName)"
+        
+        textLabel.text = "\(mockData.list[indexPath.row].userName)"
+        textLabel.textColor = UIColor(white: 1, alpha: 1)
+        textLabel.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
+        textLabel.backgroundColor = UIColor(white: 1, alpha: 0)
+        textLabel.frame.origin.x = 50
+        textLabel.font = UIFont.systemFont(ofSize: 18.0)
+        textLabel.frame.origin.y = 7
+        
+        cell.addSubview(thumbnail)
+        cell.addSubview(customButton)
+        cell.addSubview(textLabel)
         cell.backgroundColor = UIColor(white: 1, alpha: 0)
-        cell.textLabel?.textColor = UIColor(white: 1, alpha: 1)
         return cell
     }
     
