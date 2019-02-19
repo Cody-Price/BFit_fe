@@ -6,6 +6,7 @@
 //  Copyright © 2019 Jamie Rushford. All rights reserved.
 //
 
+import Alamofire
 import UIKit
 import SwiftyJSON
 
@@ -14,7 +15,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var searchTable: UITableView!
     let mockSearchData = SearchData().data
     var selectedId : Int = 0
-    
+    var data : [Any] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +27,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         searchTable.tableFooterView = UIView()
     }
     
-    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchInput.setShowsCancelButton(true, animated: true)
         searchInput.showsCancelButton = true
     }
-    
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchInput.text = nil
@@ -39,18 +38,27 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         searchInput.endEditing(true)
     }
     
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let searchValue = JSON(searchInput.text!)
-        print(searchValue)
+        let urlString = "https://bfit-api.herokuapp.com/api/v1/users?name=\(searchValue)"
+        Alamofire.request(urlString).responseJSON {
+            response in
+            if response.result.isSuccess {
+//                reassign data global to response from search
+//                data = response.result.data
+                self.searchTable.reloadData()
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Problem communicating with server during post request.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
         searchInput.endEditing(true)
     }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mockSearchData.count
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as UITableViewCell
@@ -68,13 +76,11 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         customButton.layer.borderColor = UIColor.white.cgColor
         customButton.addTarget(self, action: #selector(didButtonClick), for: .touchUpInside)
         cell.accessoryView = customButton as UIView
-        
         cell.textLabel?.text = "\(mockSearchData[indexPath.row].userName)"
         cell.backgroundColor = UIColor(white: 1, alpha: 0)
         cell.textLabel?.textColor = UIColor(white: 1, alpha: 1)
         return cell
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showUser" {
@@ -83,14 +89,12 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
         selectedId = mockSearchData[indexPath.row].id
         performSegue(withIdentifier: "showUser", sender: cell)
     }
-    
     
     @objc func didButtonClick(_ sender: UIButton) {
         if sender.titleLabel!.text == "Follow" {
@@ -99,7 +103,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             sender.setTitle("Follow", for: .normal)
         }
     }
-    
     
     func setGradientBackground() {
         let colorTop =  UIColor(red: 46.0/255.0, green: 64.0/255.0, blue: 87.0/255.0, alpha: 1.0).cgColor
@@ -110,5 +113,4 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
-    
 }

@@ -6,6 +6,7 @@
 //  Copyright © 2019 Jamie Rushford. All rights reserved.
 //
 
+import Alamofire
 import UIKit
 import SwiftyJSON
 
@@ -113,14 +114,16 @@ class AddWorkoutViewController: UIViewController, UIPickerViewDataSource, UIPick
 //    }
     
     @IBAction func submitWorkout(_ sender: Any) {
+        let urlString = "https://bfit-api.herokuapp.com/api/v1/post"
         let WOT = weightORTime.text
         let ROD = repsORDistance.text
+        let id = UserDefaults.standard.string(forKey: "id")!
+        
         if WOT == "" || ROD == "" {
             let alert = UIAlertController(title: "Error", message: "Please enter a numeric value in both text fields", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default))
             self.present(alert, animated: true, completion: nil)
         } else {
-            let id = UserDefaults.standard.string(forKey: "id")!
             let data = [
                 "title" : exercise,
                 "description" : "",
@@ -134,12 +137,18 @@ class AddWorkoutViewController: UIViewController, UIPickerViewDataSource, UIPick
                     "repsORDistance" : ROD
                 ]
                 ] as [String : Any]
-            let jsonObj = JSON(data)
-            print(jsonObj)
+            
+            
+            Alamofire.request(urlString, method: .post, parameters: data, encoding: JSONEncoding.default).responseJSON {
+                response in
+                if response.result.isSuccess {
+                    self.tabBarController!.selectedIndex = 0
+                } else {
+                    let alert = UIAlertController(title: "Error", message: "Problem communicating with server during post request.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
         }
     }
-// title, description, image_url, post_type, user_id
-    //EXERCISE: muscle_group, name, (time, distance) || (reps, weight)
-    //FOOD: meal: user_given_name, foods: [array of food object
-
 }

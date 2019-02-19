@@ -914,13 +914,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOa-pA-jrW">
-                                <rect key="frame" x="133" y="198" width="0.0" height="0.0"/>
+                                <rect key="frame" x="133" y="236" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBQ-en-us7">
-                                <rect key="frame" x="53" y="178" width="269" height="20"/>
+                                <rect key="frame" x="53" y="222" width="269" height="20"/>
                                 <attributedString key="attributedText">
                                     <fragment content="The fitness based social media app">
                                         <attributes>
@@ -932,7 +932,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eut-0v-NyU">
-                                <rect key="frame" x="68" y="126" width="239" height="34"/>
+                                <rect key="frame" x="68" y="164" width="239" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="GaF-Ty-fut"/>
                                     <constraint firstAttribute="width" constant="239" id="P2T-Rj-xgu"/>

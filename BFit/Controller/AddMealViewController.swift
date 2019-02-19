@@ -5,6 +5,8 @@
 //  Created by Jamie Rushford on 2/13/19.
 //  Copyright © 2019 Jamie Rushford. All rights reserved.
 //
+
+import Alamofire
 import UIKit
 import SwiftyJSON
 
@@ -23,8 +25,6 @@ class AddMealViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
         setGradientBackground()
     }
     
@@ -41,6 +41,7 @@ class AddMealViewController: UIViewController {
     }
     
     @IBAction func submitMeal(_ sender: Any) {
+        let urlString = "https://bfit-api.herokuapp.com/api/v1/post"
         let mealNameText = mealName.text
         let foodOneText = foodOne.text
         let calOneText = calOne.text
@@ -53,21 +54,6 @@ class AddMealViewController: UIViewController {
         let foodFiveText = foodFive.text
         let calFiveText = calFive.text
         let id = UserDefaults.standard.string(forKey: "id")!
-//        let data = [
-//            "title" : exercise,
-//            "description" : "",
-//            "image_url" : "",
-//            "post_type" : "exercise",
-//            "user_id" : id,
-//            "exercise" : [
-//                "muscle_group" : muscle,
-//                "name" : exercise,
-//                "weightORTime" : WOT,
-//                "repsORDistance" : ROD
-//            ]
-//            ] as [String : Any]
-//        let jsonObj = JSON(data)
-//        print(jsonObj)
         let data = [
             "title" : mealNameText!,
             "description" : "",
@@ -89,9 +75,17 @@ class AddMealViewController: UIViewController {
                      "calories" : calFiveText]
                 ]
             ]
-        ] as [String? : Any]
-        let jsonObj = JSON(data)
-        print(jsonObj)
+        ] as [String : Any]
+        
+        Alamofire.request(urlString, method: .post, parameters: data, encoding: JSONEncoding.default).responseJSON {
+            response in
+            if response.result.isSuccess {
+                self.tabBarController!.selectedIndex = 0
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Problem communicating with server during post request.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
-    
 }
