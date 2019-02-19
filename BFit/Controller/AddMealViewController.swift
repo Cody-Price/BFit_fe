@@ -52,34 +52,46 @@ class AddMealViewController: UIViewController {
         let calFourText = calFour.text
         let foodFiveText = foodFive.text
         let calFiveText = calFive.text
+        let id = UserDefaults.standard.string(forKey: "id")!
+//        let data = [
+//            "title" : exercise,
+//            "description" : "",
+//            "image_url" : "",
+//            "post_type" : "exercise",
+//            "user_id" : id,
+//            "exercise" : [
+//                "muscle_group" : muscle,
+//                "name" : exercise,
+//                "weightORTime" : WOT,
+//                "repsORDistance" : ROD
+//            ]
+//            ] as [String : Any]
+//        let jsonObj = JSON(data)
+//        print(jsonObj)
         let data = [
-            "mealName" : mealNameText ?? "",
-            "foods" : [
-            ["foodOne" : foodOneText,
-            "calOne" : calOneText],
-            ["foodTwo" : foodTwoText,
-            "calTwo" : calTwoText],
-            ["foodThree" : foodThreeText,
-            "calThree" : calThreeText],
-            ["foodFour" : foodFourText,
-            "calFour" : calFourText],
-            ["foodFive" : foodFiveText,
-            "calFive" : calFiveText]
+            "title" : mealNameText!,
+            "description" : "",
+            "image_url" : "",
+            "post_type" : "meal",
+            "user_id" : id,
+            "meal" : [
+                "name" : mealNameText!,
+                "foods" : [
+                    ["name" : foodOneText,
+                     "calories" : calOneText],
+                    ["name" : foodTwoText,
+                     "calories" : calTwoText],
+                    ["name" : foodThreeText,
+                     "calories" : calThreeText],
+                    ["name" : foodFourText,
+                     "calories" : calFourText],
+                    ["name" : foodFiveText,
+                     "calories" : calFiveText]
                 ]
-            ] as [String? : Any]
+            ]
+        ] as [String? : Any]
         let jsonObj = JSON(data)
         print(jsonObj)
     }
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

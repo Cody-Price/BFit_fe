@@ -22,6 +22,7 @@ class AddWorkoutViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var exercisePicker: UIPickerView!
     @IBOutlet weak var weightORTime: UITextField!
     @IBOutlet weak var repsORDistance: UITextField!
+    @IBOutlet weak var shareBtn: UIButton!
     
     
     override func viewDidLoad() {
@@ -30,9 +31,13 @@ class AddWorkoutViewController: UIViewController, UIPickerViewDataSource, UIPick
         musclePicker.dataSource = self
         exercisePicker.delegate = self
         exercisePicker.dataSource = self
+//        weightORTime.delegate = self
+//        repsORDistance.delegate = self
         listOfMuscles = Array(mockMuscleData.keys)
         listOfExercises = mockMuscleData[Array(mockMuscleData.keys)[0]]!
         setGradientBackground()
+//        shareBtn?.isUserInteractionEnabled = false
+//        shareBtn?.alpha = 0.5
     }
     
     
@@ -90,19 +95,51 @@ class AddWorkoutViewController: UIViewController, UIPickerViewDataSource, UIPick
         self.listOfExercises = mockMuscleData[muscle]!
     }
     
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        let text1 = (weightORTime.text! as NSString).replacingCharacters(in: range, with: string)
+//        let text2 = (repsORDistance.text! as NSString).replacingCharacters(in: range, with: string)
+//        if !text1.isEmpty && !text2.isEmpty{
+//            shareBtn?.isUserInteractionEnabled = true
+//            shareBtn?.alpha = 1.0
+//        } else {
+//            shareBtn?.isUserInteractionEnabled = false
+//            shareBtn?.alpha = 0.5
+//        }
+//        return true
+//    }
+    
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        return false
+//    }
     
     @IBAction func submitWorkout(_ sender: Any) {
         let WOT = weightORTime.text
         let ROD = repsORDistance.text
-        let data = [
-            "muscle" : muscle,
-            "exercise" : exercise,
-            "weightORTime" : WOT,
-            "repsORDistance" : ROD
-        ]
-        let jsonObj = JSON(data)
-        print(jsonObj)
+        if WOT == "" || ROD == "" {
+            let alert = UIAlertController(title: "Error", message: "Please enter a numeric value in both text fields", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let id = UserDefaults.standard.string(forKey: "id")!
+            let data = [
+                "title" : exercise,
+                "description" : "",
+                "image_url" : "",
+                "post_type" : "exercise",
+                "user_id" : id,
+                "exercise" : [
+                    "muscle_group" : muscle,
+                    "name" : exercise,
+                    "weightORTime" : WOT,
+                    "repsORDistance" : ROD
+                ]
+                ] as [String : Any]
+            let jsonObj = JSON(data)
+            print(jsonObj)
+        }
     }
-
+// title, description, image_url, post_type, user_id
+    //EXERCISE: muscle_group, name, (time, distance) || (reps, weight)
+    //FOOD: meal: user_given_name, foods: [array of food object
 
 }
