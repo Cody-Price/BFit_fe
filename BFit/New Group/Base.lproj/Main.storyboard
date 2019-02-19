@@ -553,7 +553,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0kp-i3-BFD">
-                                <rect key="frame" x="0.0" y="141" width="375" height="526"/>
+                                <rect key="frame" x="0.0" y="151" width="375" height="516"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <connections>
@@ -562,7 +562,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eU8-ZO-hH1">
-                                <rect key="frame" x="0.0" y="70" width="59" height="63"/>
+                                <rect key="frame" x="0.0" y="80" width="59" height="63"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="59" id="5V2-MC-aG1"/>
                                     <constraint firstAttribute="height" constant="63" id="d6m-8h-fMe"/>
@@ -579,7 +579,7 @@
                             <constraint firstAttribute="bottom" secondItem="0kp-i3-BFD" secondAttribute="bottom" id="2sq-rm-JZq"/>
                             <constraint firstAttribute="trailing" secondItem="0kp-i3-BFD" secondAttribute="trailing" id="EKz-Pf-YTD"/>
                             <constraint firstItem="eU8-ZO-hH1" firstAttribute="leading" secondItem="wWM-eE-rS4" secondAttribute="leading" id="SDP-6F-rlg"/>
-                            <constraint firstItem="eU8-ZO-hH1" firstAttribute="top" secondItem="wWM-eE-rS4" secondAttribute="top" constant="70" id="TrZ-Mx-NMg"/>
+                            <constraint firstItem="eU8-ZO-hH1" firstAttribute="top" secondItem="wWM-eE-rS4" secondAttribute="top" constant="80" id="TrZ-Mx-NMg"/>
                             <constraint firstItem="0kp-i3-BFD" firstAttribute="top" secondItem="eU8-ZO-hH1" secondAttribute="bottom" constant="8" id="nrd-4p-RMP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Oin-34-SyY"/>
@@ -603,7 +603,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tnd-ED-UCg">
-                                <rect key="frame" x="0.0" y="120" width="375" height="498"/>
+                                <rect key="frame" x="0.0" y="146" width="375" height="498"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="498" id="0r6-L2-G3V"/>
@@ -611,7 +611,7 @@
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                             </tableView>
                             <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" placeholder="Search for a user" translatesAutoresizingMaskIntoConstraints="NO" id="2FK-of-jI7">
-                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="90" width="375" height="56"/>
                                 <color key="tintColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -620,10 +620,11 @@
                         <constraints>
                             <constraint firstItem="tnd-ED-UCg" firstAttribute="trailing" secondItem="2FK-of-jI7" secondAttribute="trailing" id="6av-0h-BV1"/>
                             <constraint firstItem="tnd-ED-UCg" firstAttribute="leading" secondItem="43C-vC-lEZ" secondAttribute="leading" id="D5U-C8-OG4"/>
+                            <constraint firstItem="2FK-of-jI7" firstAttribute="top" secondItem="43C-vC-lEZ" secondAttribute="top" constant="90" id="SeE-lK-9gM"/>
                             <constraint firstItem="tnd-ED-UCg" firstAttribute="leading" secondItem="2FK-of-jI7" secondAttribute="leading" id="Vyu-h0-XIJ"/>
+                            <constraint firstItem="tnd-ED-UCg" firstAttribute="top" secondItem="2FK-of-jI7" secondAttribute="bottom" id="doY-io-kM9"/>
                             <constraint firstAttribute="trailing" secondItem="tnd-ED-UCg" secondAttribute="trailing" id="l7h-b8-HXz"/>
                             <constraint firstItem="tnd-ED-UCg" firstAttribute="top" secondItem="2FK-of-jI7" secondAttribute="bottom" id="m53-E8-lhw"/>
-                            <constraint firstAttribute="bottom" secondItem="tnd-ED-UCg" secondAttribute="bottom" constant="49" id="y37-pH-CL5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GGM-2d-eUK"/>
                     </view>
@@ -1024,6 +1025,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cdG-PN-kxm"/>
-        <segue reference="iWa-ts-rqG"/>
+        <segue reference="i94-Qe-oY6"/>
     </inferredMetricsTieBreakers>
 </document>
