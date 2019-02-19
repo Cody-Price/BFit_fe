@@ -22,16 +22,13 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
         followingView.tableFooterView = UIView()
     }
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mockData.list.count
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
@@ -49,14 +46,12 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
         return cell
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showUser" {
             let userVC = segue.destination as! UserViewController
             userVC.data = String(selectedId)
         }
     }
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
@@ -65,11 +60,14 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
         performSegue(withIdentifier: "showUser", sender: cell)
     }
     
-    
     @objc func didButtonClick(_ sender: UIButton) {
         print("yay")
+        if sender.titleLabel!.text == "Unfollow" {
+            sender.setTitle("Follow", for: .normal)
+        } else {
+            sender.setTitle("Unfollow", for: .normal)
+        }
     }
-    
     
     func setGradientBackground() {
         let colorTop =  UIColor(red: 46.0/255.0, green: 64.0/255.0, blue: 87.0/255.0, alpha: 1.0).cgColor
@@ -81,9 +79,7 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
-    
     @IBAction func backToProfile(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
 }

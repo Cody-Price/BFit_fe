@@ -77,8 +77,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     let publicID = result.publicId!
                     let format = result.format!
                     let url = "\(publicID).\(format)"
-//                    self.patchUserWithImage(url: url)
-                    print("image success")
+                    print(url)
+                    // patch image to user goes here passing in url:
+                    // self.patchUserWithImage(url: url)
                 } else if (error != nil) {
                     let alert = UIAlertController(title: "Error", message: "Could not fetch upload image", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default))

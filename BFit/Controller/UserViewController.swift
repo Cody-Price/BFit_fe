@@ -12,7 +12,6 @@ import SwiftyJSON
 import Cloudinary
 
 class UserViewController: UIViewController {
-
     @IBOutlet weak var btnStyle: UIButton!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
@@ -21,7 +20,6 @@ class UserViewController: UIViewController {
     lazy var cloudinary = CLDCloudinary(configuration: config)
     
     var data = ""
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +30,6 @@ class UserViewController: UIViewController {
         getUserData()
         
     }
-    
     
     func getUserData() {
         let url = "https://bfit-api.herokuapp.com/api/v1/users/\(data)"
@@ -51,7 +48,6 @@ class UserViewController: UIViewController {
         }
     }
     
-    
     func setGradientBackground() {
         let colorTop =  UIColor(red: 46.0/255.0, green: 64.0/255.0, blue: 87.0/255.0, alpha: 1.0).cgColor
         let colorBottom = UIColor(red: 254.0/255.0, green: 93.0/255.0, blue: 38.0/255.0, alpha: 1.0).cgColor
@@ -62,7 +58,6 @@ class UserViewController: UIViewController {
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
-
     @IBAction func toggleFollow(_ sender: UIButton) {
         if sender.titleLabel!.text == "Follow" {
             sender.setTitle("Unfollow", for: .normal)

@@ -17,7 +17,6 @@ class LoginViewController: UIViewController {
         setGradientBackground()
     }
     
-    
     func setGradientBackground() {
         let colorTop =  UIColor(red: 46.0/255.0, green: 64.0/255.0, blue: 87.0/255.0, alpha: 1.0).cgColor
         let colorBottom = UIColor(red: 254.0/255.0, green: 93.0/255.0, blue: 38.0/255.0, alpha: 1.0).cgColor
@@ -29,7 +28,6 @@ class LoginViewController: UIViewController {
         errorMsg.textColor = UIColor.clear
     }
     
-    
 //    func validateLogin() -> Bool {
 //        if {
 //            return true
@@ -38,7 +36,6 @@ class LoginViewController: UIViewController {
 //        }
 //    }
 
-    
     @IBAction func login(_ sender: Any) {
         let def = UserDefaults.standard
         def.set(true, forKey: "is_loggedIn")
@@ -46,9 +43,7 @@ class LoginViewController: UIViewController {
         def.synchronize()
     }
     
-
      @IBAction func backToWelcome(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
      }
-
 }

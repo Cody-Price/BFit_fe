@@ -11,12 +11,12 @@ import SwiftyJSON
 import Alamofire
 
 class SignupViewController: UIViewController {
+    
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var usernameError: UILabel!
     @IBOutlet weak var emailError: UILabel!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,6 @@ class SignupViewController: UIViewController {
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
-    
     
     @IBAction func signUpUser(_ sender: Any) {
         let usernameValue = username.text!
@@ -76,9 +75,7 @@ class SignupViewController: UIViewController {
         }
     }
     
-    
     @IBAction func backToWelcome(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
 }
