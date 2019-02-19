@@ -268,9 +268,6 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="submitWorkout:" destination="t7W-E2-9G4" eventType="editingDidEnd" id="hrq-5Y-3f2"/>
-                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7b7-kq-jRa">
                                 <rect key="frame" x="207" y="375" width="139" height="30"/>
@@ -309,10 +306,10 @@
                             <constraint firstItem="Ji3-Vo-Td4" firstAttribute="baseline" secondItem="7b7-kq-jRa" secondAttribute="baseline" id="hxw-WQ-dwV"/>
                             <constraint firstItem="UX5-xG-Rdw" firstAttribute="leading" secondItem="PrL-25-Lcb" secondAttribute="leading" id="jqm-g7-ADB"/>
                             <constraint firstItem="CMC-Mh-Weq" firstAttribute="leading" secondItem="sFk-c7-psd" secondAttribute="leading" constant="123" id="mTt-QJ-d5X"/>
-                            <constraint firstItem="CMC-Mh-Weq" firstAttribute="top" secondItem="Ji3-Vo-Td4" secondAttribute="bottom" constant="98" id="nIL-5p-Gab"/>
                             <constraint firstItem="CMC-Mh-Weq" firstAttribute="centerX" secondItem="PrL-25-Lcb" secondAttribute="centerX" id="nZp-GW-Rym"/>
                             <constraint firstItem="7b7-kq-jRa" firstAttribute="leading" secondItem="Ji3-Vo-Td4" secondAttribute="trailing" constant="35" id="ojZ-Kd-u5K"/>
                             <constraint firstAttribute="trailing" secondItem="OMa-oU-UBv" secondAttribute="trailing" constant="108" id="p1v-nW-UPZ"/>
+                            <constraint firstItem="CMC-Mh-Weq" firstAttribute="top" secondItem="Ji3-Vo-Td4" secondAttribute="bottom" constant="98" id="puP-FA-doJ"/>
                             <constraint firstAttribute="trailing" secondItem="c1p-6A-MV2" secondAttribute="trailing" id="sQh-r6-kOi"/>
                             <constraint firstItem="c1p-6A-MV2" firstAttribute="top" secondItem="UX5-xG-Rdw" secondAttribute="top" id="uj2-7q-tPg"/>
                             <constraint firstItem="UX5-xG-Rdw" firstAttribute="top" secondItem="sFk-c7-psd" secondAttribute="top" constant="37" id="wED-WZ-KR9"/>
@@ -323,6 +320,7 @@
                         <outlet property="exercisePicker" destination="c1p-6A-MV2" id="TET-NT-IpW"/>
                         <outlet property="musclePicker" destination="UX5-xG-Rdw" id="qUb-aa-DmM"/>
                         <outlet property="repsORDistance" destination="7b7-kq-jRa" id="TcF-g1-l4p"/>
+                        <outlet property="shareBtn" destination="CMC-Mh-Weq" id="kfp-xW-7Xr"/>
                         <outlet property="weightORTime" destination="Ji3-Vo-Td4" id="Cku-66-Eob"/>
                     </connections>
                 </viewController>
