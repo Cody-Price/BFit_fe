@@ -32,15 +32,10 @@ class AddWorkoutViewController: UIViewController, UIPickerViewDataSource, UIPick
         musclePicker.dataSource = self
         exercisePicker.delegate = self
         exercisePicker.dataSource = self
-//        weightORTime.delegate = self
-//        repsORDistance.delegate = self
         listOfMuscles = Array(mockMuscleData.keys)
         listOfExercises = mockMuscleData[Array(mockMuscleData.keys)[0]]!
         setGradientBackground()
-//        shareBtn?.isUserInteractionEnabled = false
-//        shareBtn?.alpha = 0.5
     }
-    
     
     func setGradientBackground() {
         let colorTop =  UIColor(red: 46.0/255.0, green: 64.0/255.0, blue: 87.0/255.0, alpha: 1.0).cgColor
@@ -51,12 +46,10 @@ class AddWorkoutViewController: UIViewController, UIPickerViewDataSource, UIPick
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
-    
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == musclePicker {
@@ -66,55 +59,43 @@ class AddWorkoutViewController: UIViewController, UIPickerViewDataSource, UIPick
         }
     }
     
-    
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         if pickerView == musclePicker {
             let titleData = listOfMuscles[row]
-            muscle = titleData
             let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 15.0)!,NSAttributedString.Key.foregroundColor:UIColor.white])
+            if row == 0 {
+                muscle = listOfMuscles[row]
+            }
             return myTitle
         } else {
             let titleData = listOfExercises[row]
-            exercise = titleData
             let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 15.0)!,NSAttributedString.Key.foregroundColor:UIColor.white])
+            if row == 0 {
+                exercise = listOfExercises[row]
+            }
             return myTitle
         }
     }
-    
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == musclePicker {
             let muscleRow = row
             setExercisesList(muscle: listOfMuscles[muscleRow])
+            self.muscle = listOfMuscles[muscleRow]
             exercisePicker.selectRow(0, inComponent: 0, animated: true)
             self.exercisePicker.reloadAllComponents()
+        } else {
+            let exRow = row
+            self.exercise = listOfExercises[exRow]
         }
     }
-    
     
     func setExercisesList(muscle : String) {
         self.listOfExercises = mockMuscleData[muscle]!
     }
     
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        let text1 = (weightORTime.text! as NSString).replacingCharacters(in: range, with: string)
-//        let text2 = (repsORDistance.text! as NSString).replacingCharacters(in: range, with: string)
-//        if !text1.isEmpty && !text2.isEmpty{
-//            shareBtn?.isUserInteractionEnabled = true
-//            shareBtn?.alpha = 1.0
-//        } else {
-//            shareBtn?.isUserInteractionEnabled = false
-//            shareBtn?.alpha = 0.5
-//        }
-//        return true
-//    }
-    
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        return false
-//    }
-    
     @IBAction func submitWorkout(_ sender: Any) {
-        let urlString = "https://bfit-api.herokuapp.com/api/v1/post"
+        let urlString = "https://bfit-api.herokuapp.com/api/v1/posts"
         let WOT = weightORTime.text
         let ROD = repsORDistance.text
         let id = UserDefaults.standard.string(forKey: "id")!
@@ -129,15 +110,12 @@ class AddWorkoutViewController: UIViewController, UIPickerViewDataSource, UIPick
                 "description" : "",
                 "image_url" : "",
                 "post_type" : "exercise",
-                "user_id" : id,
-                "exercise" : [
-                    "muscle_group" : muscle,
-                    "name" : exercise,
-                    "weightORTime" : WOT,
-                    "repsORDistance" : ROD
-                ]
-                ] as [String : Any]
-            
+                "user_id" : Int(id)!,
+                "muscle_group" : muscle,
+                "name" : exercise,
+                "weightORTime" : WOT!,
+                "repsORDistance" : ROD!
+            ] as [String : Any]
             
             Alamofire.request(urlString, method: .post, parameters: data, encoding: JSONEncoding.default).responseJSON {
                 response in
@@ -152,3 +130,4 @@ class AddWorkoutViewController: UIViewController, UIPickerViewDataSource, UIPick
         }
     }
 }
+
