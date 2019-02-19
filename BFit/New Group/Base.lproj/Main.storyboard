@@ -919,28 +919,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eut-0v-NyU">
-                                <rect key="frame" x="68" y="120" width="239" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="GaF-Ty-fut"/>
-                                </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="Welcome to BFit!">
-                                        <attributes>
-                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="33" name="HelveticaNeue-Thin"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBQ-en-us7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBQ-en-us7">
                                 <rect key="frame" x="53" y="178" width="269" height="20"/>
                                 <attributedString key="attributedText">
                                     <fragment content="The fitness based social media app">
                                         <attributes>
                                             <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eut-0v-NyU">
+                                <rect key="frame" x="68" y="126" width="239" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="GaF-Ty-fut"/>
+                                    <constraint firstAttribute="width" constant="239" id="P2T-Rj-xgu"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Welcome to BFit!">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="33" name="HelveticaNeue-Thin"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -957,7 +958,7 @@
                             <constraint firstItem="8RX-Mq-tid" firstAttribute="bottom" secondItem="m7a-dR-MFB" secondAttribute="bottom" constant="242" id="R94-HV-cEn"/>
                             <constraint firstItem="IOa-pA-jrW" firstAttribute="leading" secondItem="5ea-vE-8VY" secondAttribute="leading" constant="133" id="VYN-t2-nsU"/>
                             <constraint firstItem="9Nm-IO-8Xv" firstAttribute="centerX" secondItem="m7a-dR-MFB" secondAttribute="centerX" id="biz-qL-h2N"/>
-                            <constraint firstItem="eut-0v-NyU" firstAttribute="bottom" secondItem="IOa-pA-jrW" secondAttribute="bottom" id="gz1-Jl-8x3"/>
+                            <constraint firstItem="eut-0v-NyU" firstAttribute="bottom" secondItem="IOa-pA-jrW" secondAttribute="bottom" constant="-38" id="gz1-Jl-8x3"/>
                             <constraint firstItem="m7a-dR-MFB" firstAttribute="leading" secondItem="8RX-Mq-tid" secondAttribute="leading" constant="132" id="n9h-bw-4Hx"/>
                             <constraint firstItem="m7a-dR-MFB" firstAttribute="top" secondItem="9Nm-IO-8Xv" secondAttribute="bottom" constant="24" id="wnB-7g-b2s"/>
                             <constraint firstItem="9Nm-IO-8Xv" firstAttribute="leading" secondItem="8RX-Mq-tid" secondAttribute="leading" constant="143" id="xCD-rr-FFD"/>
