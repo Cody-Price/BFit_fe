@@ -41,7 +41,7 @@ class AddMealViewController: UIViewController {
     }
     
     @IBAction func submitMeal(_ sender: Any) {
-        let urlString = "https://bfit-api.herokuapp.com/api/v1/post"
+        let urlString = "https://bfit-api.herokuapp.com/api/v1/posts"
         let mealNameText = mealName.text
         let foodOneText = foodOne.text
         let calOneText = calOne.text
@@ -53,26 +53,35 @@ class AddMealViewController: UIViewController {
         let calFourText = calFour.text
         let foodFiveText = foodFive.text
         let calFiveText = calFive.text
+        
+        var inputs = [calOneText, calTwoText, calThreeText, calFourText, calFiveText]
+        
+        for (index, element) in inputs.enumerated() {
+            if element == "" {
+                inputs[index] = "0"
+            }
+        }
+        
         let id = UserDefaults.standard.string(forKey: "id")!
         let data = [
             "title" : mealNameText!,
             "description" : "",
             "image_url" : "",
             "post_type" : "meal",
-            "user_id" : id,
+            "user_id" : Int(id)!,
             "meal" : [
                 "name" : mealNameText!,
                 "foods" : [
                     ["name" : foodOneText,
-                     "calories" : calOneText],
+                     "calories" : inputs[0]],
                     ["name" : foodTwoText,
-                     "calories" : calTwoText],
+                     "calories" : inputs[1]],
                     ["name" : foodThreeText,
-                     "calories" : calThreeText],
+                     "calories" : inputs[2]],
                     ["name" : foodFourText,
-                     "calories" : calFourText],
+                     "calories" : inputs[3]],
                     ["name" : foodFiveText,
-                     "calories" : calFiveText]
+                     "calories" : inputs[4]]
                 ]
             ]
         ] as [String : Any]
