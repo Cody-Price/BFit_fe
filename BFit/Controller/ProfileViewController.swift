@@ -74,13 +74,35 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         cloudinary.createUploader().upload(url: imgURL, uploadPreset: "rgflevhw")
             .response({ (response, error) in
                 if let result = response {
-                    print(result.url!)
+                    let publicID = result.publicId!
+                    let format = result.format!
+                    let url = "\(publicID).\(format)"
+//                    self.patchUserWithImage(url: url)
+                    print("image success")
                 } else if (error != nil) {
                     let alert = UIAlertController(title: "Error", message: "Could not fetch upload image", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default))
                     self.present(alert, animated: true, completion: nil)
                 }
             })
+    }
+    
+    func patchUserWithImage(url : String) {
+        let urlString = "https://bfit-api.herokuapp.com/api/v1/users"
+        let data = [
+            "avatar" : url
+        ]
+        
+        Alamofire.request(urlString, method: .patch, parameters: data, encoding: JSONEncoding.default).responseJSON {
+            response in
+            if response.result.isSuccess {
+                self.profilePic.cldSetImage(self.cloudinary.createUrl().generate(url)!, cloudinary: self.cloudinary)
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Could not post new image to user specified", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

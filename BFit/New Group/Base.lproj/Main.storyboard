@@ -954,8 +954,8 @@
                         <constraints>
                             <constraint firstItem="eut-0v-NyU" firstAttribute="centerX" secondItem="ZBQ-en-us7" secondAttribute="centerX" id="EeZ-b9-tcV"/>
                             <constraint firstItem="eut-0v-NyU" firstAttribute="centerX" secondItem="5ea-vE-8VY" secondAttribute="centerX" id="IlQ-6Z-KBj"/>
-                            <constraint firstItem="eut-0v-NyU" firstAttribute="top" secondItem="8RX-Mq-tid" secondAttribute="top" constant="106" id="KEX-Be-kox"/>
-                            <constraint firstItem="ZBQ-en-us7" firstAttribute="top" secondItem="eut-0v-NyU" secondAttribute="bottom" constant="18" id="LC5-uY-kK9"/>
+                            <constraint firstItem="eut-0v-NyU" firstAttribute="top" secondItem="8RX-Mq-tid" secondAttribute="top" constant="144" id="KEX-Be-kox"/>
+                            <constraint firstItem="ZBQ-en-us7" firstAttribute="top" secondItem="eut-0v-NyU" secondAttribute="bottom" constant="24" id="LC5-uY-kK9"/>
                             <constraint firstItem="ZBQ-en-us7" firstAttribute="centerX" secondItem="9Nm-IO-8Xv" secondAttribute="centerX" id="Pyf-Hx-PTj"/>
                             <constraint firstItem="8RX-Mq-tid" firstAttribute="bottom" secondItem="m7a-dR-MFB" secondAttribute="bottom" constant="242" id="R94-HV-cEn"/>
                             <constraint firstItem="IOa-pA-jrW" firstAttribute="leading" secondItem="5ea-vE-8VY" secondAttribute="leading" constant="133" id="VYN-t2-nsU"/>
@@ -1026,6 +1026,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cdG-PN-kxm"/>
-        <segue reference="i94-Qe-oY6"/>
+        <segue reference="iWa-ts-rqG"/>
     </inferredMetricsTieBreakers>
 </document>
