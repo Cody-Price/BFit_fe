@@ -12,51 +12,67 @@ import SwiftyJSON
 import Cloudinary
 
 class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    @IBOutlet weak var tableView: UITableView!
+    
+    
+    @IBOutlet weak var feedTable: UITableView!
+    let id = UserDefaults.standard.string(forKey: "id")!
     let config = CLDConfiguration(cloudName: "dykczjzsa", secure: true)
     lazy var cloudinary = CLDCloudinary(configuration: config)
-    lazy var feedData : JSON = []
+    var feedData : JSON = []
+    var image : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground()
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "postCell")
-        tableView.delegate = self
-        tableView.dataSource = self
-        //        fetchFeed()
-//        tableView.rowHeight = 150
-//        tableView.estimatedRowHeight = 150.0
-        tableView.estimatedRowHeight = 150
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.reloadData()
+        feedTable.delegate = self
+        feedTable.dataSource = self
+        self.feedTable.register(UITableViewCell.self, forCellReuseIdentifier: "postCell")
+        self.feedTable.rowHeight = 200.0
+        feedTable.tableFooterView = UIView()
+        getFeedPosts()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //        fetchFeed()
-        tableView.estimatedRowHeight = 150
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.reloadData()
+        getFeedPosts()
+    }
+    
+    func getFeedPosts() {
+        print("getfeedposts firing")
+        let url = "https://bfit-api.herokuapp.com/api/v1/users/\(id)/feed"
+        Alamofire.request(url).responseJSON {
+            response in
+            if response.result.isSuccess {
+                print(JSON(response.data!))
+                self.feedData = JSON(response.data!)
+                self.feedTable.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: true)
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Could not fetch feed data", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //        return feedData.list.count
-        return 100
+        return feedData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell.init()
-        let thumbnail = UIImageView.init() as UIImageView
         let title = UILabel.init() as UILabel
-        let content = UILabel.init() as UILabel
-        thumbnail.cldSetImage(self.cloudinary.createUrl().generate("fwdyfioiphjx1rhhovd2.jpg")!, cloudinary: self.cloudinary)
+        let thumbnail = UIImageView.init() as UIImageView
+        let subTitle = UILabel.init() as UILabel
+        let contentTitleOne = UILabel.init() as UILabel
+        let contentTitleTwo = UILabel.init() as UILabel
+        
+        thumbnail.cldSetImage(self.cloudinary.createUrl().generate(self.image)!, cloudinary: self.cloudinary)
         thumbnail.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         thumbnail.layer.masksToBounds = true
         thumbnail.layer.cornerRadius = 15
-        thumbnail.frame.origin.x = 10
-        thumbnail.frame.origin.y = 7
+        thumbnail.frame.origin.x = 12
+        thumbnail.frame.origin.y = 18
         
-        title.text = "Hello Everyone"
-        //        textLabel.text = "\(mockData.list[indexPath.row].username)"
+        title.text = "\(feedData[indexPath.row]["username"])"
         title.textColor = UIColor(white: 1, alpha: 1)
         title.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
         title.backgroundColor = UIColor(white: 1, alpha: 0)
@@ -64,44 +80,111 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         title.font = UIFont(name: "HelveticaNeue-Thin", size: 18.0)!
         title.frame.origin.y = 10
         
-        content.text = "lorem ipsum akl;sdjf;lka a;lksjdf;lasjd ;alksjdf;lasj;l alksdjfl;aksdjf ljsdkfjdjksfljd ksdjfkajdsf;lak skdjfl;aksjdfl akljsdfljasdl;kfjakdlf aksdjf laksdjf lkajsd;kf  al;ksdjf;laksjdfl;kj"
-        content.textColor = UIColor(white: 1, alpha: 1)
-        content.frame = CGRect(x: 0, y: 0, width: 300, height: 150)
-        content.backgroundColor = UIColor(white: 1, alpha: 0)
-        content.frame.origin.x = 50
-        content.font = UIFont(name: "HelveticaNeue-Thin", size: 18.0)!
-        content.frame.origin.y = 15
-        content.lineBreakMode = NSLineBreakMode.byWordWrapping
-        content.numberOfLines = 0
+        if feedData[indexPath.row]["post"]["post_type"] == "exercise" {
+            subTitle.text = "\(feedData[indexPath.row]["post"]["exercise"]["name"])"
+            subTitle.text = subTitle.text! + " - \(feedData[indexPath.row]["post"]["exercise"]["muscle_group"])"
+        } else {
+            subTitle.text = "\(feedData[indexPath.row]["post"]["meal"]["name"])"
+        }
+        subTitle.textColor = UIColor(white: 1, alpha: 1)
+        subTitle.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
+        subTitle.backgroundColor = UIColor(white: 1, alpha: 0)
+        subTitle.frame.origin.x = 50
+        subTitle.font = UIFont(name: "HelveticaNeue-Thin", size: 18.0)!
+        subTitle.frame.origin.y = 30
         
-        cell.addSubview(thumbnail)
-        cell.addSubview(title)
-        cell.addSubview(content)
-        cell.backgroundColor = UIColor(white: 1, alpha: 0)
-        cell.selectionStyle = UITableViewCell.SelectionStyle.none
-        cell.contentView.setNeedsLayout()
-        cell.contentView.layoutIfNeeded()
-        return cell
-    }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableView.automaticDimension;
-//    }
-    
-    func fetchFeed() {
-        let url = "https://bfit-api.herokuapp.com/api/v1/feed"
-        Alamofire.request(url, method: .get).responseJSON {
-            response in
-            if response.result.isSuccess {
-                let data = JSON(response.data!)
-                self.feedData = data
-                print(data)
+        if feedData[indexPath.row]["post"]["post_type"] == "exercise" {
+            if feedData[indexPath.row]["post"]["exercise"]["muscle_group"] == "Cardio" {
+                contentTitleOne.text = "Time: "
+                contentTitleTwo.text = "Distance: "
             } else {
-                let alert = UIAlertController(title: "Error", message: "Could not fetch feed data", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default))
-                self.present(alert, animated: true, completion: nil)
+                contentTitleOne.text = "Weight: "
+                contentTitleTwo.text = "Reps: "
+            }
+        } else {
+            contentTitleOne.text = "Food: "
+            contentTitleTwo.text = "Calories: "
+        }
+        
+        contentTitleOne.textColor = UIColor(white: 1, alpha: 1)
+        contentTitleOne.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
+        contentTitleOne.backgroundColor = UIColor(white: 1, alpha: 0)
+        contentTitleOne.frame.origin.x = 50
+        contentTitleOne.font = UIFont(name: "HelveticaNeue-Thin", size: 18.0)!
+        contentTitleOne.frame.origin.y = 60
+        
+        contentTitleTwo.textColor = UIColor(white: 1, alpha: 1)
+        contentTitleTwo.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
+        contentTitleTwo.backgroundColor = UIColor(white: 1, alpha: 0)
+        contentTitleTwo.frame.origin.x = 200
+        contentTitleTwo.font = UIFont(name: "HelveticaNeue-Thin", size: 18.0)!
+        contentTitleTwo.frame.origin.y = 60
+        
+        for i in 1...5 {
+            let label = UILabel.init() as UILabel
+            if feedData[indexPath.row]["post"]["post_type"] == "exercise" {
+                if feedData[indexPath.row]["post"]["exercise"]["weight"] != "null" {
+                    label.text = "\(feedData[indexPath.row]["post"]["exercise"]["weight"])"
+                } else {
+                    label.text = "\(feedData[indexPath.row]["post"]["exercise"]["time"])"
+                }
+            } else {
+                if feedData[indexPath.row]["post"]["meal"]["foods"][i - 1]["name"].stringValue == "" {
+                    label.text = nil
+                } else {
+                    label.text = "\(feedData[indexPath.row]["post"]["meal"]["foods"][i - 1]["name"])"
+                }
+            }
+            label.textColor = UIColor(white: 1, alpha: 1)
+            label.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
+            label.backgroundColor = UIColor(white: 1, alpha: 0)
+            label.frame.origin.x = 50
+            label.font = UIFont(name: "HelveticaNeue-Thin", size: 16.0)!
+            label.frame.origin.y = CGFloat(i * 20 + 65)
+            if feedData[indexPath.row]["post"]["post_type"] == "exercise" && i == 1 {
+                cell.addSubview(label)
+            } else if feedData[indexPath.row]["post"]["post_type"] == "meal" {
+                cell.addSubview(label)
             }
         }
+        
+        for i in 1...5 {
+            let label = UILabel.init() as UILabel
+            if feedData[indexPath.row]["post"]["post_type"] == "exercise" {
+                if feedData[indexPath.row]["post"]["exercise"]["reps"] != "null" {
+                    label.text = "\(feedData[indexPath.row]["post"]["exercise"]["reps"])"
+                } else {
+                    label.text = "\(feedData[indexPath.row]["post"]["exercise"]["time"])"
+                }
+            } else {
+                if feedData[indexPath.row]["post"]["meal"]["foods"][i - 1]["calories"].stringValue == "" {
+                    label.text = nil
+                } else {
+                    label.text = "\(feedData[indexPath.row]["post"]["meal"]["foods"][i - 1]["calories"])"
+                }
+            }
+            label.textColor = UIColor(white: 1, alpha: 1)
+            label.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
+            label.backgroundColor = UIColor(white: 1, alpha: 0)
+            label.frame.origin.x = 200
+            label.font = UIFont(name: "HelveticaNeue-Thin", size: 16.0)!
+            label.frame.origin.y = CGFloat(i * 20 + 65)
+            if feedData[indexPath.row]["post"]["post_type"] == "exercise" && i == 1 {
+                cell.addSubview(label)
+            } else if feedData[indexPath.row]["post"]["post_type"] == "meal" {
+                cell.addSubview(label)
+            }
+        }
+        
+        cell.addSubview(title)
+        cell.addSubview(thumbnail)
+        cell.addSubview(subTitle)
+        cell.addSubview(contentTitleOne)
+        cell.addSubview(contentTitleTwo)
+        
+        cell.backgroundColor = UIColor(white: 1, alpha: 0)
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
+        return cell
     }
     
     func setGradientBackground() {
@@ -114,4 +197,3 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
 }
-
