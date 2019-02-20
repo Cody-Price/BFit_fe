@@ -18,9 +18,12 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userFeed: UITableView!
+    let id = UserDefaults.standard.string(forKey: "id")!
     let config = CLDConfiguration(cloudName: "dykczjzsa", secure: true)
     lazy var cloudinary = CLDCloudinary(configuration: config)
     var postsData : JSON = []
+    var followingData : JSON = []
+    var cleanedData : [Int] = []
     
     var data = ""
     
@@ -40,6 +43,7 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidAppear(_ animated: Bool) {
         getUserData()
         getUserPosts()
+        getFollowing()
     }
     
     func getUserData() {
@@ -71,6 +75,30 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
                 alert.addAction(UIAlertAction(title: "OK", style: .default))
                 self.present(alert, animated: true, completion: nil)
             }
+        }
+    }
+    
+    func getFollowing() {
+        let url = "https://bfit-api.herokuapp.com/api/v1/users/\(id)/following"
+        Alamofire.request(url, method: .get).responseJSON {
+            response in
+            if response.result.isSuccess {
+                self.followingData = JSON(response.data!)
+                self.cleanData()
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Could not fetch user data", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func cleanData() {
+        cleanedData = followingData.map { $0.1["users"]["id"].intValue }
+        if cleanedData.contains(Int(data)!) {
+            btnStyle.setTitle("Unfollow", for: .normal)
+        } else {
+            btnStyle.setTitle("Follow", for: .normal)
         }
     }
     
@@ -130,9 +158,29 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func toggleFollow(_ sender: UIButton) {
         if sender.titleLabel!.text == "Follow" {
-            sender.setTitle("Unfollow", for: .normal)
+            let url = "https://bfit-api.herokuapp.com/api/v1/users/\(id)/follow/\(data)"
+            Alamofire.request(url, method: .post).responseJSON {
+                response in
+                if response.result.isSuccess {
+                    sender.setTitle("Unfollow", for: .normal)
+                } else {
+                    let alert = UIAlertController(title: "Error", message: "Problem communicating with server.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
         } else {
-            sender.setTitle("Follow", for: .normal)
+            let url = "https://bfit-api.herokuapp.com/api/v1/users/\(id)/unfollow/\(data)"
+            Alamofire.request(url, method: .post).responseJSON {
+                response in
+                if response.result.isSuccess {
+                    sender.setTitle("Follow", for: .normal)
+                } else {
+                    let alert = UIAlertController(title: "Error", message: "Problem communicating with server.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
         }
     }
 }

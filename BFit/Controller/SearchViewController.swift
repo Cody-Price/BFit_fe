@@ -14,9 +14,11 @@ import Cloudinary
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     @IBOutlet weak var searchInput: UISearchBar!
     @IBOutlet weak var searchTable: UITableView!
-    let mockSearchData = SearchData().data
+    let id = UserDefaults.standard.string(forKey: "id")!
     var selectedId : Int = 0
-    var data : [Any] = []
+    var data : JSON = []
+    var followingData : JSON = []
+    var cleanedData : [Int] = []
     let config = CLDConfiguration(cloudName: "dykczjzsa", secure: true)
     lazy var cloudinary = CLDCloudinary(configuration: config)
     
@@ -28,6 +30,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         searchTable.delegate = self
         searchInput.delegate = self
         searchTable.tableFooterView = UIView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        getFollowing()
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -42,16 +48,15 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let searchValue = JSON(searchInput.text!)
-        let urlString = "https://bfit-api.herokuapp.com/api/v1/users?name=\(searchValue)"
+        let searchValue = JSON(searchInput.text!.lowercased())
+        let urlString = "https://bfit-api.herokuapp.com/api/v1/users?username=\(searchValue)"
         Alamofire.request(urlString).responseJSON {
             response in
             if response.result.isSuccess {
-//                reassign data global to response from search
-//                data = response.result.data
-                self.searchTable.reloadData()
+                self.data = JSON(response.data!)
+                self.getFollowing()
             } else {
-                let alert = UIAlertController(title: "Error", message: "Problem communicating with server during post request.", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Error", message: "Problem communicating with server during search.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default))
                 self.present(alert, animated: true, completion: nil)
             }
@@ -59,8 +64,28 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         searchInput.endEditing(true)
     }
     
+    func getFollowing() {
+        let url = "https://bfit-api.herokuapp.com/api/v1/users/\(id)/following"
+        Alamofire.request(url, method: .get).responseJSON {
+            response in
+            if response.result.isSuccess {
+                self.followingData = JSON(response.data!)
+                self.cleanData()
+                self.searchTable.reloadData()
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Could not fetch user data", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func cleanData() {
+        self.cleanedData = self.followingData.map { $0.1["users"]["id"].intValue }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mockSearchData.count
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -68,30 +93,30 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         let customButton = UIButton.init(type: .custom) as UIButton
         let thumbnail = UIImageView.init() as UIImageView
         let textLabel = UILabel.init() as UILabel
-        
-        thumbnail.cldSetImage(self.cloudinary.createUrl().generate("fwdyfioiphjx1rhhovd2.jpg")!, cloudinary: self.cloudinary)
+        let url = data[indexPath.row]["users"]["avatar"].stringValue
+        thumbnail.cldSetImage(self.cloudinary.createUrl().generate(url)!, cloudinary: self.cloudinary)
         thumbnail.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         thumbnail.layer.masksToBounds = true
         thumbnail.layer.cornerRadius = 15
         thumbnail.frame.origin.x = 10
         thumbnail.frame.origin.y = 7
-
         
-        if mockSearchData[indexPath.row].isFollowing {
+        if cleanedData.contains(Int(data[indexPath.row]["users"]["id"].stringValue)!) {
             customButton.setTitle("Unfollow", for: .normal)
         } else {
             customButton.setTitle("Follow", for: .normal)
         }
-        
+
         customButton.frame = CGRect(x: 0, y: 0, width: 120, height: 30)
         customButton.frame.origin.x = self.view!.bounds.width - 140
         customButton.frame.origin.y = 7
         customButton.layer.cornerRadius = 5
         customButton.layer.borderWidth = 1
         customButton.layer.borderColor = UIColor.white.cgColor
+        customButton.tag = Int(data[indexPath.row]["users"]["id"].stringValue)!
         customButton.addTarget(self, action: #selector(didButtonClick), for: .touchUpInside)
         
-        textLabel.text = "\(mockSearchData[indexPath.row].userName)"
+        textLabel.text = "\(data[indexPath.row]["users"]["username"].stringValue)"
         textLabel.textColor = UIColor(white: 1, alpha: 1)
         textLabel.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
         textLabel.backgroundColor = UIColor(white: 1, alpha: 0)
@@ -116,15 +141,35 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
-        selectedId = mockSearchData[indexPath.row].id
+        selectedId = Int(data[indexPath.row]["users"]["id"].stringValue)!
         performSegue(withIdentifier: "showUser", sender: cell)
     }
     
     @objc func didButtonClick(_ sender: UIButton) {
         if sender.titleLabel!.text == "Follow" {
-            sender.setTitle("Unfollow", for: .normal)
+            let url = "https://bfit-api.herokuapp.com/api/v1/users/\(id)/follow/\(sender.tag)"
+            Alamofire.request(url, method: .post).responseJSON {
+                response in
+                if response.result.isSuccess {
+                    sender.setTitle("Unfollow", for: .normal)
+                } else {
+                    let alert = UIAlertController(title: "Error", message: "Problem communicating with server.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
         } else {
-            sender.setTitle("Follow", for: .normal)
+            let url = "https://bfit-api.herokuapp.com/api/v1/users/\(id)/unfollow/\(sender.tag)"
+            Alamofire.request(url, method: .post).responseJSON {
+                response in
+                if response.result.isSuccess {
+                    sender.setTitle("Follow", for: .normal)
+                } else {
+                    let alert = UIAlertController(title: "Error", message: "Problem communicating with server.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
         }
     }
     

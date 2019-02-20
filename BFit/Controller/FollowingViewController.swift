@@ -8,14 +8,17 @@
 
 import UIKit
 import Cloudinary
+import Alamofire
+import SwiftyJSON
 
 class FollowingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var numFollowing: UILabel!
     @IBOutlet weak var followingView: UITableView!
-    let mockData = FollowingMockData()
+    let id = UserDefaults.standard.string(forKey: "id")!
     var selectedId : Int = 0
     let config = CLDConfiguration(cloudName: "dykczjzsa", secure: true)
     lazy var cloudinary = CLDCloudinary(configuration: config)
+    var data : JSON = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +29,32 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
         followingView.tableFooterView = UIView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        getFollowing()
+    }
+    
+    func getFollowing() {
+        let url = "https://bfit-api.herokuapp.com/api/v1/users/\(id)/following"
+        Alamofire.request(url, method: .get).responseJSON {
+            response in
+            if response.result.isSuccess {
+                self.data = JSON(response.data!)
+                self.followingView.reloadData()
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Could not fetch user data", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        numFollowing.text = "\(mockData.list.count) Following"
-        return mockData.list.count
+        numFollowing.text = "\(data.count) Following"
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,29 +62,25 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
         let customButton = UIButton.init(type: .custom) as UIButton
         let thumbnail = UIImageView.init() as UIImageView
         let textLabel = UILabel.init() as UILabel
-        
-        thumbnail.cldSetImage(self.cloudinary.createUrl().generate("fwdyfioiphjx1rhhovd2.jpg")!, cloudinary: self.cloudinary)
+        let url = data[indexPath.row]["users"]["avatar"].stringValue
+        thumbnail.cldSetImage(self.cloudinary.createUrl().generate(url)!, cloudinary: self.cloudinary)
         thumbnail.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         thumbnail.layer.masksToBounds = true
         thumbnail.layer.cornerRadius = 15
         thumbnail.frame.origin.x = 10
         thumbnail.frame.origin.y = 7
         
-        if mockData.list[indexPath.row].isFollowing {
-            customButton.setTitle("Unfollow", for: .normal)
-        } else {
-            customButton.setTitle("Follow", for: .normal)
-        }
-        
+        customButton.setTitle("Unfollow", for: .normal)
         customButton.frame = CGRect(x: 0, y: 0, width: 120, height: 30)
         customButton.frame.origin.x = self.view!.bounds.width - 140
         customButton.frame.origin.y = 7
         customButton.layer.cornerRadius = 5
         customButton.layer.borderWidth = 1
         customButton.layer.borderColor = UIColor.white.cgColor
+        customButton.tag = Int(data[indexPath.row]["users"]["id"].stringValue)!
         customButton.addTarget(self, action: #selector(didButtonClick), for: .touchUpInside)
         
-        textLabel.text = "\(mockData.list[indexPath.row].userName)"
+        textLabel.text = "\(data[indexPath.row]["users"]["username"])"
         textLabel.textColor = UIColor(white: 1, alpha: 1)
         textLabel.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
         textLabel.backgroundColor = UIColor(white: 1, alpha: 0)
@@ -87,16 +105,21 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
-        selectedId = mockData.list[indexPath.row].id
+        selectedId = Int(data[indexPath.row]["users"]["id"].stringValue)!
         performSegue(withIdentifier: "showUser", sender: cell)
     }
     
     @objc func didButtonClick(_ sender: UIButton) {
-        print("yay")
-        if sender.titleLabel!.text == "Unfollow" {
-            sender.setTitle("Follow", for: .normal)
-        } else {
-            sender.setTitle("Unfollow", for: .normal)
+        let url = "https://bfit-api.herokuapp.com/api/v1/users/\(id)/unfollow/\(sender.tag)"
+        Alamofire.request(url, method: .post).responseJSON {
+            response in
+            if response.result.isSuccess {
+                self.getFollowing()
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Problem communicating with server.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
