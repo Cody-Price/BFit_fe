@@ -29,6 +29,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         imagePicker.delegate = self
         postsTable.delegate = self
         postsTable.dataSource = self
+        self.postsTable.register(UITableViewCell.self, forCellReuseIdentifier: "postCell")
+        self.postsTable.rowHeight = 150.0
         postsTable.tableFooterView = UIView()
         getCurrentUser()
         getUserPosts()
@@ -57,8 +59,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             response in
             if response.result.isSuccess {
                 self.postsData = JSON(response.data!)["posts"]
-                print(self.postsData)
-//                self.postsTable.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: true)
+                self.postsTable.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: true)
             } else {
                 let alert = UIAlertController(title: "Error", message: "Could not fetch user data", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default))
@@ -74,18 +75,41 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as UITableViewCell
         let title = UILabel.init() as UILabel
+        let thumbnail = UIImageView.init() as UIImageView
+        let subTitle = UILabel.init() as UILabel
+        
+        thumbnail.image = profilePic.image
+        thumbnail.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        thumbnail.layer.masksToBounds = true
+        thumbnail.layer.cornerRadius = 15
+        thumbnail.frame.origin.x = 10
+        thumbnail.frame.origin.y = 10
 
-//        title.text = "\(postsData[indexPath].title)"
+        title.text = "\(postsData[indexPath.row]["post_type"])".uppercased()
         title.textColor = UIColor(white: 1, alpha: 1)
         title.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
         title.backgroundColor = UIColor(white: 1, alpha: 0)
         title.frame.origin.x = 50
-        title.font = UIFont.systemFont(ofSize: 18.0)
-        title.frame.origin.y = 7
+        title.font = UIFont(name: "HelveticaNeue-Thin", size: 18.0)!
+        title.frame.origin.y = 10
         
+        subTitle.text = "\(postsData[indexPath.row]["title"])"
+        subTitle.textColor = UIColor(white: 1, alpha: 1)
+        subTitle.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
+        subTitle.backgroundColor = UIColor(white: 1, alpha: 0)
+        subTitle.frame.origin.x = 50
+        subTitle.font = UIFont(name: "HelveticaNeue-Thin", size: 18.0)!
+        subTitle.frame.origin.y = 40
         
+        cell.addSubview(title)
+        cell.addSubview(thumbnail)
+        cell.addSubview(subTitle)
+        
+        cell.backgroundColor = UIColor(white: 1, alpha: 0)
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         return cell
     }
+    
     
     @IBAction func logout(_ sender: Any) {
         let def = UserDefaults.standard
