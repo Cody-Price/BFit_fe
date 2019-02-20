@@ -9,20 +9,9 @@
 import UIKit
 
 class HomeViewController: UITabBarController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        delegate = self
-        // get feed data here
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        // get feed data here
-    }
-    
-//    func fetchFeed() {
-//        
-//    }
 }
 
 extension HomeViewController: UITabBarControllerDelegate  {
