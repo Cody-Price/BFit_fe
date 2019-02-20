@@ -34,7 +34,7 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
+        let cell = UITableViewCell.init()
         let customButton = UIButton.init(type: .custom) as UIButton
         let thumbnail = UIImageView.init() as UIImageView
         let textLabel = UILabel.init() as UILabel

@@ -536,6 +536,7 @@
                     </view>
                     <connections>
                         <outlet property="btnStyle" destination="2dA-YF-lh5" id="ZtK-qw-C9G"/>
+                        <outlet property="postsTable" destination="jxO-Vf-9Ha" id="2lH-HN-1sw"/>
                         <outlet property="userFeed" destination="jxO-Vf-9Ha" id="CJB-LN-eVf"/>
                         <outlet property="userImage" destination="B5a-2b-Qui" id="7OS-eu-THv"/>
                         <outlet property="userName" destination="juO-RM-QvU" id="9zQ-w4-Bk3"/>

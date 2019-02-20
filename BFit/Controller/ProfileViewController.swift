@@ -73,7 +73,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as UITableViewCell
+        let cell = UITableViewCell.init()
         let title = UILabel.init() as UILabel
         let thumbnail = UIImageView.init() as UIImageView
         let subTitle = UILabel.init() as UILabel

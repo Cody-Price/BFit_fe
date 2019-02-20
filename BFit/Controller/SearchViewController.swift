@@ -64,7 +64,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as UITableViewCell
+        let cell = UITableViewCell.init()
         let customButton = UIButton.init(type: .custom) as UIButton
         let thumbnail = UIImageView.init() as UIImageView
         let textLabel = UILabel.init() as UILabel
