@@ -36,6 +36,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         getUserPosts()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        getUserPosts()
+    }
+    
     func getCurrentUser() {
         let url = "https://bfit-api.herokuapp.com/api/v1/users/\(id)"
         Alamofire.request(url, method: .get).responseJSON {
