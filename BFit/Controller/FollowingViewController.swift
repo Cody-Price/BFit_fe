@@ -10,6 +10,7 @@ import UIKit
 import Cloudinary
 
 class FollowingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var numFollowing: UILabel!
     @IBOutlet weak var followingView: UITableView!
     let mockData = FollowingMockData()
     var selectedId : Int = 0
@@ -30,6 +31,7 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        numFollowing.text = "\(mockData.list.count) Following"
         return mockData.list.count
     }
     
