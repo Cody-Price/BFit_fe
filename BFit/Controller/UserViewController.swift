@@ -11,24 +11,32 @@ import Alamofire
 import SwiftyJSON
 import Cloudinary
 
-class UserViewController: UIViewController {
+class UserViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    @IBOutlet weak var postsTable: UITableView!
     @IBOutlet weak var btnStyle: UIButton!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userFeed: UITableView!
     let config = CLDConfiguration(cloudName: "dykczjzsa", secure: true)
     lazy var cloudinary = CLDCloudinary(configuration: config)
+    var postsData : JSON = []
     
     var data = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground()
+        postsTable.delegate = self
+        postsTable.dataSource = self
+        self.postsTable.register(UITableViewCell.self, forCellReuseIdentifier: "postCell")
+        self.postsTable.rowHeight = 150.0
+        postsTable.tableFooterView = UIView()
         btnStyle.layer.cornerRadius = 5
         btnStyle.layer.borderWidth = 1
         btnStyle.layer.borderColor = UIColor.white.cgColor
         getUserData()
-        
+        getUserPosts()
     }
     
     func getUserData() {
@@ -46,6 +54,65 @@ class UserViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
             }
         }
+    }
+    
+    func getUserPosts() {
+        let url = "https://bfit-api.herokuapp.com/api/v1/users/\(data)/posts"
+        Alamofire.request(url).responseJSON {
+            response in
+            if response.result.isSuccess {
+                self.postsData = JSON(response.data!)["posts"]
+                self.postsTable.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: true)
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Could not fetch user data", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return postsData.count
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell.init()
+        let title = UILabel.init() as UILabel
+        let thumbnail = UIImageView.init() as UIImageView
+        let subTitle = UILabel.init() as UILabel
+        
+        thumbnail.image = userImage.image
+        thumbnail.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        thumbnail.layer.masksToBounds = true
+        thumbnail.layer.cornerRadius = 15
+        thumbnail.frame.origin.x = 10
+        thumbnail.frame.origin.y = 10
+        
+        title.text = "\(postsData[indexPath.row]["post_type"])".uppercased()
+        title.textColor = UIColor(white: 1, alpha: 1)
+        title.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
+        title.backgroundColor = UIColor(white: 1, alpha: 0)
+        title.frame.origin.x = 50
+        title.font = UIFont(name: "HelveticaNeue-Thin", size: 18.0)!
+        title.frame.origin.y = 10
+        
+        subTitle.text = "\(postsData[indexPath.row]["title"])"
+        subTitle.textColor = UIColor(white: 1, alpha: 1)
+        subTitle.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
+        subTitle.backgroundColor = UIColor(white: 1, alpha: 0)
+        subTitle.frame.origin.x = 50
+        subTitle.font = UIFont(name: "HelveticaNeue-Thin", size: 18.0)!
+        subTitle.frame.origin.y = 40
+        
+        cell.addSubview(title)
+        cell.addSubview(thumbnail)
+        cell.addSubview(subTitle)
+        
+        cell.backgroundColor = UIColor(white: 1, alpha: 0)
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
+        return cell
     }
     
     func setGradientBackground() {
