@@ -24,19 +24,17 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.delegate = self
         tableView.dataSource = self
         //        fetchFeed()
-        tableView.rowHeight = 150
-//        tableView.estimatedRowHeight = 900
-//        tableView.rowHeight = UITableView.
+//        tableView.rowHeight = 150
 //        tableView.estimatedRowHeight = 150.0
-//        tableView.rowHeight = UITableView.automaticDimension
-//        tableView.estimatedRowHeight = 150
-//        tableView.reloadData()
+        tableView.estimatedRowHeight = 150
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         //        fetchFeed()
-        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.reloadData()
     }
     
