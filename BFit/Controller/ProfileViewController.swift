@@ -46,7 +46,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             response in
             if response.result.isSuccess {
                 let data = JSON(response.data!)
-                let url = data["user"]["avatar"].stringValue
+                let url = data["user"]["post"]["avatar"].stringValue
                 self.profilePic.cldSetImage(self.cloudinary.createUrl().generate(url)!, cloudinary: self.cloudinary)
                 self.userName.text = data["user"]["username"].stringValue
             } else {
@@ -62,7 +62,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         Alamofire.request(url).responseJSON {
             response in
             if response.result.isSuccess {
-                self.postsData = JSON(response.data!)["posts"]
+                self.postsData = JSON(response.data!)
                 self.postsTable.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: true)
             } else {
                 let alert = UIAlertController(title: "Error", message: "Could not fetch user data", preferredStyle: .alert)
@@ -89,7 +89,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         thumbnail.frame.origin.x = 10
         thumbnail.frame.origin.y = 10
 
-        title.text = "\(postsData[indexPath.row]["post_type"])".uppercased()
+        title.text = "\(postsData[indexPath.row]["post"]["post_type"])".uppercased()
         title.textColor = UIColor(white: 1, alpha: 1)
         title.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
         title.backgroundColor = UIColor(white: 1, alpha: 0)
@@ -97,7 +97,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         title.font = UIFont(name: "HelveticaNeue-Thin", size: 18.0)!
         title.frame.origin.y = 10
         
-        subTitle.text = "\(postsData[indexPath.row]["title"])"
+        subTitle.text = "\(postsData[indexPath.row]["post"]["title"])"
         subTitle.textColor = UIColor(white: 1, alpha: 1)
         subTitle.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
         subTitle.backgroundColor = UIColor(white: 1, alpha: 0)
@@ -135,8 +135,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let imageURL = info[UIImagePickerController.InfoKey.imageURL] as! URL
-        let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-        profilePic.image = pickedImage
         postImage(imgURL: imageURL as URL)
         dismiss(animated: true, completion: nil)
     }
@@ -148,7 +146,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     let publicID = result.publicId!
                     let format = result.format!
                     let url = "\(publicID).\(format)"
-//                    self.patchUserWithImage(url: url)
+                    self.patchUserWithImage(url: url)
                 } else if (error != nil) {
                     let alert = UIAlertController(title: "Error", message: "Could not fetch upload image", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default))
@@ -158,12 +156,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func patchUserWithImage(url : String) {
-        let urlString = "https://bfit-api.herokuapp.com/api/v1/users"
+        let urlString = "https://bfit-api.herokuapp.com/api/v1/users/\(id)/edit"
         let data = [
             "avatar" : url
         ]
         
-        Alamofire.request(urlString, method: .patch, parameters: data, encoding: JSONEncoding.default).responseJSON {
+        Alamofire.request(urlString, method: .put, parameters: data, encoding: JSONEncoding.default).responseJSON {
             response in
             if response.result.isSuccess {
                 self.profilePic.cldSetImage(self.cloudinary.createUrl().generate(url)!, cloudinary: self.cloudinary)
