@@ -14,7 +14,6 @@ import Cloudinary
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     @IBOutlet weak var searchInput: UISearchBar!
     @IBOutlet weak var searchTable: UITableView!
-//    let mockSearchData = SearchData().data
     let id = UserDefaults.standard.string(forKey: "id")!
     var selectedId : Int = 0
     var data : JSON = []
