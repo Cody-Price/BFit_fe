@@ -331,7 +331,7 @@
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Home" id="BYZ-38-t0r" userLabel="Home" customClass="ViewController" customModule="BFit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Feed" title="Home" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" userLabel="Home" customClass="FeedViewController" customModule="BFit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -354,6 +354,9 @@
                     <tabBarItem key="tabBarItem" title="" image="house-xxl 2.1" selectedImage="house-xxl 2.1" id="NU1-Il-Jkg">
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-13"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="tableView" destination="vv1-YG-e4f" id="dzp-hr-Zze"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -1026,6 +1029,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cdG-PN-kxm"/>
-        <segue reference="i94-Qe-oY6"/>
+        <segue reference="iWa-ts-rqG"/>
     </inferredMetricsTieBreakers>
 </document>
