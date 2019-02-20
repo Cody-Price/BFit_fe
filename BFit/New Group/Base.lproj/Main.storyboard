@@ -467,6 +467,7 @@
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-13"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="postsTable" destination="jLw-w0-YbC" id="EDh-HC-Kdt"/>
                         <outlet property="profilePic" destination="8Bp-KB-ebA" id="Crh-1f-Lda"/>
                         <outlet property="userName" destination="Kbe-rl-ljA" id="F2o-U5-XVB"/>
                     </connections>
