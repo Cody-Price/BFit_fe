@@ -17,6 +17,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     let id = UserDefaults.standard.string(forKey: "id")!
     var selectedId : Int = 0
     var data : JSON = []
+    var followingData : JSON = []
+    var cleanedData : [Int] = []
     let config = CLDConfiguration(cloudName: "dykczjzsa", secure: true)
     lazy var cloudinary = CLDCloudinary(configuration: config)
     
@@ -48,7 +50,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             response in
             if response.result.isSuccess {
                 self.data = JSON(response.data!)
-                self.searchTable.reloadData()
+                self.getFollowing()
             } else {
                 let alert = UIAlertController(title: "Error", message: "Problem communicating with server during search.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default))
@@ -56,6 +58,26 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             }
         }
         searchInput.endEditing(true)
+    }
+    
+    func getFollowing() {
+        let url = "https://bfit-api.herokuapp.com/api/v1/users/\(id)/following"
+        Alamofire.request(url, method: .get).responseJSON {
+            response in
+            if response.result.isSuccess {
+                self.followingData = JSON(response.data!)
+                self.cleanData()
+                self.searchTable.reloadData()
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Could not fetch user data", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func cleanData() {
+        self.cleanedData = self.followingData.map { $0.1["users"]["id"].intValue }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -74,14 +96,15 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         thumbnail.layer.cornerRadius = 15
         thumbnail.frame.origin.x = 10
         thumbnail.frame.origin.y = 7
-
-//
-//        if data[indexPath.row].isFollowing {
-            customButton.setTitle("Unfollow", for: .normal)
-//        } else {
-//            customButton.setTitle("Follow", for: .normal)
-//        }
         
+        print(Int(data[indexPath.row]["users"]["id"].stringValue)!)
+        
+        if cleanedData.contains(Int(data[indexPath.row]["users"]["id"].stringValue)!) {
+            customButton.setTitle("Unfollow", for: .normal)
+        } else {
+            customButton.setTitle("Follow", for: .normal)
+        }
+
         customButton.frame = CGRect(x: 0, y: 0, width: 120, height: 30)
         customButton.frame.origin.x = self.view!.bounds.width - 140
         customButton.frame.origin.y = 7
