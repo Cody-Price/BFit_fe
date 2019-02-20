@@ -11,21 +11,27 @@ import Alamofire
 import SwiftyJSON
 import Cloudinary
 
-class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     
+    
+    @IBOutlet weak var postsTable: UITableView!
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var userName: UILabel!
     let imagePicker = UIImagePickerController()
     let id = UserDefaults.standard.string(forKey: "id")!
     let config = CLDConfiguration(cloudName: "dykczjzsa", secure: true)
     lazy var cloudinary = CLDCloudinary(configuration: config)
+    var postsData : JSON = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setGradientBackground()
         imagePicker.delegate = self
+        postsTable.delegate = self
+        postsTable.dataSource = self
+        postsTable.tableFooterView = UIView()
         getCurrentUser()
+        getUserPosts()
     }
     
     func getCurrentUser() {
@@ -34,7 +40,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             response in
             if response.result.isSuccess {
                 let data = JSON(response.data!)
-                self.profilePic.image = UIImage(named: data["user"]["avatar"].stringValue)
+                let url = data["user"]["avatar"].stringValue
+                self.profilePic.cldSetImage(self.cloudinary.createUrl().generate(url)!, cloudinary: self.cloudinary)
                 self.userName.text = data["user"]["username"].stringValue
             } else {
                 let alert = UIAlertController(title: "Error", message: "Could not fetch user data", preferredStyle: .alert)
@@ -42,6 +49,42 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 self.present(alert, animated: true, completion: nil)
             }
         }
+    }
+    
+    func getUserPosts() {
+        let url = "https://bfit-api.herokuapp.com/api/v1/users/\(id)/posts"
+        Alamofire.request(url).responseJSON {
+            response in
+            if response.result.isSuccess {
+                self.postsData = JSON(response.data!)["posts"]
+                print(self.postsData)
+//                self.postsTable.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: true)
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Could not fetch user data", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return postsData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as UITableViewCell
+        let title = UILabel.init() as UILabel
+
+//        title.text = "\(postsData[indexPath].title)"
+        title.textColor = UIColor(white: 1, alpha: 1)
+        title.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
+        title.backgroundColor = UIColor(white: 1, alpha: 0)
+        title.frame.origin.x = 50
+        title.font = UIFont.systemFont(ofSize: 18.0)
+        title.frame.origin.y = 7
+        
+        
+        return cell
     }
     
     @IBAction func logout(_ sender: Any) {
@@ -77,9 +120,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     let publicID = result.publicId!
                     let format = result.format!
                     let url = "\(publicID).\(format)"
-                    print(url)
-                    // patch image to user goes here passing in url:
-                    // self.patchUserWithImage(url: url)
+//                    self.patchUserWithImage(url: url)
                 } else if (error != nil) {
                     let alert = UIAlertController(title: "Error", message: "Could not fetch upload image", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default))
