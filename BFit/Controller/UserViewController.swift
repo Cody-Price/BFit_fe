@@ -39,6 +39,10 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         getUserPosts()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        getUserPosts()
+    }
+    
     func getUserData() {
         let url = "https://bfit-api.herokuapp.com/api/v1/users/\(data)"
         Alamofire.request(url, method: .get).responseJSON {
