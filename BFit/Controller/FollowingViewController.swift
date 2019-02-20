@@ -110,29 +110,15 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     @objc func didButtonClick(_ sender: UIButton) {
-        if sender.titleLabel!.text == "Follow" {
-            let url = "https://bfit-api.herokuapp.com/api/v1/users/\(id)/follow/\(sender.tag)"
-            Alamofire.request(url, method: .post).responseJSON {
-                response in
-                if response.result.isSuccess {
-                    sender.setTitle("Unfollow", for: .normal)
-                } else {
-                    let alert = UIAlertController(title: "Error", message: "Problem communicating with server.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default))
-                    self.present(alert, animated: true, completion: nil)
-                }
-            }
-        } else {
-            let url = "https://bfit-api.herokuapp.com/api/v1/users/\(id)/unfollow/\(sender.tag)"
-            Alamofire.request(url, method: .post).responseJSON {
-                response in
-                if response.result.isSuccess {
-                    sender.setTitle("Follow", for: .normal)
-                } else {
-                    let alert = UIAlertController(title: "Error", message: "Problem communicating with server.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default))
-                    self.present(alert, animated: true, completion: nil)
-                }
+        let url = "https://bfit-api.herokuapp.com/api/v1/users/\(id)/unfollow/\(sender.tag)"
+        Alamofire.request(url, method: .post).responseJSON {
+            response in
+            if response.result.isSuccess {
+                self.getFollowing()
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Problem communicating with server.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }
