@@ -32,6 +32,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         searchTable.tableFooterView = UIView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        getFollowing()
+    }
+    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchInput.setShowsCancelButton(true, animated: true)
         searchInput.showsCancelButton = true
@@ -96,8 +100,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         thumbnail.layer.cornerRadius = 15
         thumbnail.frame.origin.x = 10
         thumbnail.frame.origin.y = 7
-        
-        print(Int(data[indexPath.row]["users"]["id"].stringValue)!)
         
         if cleanedData.contains(Int(data[indexPath.row]["users"]["id"].stringValue)!) {
             customButton.setTitle("Unfollow", for: .normal)
