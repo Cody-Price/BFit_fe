@@ -22,6 +22,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     let config = CLDConfiguration(cloudName: "dykczjzsa", secure: true)
     lazy var cloudinary = CLDCloudinary(configuration: config)
     var postsData : JSON = []
+    var image : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +33,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.postsTable.register(UITableViewCell.self, forCellReuseIdentifier: "postCell")
         self.postsTable.rowHeight = 150.0
         postsTable.tableFooterView = UIView()
-        getCurrentUser()
-        getUserPosts()
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        getCurrentUser()
         getUserPosts()
     }
     
@@ -46,7 +46,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             response in
             if response.result.isSuccess {
                 let data = JSON(response.data!)
-                let url = data["user"]["post"]["avatar"].stringValue
+                let url = data["user"]["avatar"].stringValue
+                self.image = url
                 self.profilePic.cldSetImage(self.cloudinary.createUrl().generate(url)!, cloudinary: self.cloudinary)
                 self.userName.text = data["user"]["username"].stringValue
             } else {
@@ -82,7 +83,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let thumbnail = UIImageView.init() as UIImageView
         let subTitle = UILabel.init() as UILabel
         
-        thumbnail.image = profilePic.image
+        thumbnail.cldSetImage(self.cloudinary.createUrl().generate(self.image)!, cloudinary: self.cloudinary)
         thumbnail.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         thumbnail.layer.masksToBounds = true
         thumbnail.layer.cornerRadius = 15
@@ -146,6 +147,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     let publicID = result.publicId!
                     let format = result.format!
                     let url = "\(publicID).\(format)"
+                    self.image = url
                     self.patchUserWithImage(url: url)
                 } else if (error != nil) {
                     let alert = UIAlertController(title: "Error", message: "Could not fetch upload image", preferredStyle: .alert)
@@ -165,6 +167,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             response in
             if response.result.isSuccess {
                 self.profilePic.cldSetImage(self.cloudinary.createUrl().generate(url)!, cloudinary: self.cloudinary)
+                self.postsTable.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: true)
             } else {
                 let alert = UIAlertController(title: "Error", message: "Could not post new image to user specified", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default))

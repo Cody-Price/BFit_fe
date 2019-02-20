@@ -35,11 +35,10 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         btnStyle.layer.cornerRadius = 5
         btnStyle.layer.borderWidth = 1
         btnStyle.layer.borderColor = UIColor.white.cgColor
-        getUserData()
-        getUserPosts()
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        getUserData()
         getUserPosts()
     }
     
@@ -65,7 +64,7 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         Alamofire.request(url).responseJSON {
             response in
             if response.result.isSuccess {
-                self.postsData = JSON(response.data!)["posts"]
+                self.postsData = JSON(response.data!)
                 self.postsTable.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: true)
             } else {
                 let alert = UIAlertController(title: "Error", message: "Could not fetch user data", preferredStyle: .alert)
@@ -94,7 +93,7 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         thumbnail.frame.origin.x = 10
         thumbnail.frame.origin.y = 10
         
-        title.text = "\(postsData[indexPath.row]["post_type"])".uppercased()
+        title.text = "\(postsData[indexPath.row]["post"]["post_type"])".uppercased()
         title.textColor = UIColor(white: 1, alpha: 1)
         title.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
         title.backgroundColor = UIColor(white: 1, alpha: 0)
@@ -102,7 +101,7 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         title.font = UIFont(name: "HelveticaNeue-Thin", size: 18.0)!
         title.frame.origin.y = 10
         
-        subTitle.text = "\(postsData[indexPath.row]["title"])"
+        subTitle.text = "\(postsData[indexPath.row]["post"]["title"])"
         subTitle.textColor = UIColor(white: 1, alpha: 1)
         subTitle.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
         subTitle.backgroundColor = UIColor(white: 1, alpha: 0)
