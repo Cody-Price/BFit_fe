@@ -49,17 +49,22 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let searchValue = JSON(searchInput.text!.lowercased())
-        let urlString = "https://bfit-api.herokuapp.com/api/v1/users?username=\(searchValue)"
-        Alamofire.request(urlString).responseJSON {
-            response in
-            if response.result.isSuccess {
-                self.data = JSON(response.data!)
-                self.getFollowing()
-            } else {
-                let alert = UIAlertController(title: "Error", message: "Problem communicating with server during search.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default))
-                self.present(alert, animated: true, completion: nil)
+        if searchValue != "" {
+            let urlString = "https://bfit-api.herokuapp.com/api/v1/users?username=\(searchValue)"
+            Alamofire.request(urlString).responseJSON {
+                response in
+                if response.result.isSuccess {
+                    self.data = JSON(response.data!)
+                    self.getFollowing()
+                } else {
+                    let alert = UIAlertController(title: "Error", message: "Problem communicating with server during search.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
+        } else {
+            self.data = []
+            self.getFollowing()
         }
         searchInput.endEditing(true)
     }
