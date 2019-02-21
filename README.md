@@ -20,12 +20,12 @@ BFit is an iOS social media based application built for people who would like po
 
 #### Contributors
 
-###### Front End
+##### Front End
 
 - [Jamie Rushford](https://github.com/jarushford) - Logic & Design
 - [Cody Price](https://github.com/Cody-Price) - Logic & Design
 
-###### Back End
+##### Back End
 
 [Back End Repository](https://github.com/mnhollandplum/BFit_be)
 
