@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var errorMsg: UILabel!
+    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var password: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,20 +31,43 @@ class LoginViewController: UIViewController {
         self.view.layer.insertSublayer(gradientLayer, at: 0)
         errorMsg.textColor = UIColor.clear
     }
-    
-//    func validateLogin() -> Bool {
-//        if {
-//            return true
-//        } else {
-//            return false
-//        }
-//    }
 
     @IBAction func login(_ sender: Any) {
-        let def = UserDefaults.standard
-        def.set(true, forKey: "is_loggedIn")
-        def.set(7, forKey: "id")
-        def.synchronize()
+        let usernameText = username.text!
+        let passwordText = password.text!
+        let url = "https://bfit-api.herokuapp.com/api/v1/login"
+        
+        if usernameText == ""  || passwordText == "" {
+            let alert = UIAlertController(title: "Error", message: "Please enter a username and password", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let data = [
+                "user": [
+                    "username": usernameText,
+                    "password": passwordText
+                ]
+            ]
+            
+            Alamofire.request(url, method: .post, parameters: data, encoding: JSONEncoding.default).responseJSON {
+                response in
+                if response.result.isSuccess {
+                    let userJSON : JSON = JSON(response.result.value!)
+                    let id = userJSON["user_id"].stringValue
+                    let def = UserDefaults.standard
+                    def.set(true, forKey: "is_loggedIn")
+                    def.set(id, forKey: "id")
+                    def.synchronize()
+                    self.performSegue(withIdentifier: "login", sender: sender)
+                } else {
+                    let alert = UIAlertController(title: "Error", message: "Could not login user", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+            
+        }
+        
     }
     
      @IBAction func backToWelcome(_ sender: Any) {

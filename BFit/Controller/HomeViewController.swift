@@ -13,23 +13,15 @@ class HomeViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
-        // get feed data here
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        // get feed data here
-    }
-    
-//    func fetchFeed() {
-//        
-//    }
 }
 
 extension HomeViewController: UITabBarControllerDelegate  {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         
         guard let fromView = selectedViewController?.view, let toView = viewController.view else {
-            return false // Make sure you want this as false
+            return false
         }
         
         if fromView != toView {
