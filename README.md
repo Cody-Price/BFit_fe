@@ -7,6 +7,7 @@ BFit is an iOS social media based application built for people who would like po
 #### Front End Tech Stack
 
 - [Swift](https://swift.org/) - Front End Logic
+- [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON) JSON iOS protocol interface
 - [Alamofire](https://github.com/Alamofire/Alamofire) - Asynchronous HTTP request interface
 - [Cloudinary](https://cloudinary.com/) - Asynchronous asset-based HTTP request interface
 
