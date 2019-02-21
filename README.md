@@ -4,6 +4,8 @@
 
 BFit is an iOS social media based application built for people who would like post and share meal plans, workouts and other fitness tips all while supporting eachother together in a fitness-only paradigm. The application is built in Swift 4 utilizing Alamofire and Cloudinary pods as well as the Cloudinary asset hosting service.
 
+This project is currently in the testing phase and is not yet ready for deployment to the iOS store.
+
 #### Front End Tech Stack
 
 - [Swift](https://swift.org/) - Front End Logic
