@@ -35,9 +35,6 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidAppear(_ animated: Bool) {
         getFeedPosts()
-        if feedData.count == 0 {
-            feedTable.separatorColor = UIColor(white: 1, alpha: 0)
-        } 
     }
     
     func getFeedPosts() {
