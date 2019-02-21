@@ -42,7 +42,6 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         Alamofire.request(url).responseJSON {
             response in
             if response.result.isSuccess {
-                print(JSON(response.data!))
                 self.feedData = JSON(response.data!)
                 self.feedTable.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: true)
             } else {
@@ -64,8 +63,8 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let subTitle = UILabel.init() as UILabel
         let contentTitleOne = UILabel.init() as UILabel
         let contentTitleTwo = UILabel.init() as UILabel
-        
-        thumbnail.cldSetImage(self.cloudinary.createUrl().generate(self.image)!, cloudinary: self.cloudinary)
+        let url = feedData[indexPath.row]["avatar"].stringValue
+        thumbnail.cldSetImage(self.cloudinary.createUrl().generate(url)!, cloudinary: self.cloudinary)
         thumbnail.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         thumbnail.layer.masksToBounds = true
         thumbnail.layer.cornerRadius = 15
@@ -77,8 +76,8 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         title.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
         title.backgroundColor = UIColor(white: 1, alpha: 0)
         title.frame.origin.x = 50
-        title.font = UIFont(name: "HelveticaNeue-Thin", size: 18.0)!
-        title.frame.origin.y = 10
+        title.font = UIFont(name: "HelveticaNeue", size: 22.0)!
+        title.frame.origin.y = 13
         
         if feedData[indexPath.row]["post"]["post_type"] == "exercise" {
             subTitle.text = "\(feedData[indexPath.row]["post"]["exercise"]["name"])"
@@ -90,8 +89,8 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         subTitle.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
         subTitle.backgroundColor = UIColor(white: 1, alpha: 0)
         subTitle.frame.origin.x = 50
-        subTitle.font = UIFont(name: "HelveticaNeue-Thin", size: 18.0)!
-        subTitle.frame.origin.y = 30
+        subTitle.font = UIFont(name: "HelveticaNeue", size: 16.0)!
+        subTitle.frame.origin.y = 35
         
         if feedData[indexPath.row]["post"]["post_type"] == "exercise" {
             if feedData[indexPath.row]["post"]["exercise"]["muscle_group"] == "Cardio" {
@@ -116,31 +115,35 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         contentTitleTwo.textColor = UIColor(white: 1, alpha: 1)
         contentTitleTwo.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
         contentTitleTwo.backgroundColor = UIColor(white: 1, alpha: 0)
-        contentTitleTwo.frame.origin.x = 200
+        contentTitleTwo.frame.origin.x = 220
         contentTitleTwo.font = UIFont(name: "HelveticaNeue-Thin", size: 18.0)!
         contentTitleTwo.frame.origin.y = 60
         
         for i in 1...5 {
             let label = UILabel.init() as UILabel
             if feedData[indexPath.row]["post"]["post_type"] == "exercise" {
-                if feedData[indexPath.row]["post"]["exercise"]["weight"] != "null" {
+                if feedData[indexPath.row]["post"]["exercise"]["weight"].stringValue != "" {
                     label.text = "\(feedData[indexPath.row]["post"]["exercise"]["weight"])"
                 } else {
                     label.text = "\(feedData[indexPath.row]["post"]["exercise"]["time"])"
                 }
+                label.font = UIFont(name: "HelveticaNeue", size: 40.0)!
+                label.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
+                label.frame.origin.x = 70
+                label.frame.origin.y = CGFloat(i * 20 + 85)
             } else {
                 if feedData[indexPath.row]["post"]["meal"]["foods"][i - 1]["name"].stringValue == "" {
                     label.text = nil
                 } else {
                     label.text = "\(feedData[indexPath.row]["post"]["meal"]["foods"][i - 1]["name"])"
                 }
+                label.font = UIFont(name: "HelveticaNeue-Thin", size: 16.0)!
+                label.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
+                label.frame.origin.x = 50
+                label.frame.origin.y = CGFloat(i * 20 + 65)
             }
             label.textColor = UIColor(white: 1, alpha: 1)
-            label.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
             label.backgroundColor = UIColor(white: 1, alpha: 0)
-            label.frame.origin.x = 50
-            label.font = UIFont(name: "HelveticaNeue-Thin", size: 16.0)!
-            label.frame.origin.y = CGFloat(i * 20 + 65)
             if feedData[indexPath.row]["post"]["post_type"] == "exercise" && i == 1 {
                 cell.addSubview(label)
             } else if feedData[indexPath.row]["post"]["post_type"] == "meal" {
@@ -150,25 +153,30 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         for i in 1...5 {
             let label = UILabel.init() as UILabel
+            let stringValue = feedData[indexPath.row]["post"]["meal"]["foods"][i - 1]["calories"].stringValue
             if feedData[indexPath.row]["post"]["post_type"] == "exercise" {
-                if feedData[indexPath.row]["post"]["exercise"]["reps"] != "null" {
+                if feedData[indexPath.row]["post"]["exercise"]["reps"].stringValue != "" {
                     label.text = "\(feedData[indexPath.row]["post"]["exercise"]["reps"])"
                 } else {
                     label.text = "\(feedData[indexPath.row]["post"]["exercise"]["time"])"
                 }
+                label.font = UIFont(name: "HelveticaNeue", size: 40.0)!
+                label.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
+                label.frame.origin.x = 240
+                label.frame.origin.y = CGFloat(i * 20 + 85)
             } else {
-                if feedData[indexPath.row]["post"]["meal"]["foods"][i - 1]["calories"].stringValue == "" {
+                if stringValue == "" || stringValue == "0" {
                     label.text = nil
                 } else {
                     label.text = "\(feedData[indexPath.row]["post"]["meal"]["foods"][i - 1]["calories"])"
+                    label.font = UIFont(name: "HelveticaNeue-Thin", size: 16.0)!
+                    label.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
+                    label.frame.origin.x = 220
+                    label.frame.origin.y = CGFloat(i * 20 + 65)
                 }
             }
             label.textColor = UIColor(white: 1, alpha: 1)
-            label.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
             label.backgroundColor = UIColor(white: 1, alpha: 0)
-            label.frame.origin.x = 200
-            label.font = UIFont(name: "HelveticaNeue-Thin", size: 16.0)!
-            label.frame.origin.y = CGFloat(i * 20 + 65)
             if feedData[indexPath.row]["post"]["post_type"] == "exercise" && i == 1 {
                 cell.addSubview(label)
             } else if feedData[indexPath.row]["post"]["post_type"] == "meal" {

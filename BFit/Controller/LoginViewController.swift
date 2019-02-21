@@ -39,7 +39,7 @@ class LoginViewController: UIViewController {
     @IBAction func login(_ sender: Any) {
         let def = UserDefaults.standard
         def.set(true, forKey: "is_loggedIn")
-        def.set(1, forKey: "id")
+        def.set(7, forKey: "id")
         def.synchronize()
     }
     
