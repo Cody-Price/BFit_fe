@@ -331,7 +331,6 @@
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Feed" title="Home" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" userLabel="Home" customClass="FeedViewController" customModule="BFit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -359,6 +358,7 @@
                         <outlet property="feedTable" destination="vv1-YG-e4f" id="aFd-DY-7dM"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="609" y="-716"/>
         </scene>
@@ -717,6 +717,8 @@
                     </view>
                     <connections>
                         <outlet property="errorMsg" destination="pWz-Wa-X92" id="qq9-ss-PEB"/>
+                        <outlet property="password" destination="Fg7-7J-n4u" id="ldQ-0X-4xi"/>
+                        <outlet property="username" destination="gY4-I5-K54" id="KoO-K9-1wL"/>
                         <segue destination="a4a-Or-UOH" kind="show" identifier="login" id="Sm6-lt-Izb"/>
                     </connections>
                 </viewController>
@@ -1028,7 +1030,7 @@
         <image name="user-4-xxl" width="26" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cdG-PN-kxm"/>
+        <segue reference="Sm6-lt-Izb"/>
         <segue reference="iWa-ts-rqG"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -37,7 +37,6 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func getFeedPosts() {
-        print("getfeedposts firing")
         let url = "https://bfit-api.herokuapp.com/api/v1/users/\(id)/feed"
         Alamofire.request(url).responseJSON {
             response in
