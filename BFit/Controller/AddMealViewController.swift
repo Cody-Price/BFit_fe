@@ -26,6 +26,12 @@ class AddMealViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground()
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func setGradientBackground() {

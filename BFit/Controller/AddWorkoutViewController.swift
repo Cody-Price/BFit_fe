@@ -35,6 +35,12 @@ class AddWorkoutViewController: UIViewController, UIPickerViewDataSource, UIPick
         listOfMuscles = Array(mockMuscleData.keys)
         listOfExercises = mockMuscleData[Array(mockMuscleData.keys)[0]]!
         setGradientBackground()
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func setGradientBackground() {
