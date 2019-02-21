@@ -40,8 +40,8 @@ BFit is an iOS social media based application built for people who would like po
 2. Open your terminal and navigate to the area you want your new directory to be located, and enter the following command:
 `git clone https://github.com/YOUR_GITHUB_USERNAME_HERE/BFit_fe`
 
-3. Get into your new local copy of the BYOB directory:
-`cd BYOB`
+3. Get into your new local copy of the BFit directory:
+`cd BFit`
 
 4. And then add an `upstream` remote that points to the main repo:
 `git remote add upstream https://github.com/Cody-Price/BFit_fe`
