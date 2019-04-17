@@ -42,13 +42,23 @@ This application assumes that you have the following installed on your machine:
 7. Install dependencies:
 `pod install`
 
+### To run as Developer
+
+1. Open Xcode.
+
+2. Open BFit.
+
+3. Press the play button located on the top left of the page.
+
 ### Testing
 
 This application is not yet in the testing phase, however if you would like to contribute, please see the <a href="#contributing">Contributing</a> section.
 
 ### Deployment
 
-This application is not yet in the deployment phase, however if you would like to contribute, please see the <a href="#contributing">Contributing</a> section.
+The Front End of this application is not yet in the deployment phase, however if you would like to contribute, please see the <a href="#contributing">Contributing</a> section.
+
+The Back End of this application is deployed via [TravisCI](https://travis-ci.org/) and [Heroku](https://www.heroku.com/)
 
 ### Built With
 
