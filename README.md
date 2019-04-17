@@ -2,11 +2,11 @@
 
 ### Introduction
 
-BFit is an iOS social media based application built for people who would like post and share meal plans, workouts and other fitness tips all while supporting eachother together in a fitness-only paradigm. The application is built in Swift 4 utilizing Alamofire and Cloudinary pods as well as the Cloudinary asset hosting service.
+BFit is an iOS social media based application built for people who would like to post/share meal plans, workouts and other fitness tips all while supporting eachother together in a fitness-only paradigm.
 
-This project is currently in the testing phase and is not yet ready for deployment to the iOS store.
+This project is currently in the testing phase and is not yet ready for deployment to the iOS store (that and I currently cannot afford an apple dev license)
 
-#### Demo:
+### Demo:
 
 <a href="https://imgflip.com/gif/2yr1qi"><img src="https://i.imgflip.com/2yr1qi.gif" title="made at imgflip.com"/></a>
 <a href="https://imgflip.com/gif/2yr21w"><img src="https://i.imgflip.com/2yr21w.gif" title="made at imgflip.com"/></a>
@@ -14,36 +14,17 @@ This project is currently in the testing phase and is not yet ready for deployme
 <a href="https://imgflip.com/gif/2yr2e6"><img src="https://i.imgflip.com/2yr2e6.gif" title="made at imgflip.com"/></a>
 <a href="https://imgflip.com/gif/2yr2jr"><img src="https://i.imgflip.com/2yr2jr.gif" title="made at imgflip.com"/></a>
 
-#### Front End Tech Stack
+### Prerequisites
 
-- [Swift](https://swift.org/) - Front End Logic
-- [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON) JSON iOS protocol interface
-- [Alamofire](https://github.com/Alamofire/Alamofire) - Asynchronous HTTP request interface
-- [Cloudinary](https://cloudinary.com/) - Asynchronous asset-based HTTP request interface
+This application assumes that you have the following installed on your machine:
+- [Xcode](https://developer.apple.com/xcode/) 
+- [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
 
-#### Wireframes
-
-[![Image from Gyazo](https://i.gyazo.com/49d62a9cfc6b6a0c6f545be62e895420.png)](https://gyazo.com/49d62a9cfc6b6a0c6f545be62e895420)
-
-#### Contributors
-
-##### Front End
-
-- [Jamie Rushford](https://github.com/jarushford) - Logic & Design
-- [Cody Price](https://github.com/Cody-Price) - Logic & Design
-
-[Back End](https://github.com/mnhollandplum/BFit_be)
-
-- [Nikki Holland-Plum](https://github.com/mnhollandplum) - API/Database Design and Implementation
-- [Timothy Fell](https://github.com/TimothyFell) - API/Database Design and Implementation
-
-##### To Contribute to the Front End:
-
-###### Setup:
+### Setup
 
 1. Fork this repository by clicking on the "Fork" button on the top-right of this page.
 
-2. Open your terminal and navigate to the area you want your new directory to be located, and enter the following command:
+2. Open your terminal and navigate to the working directory (for instructions on how to navigate through your terminal see [here](https://ccrma.stanford.edu/guides/planetccrma/terminal.html) you want your new directory to be located, and enter the following command:
 `git clone https://github.com/YOUR_GITHUB_USERNAME_HERE/BFit_fe`
 
 3. Get into your new local copy of the BFit directory:
@@ -52,18 +33,33 @@ This project is currently in the testing phase and is not yet ready for deployme
 4. And then add an `upstream` remote that points to the main repo:
 `git remote add upstream https://github.com/Cody-Price/BFit_fe`
 
-5. Pull in the latest version of master from upstream (ie: the main repo)
+5. Pull in the latest version of master from upstream (ie: the main repo):
 `git pull upstream master`
 
-6. Install cocoapods
+6. Install cocoapods:
 `sudo gem install cocoapods`
 
-7. Install dependencies
+7. Install dependencies:
 `pod install`
 
-###### Contributing:
+### Testing
 
-1. Comment on a given issue you would like to tackle
+This application is not yet in the testing phase, however if you would like to contribute, please see the [Contributing]() section.
+
+### Deployment
+
+This application is not yet in the deployment phase, however if you would like to contribute, please see the [Contributing]() section.
+
+### Built With
+
+- [Swift](https://swift.org/) - Front End Logic
+- [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON) JSON iOS protocol interface
+- [Alamofire](https://github.com/Alamofire/Alamofire) - Asynchronous HTTP request interface
+- [Cloudinary](https://cloudinary.com/) - Asynchronous asset-based HTTP request interface
+
+### Contributing
+
+1. Comment on a given issue you would like to undertake.
 
 2. Checkout a new branch on your local machine (based on `upstream/master`)
 
@@ -77,3 +73,22 @@ This project is currently in the testing phase and is not yet ready for deployme
 
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/mnhollandplum/BFit_be.svg?columns=all)](https://waffle.io/mnhollandplum/BFit_be)
 
+### Authors
+
+##### Front End
+
+- [Jamie Rushford](https://github.com/jarushford) - Logic & Design
+- [Cody Price](https://github.com/Cody-Price) - Logic & Design
+
+##### [Back End](https://github.com/mnhollandplum/BFit_be)
+
+- [Nikki Holland-Plum](https://github.com/mnhollandplum) - API/Database Design and Implementation
+- [Timothy Fell](https://github.com/TimothyFell) - API/Database Design and Implementation
+
+### License
+
+This project requires no license.
+
+### Acknowledgments
+
+I would like to thank Nikki, Tim, and Jamie for being such great teammates to work with during this project. We all decided to learn an entirely new language and supporting software all to our MVP in under two weeks, you all killed it!
