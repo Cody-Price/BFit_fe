@@ -2,9 +2,9 @@
 
 ### Introduction
 
-BFit is an iOS social media based application built for people who would like to post/share meal plans, workouts and other fitness tips all while supporting eachother together in a fitness-only paradigm.
+BFit is an iOS social media based application built for people who would like to post/share meal plans, workouts and other fitness tips all while supporting eachother together in a fitness-only paradigm. 
 
-This project is currently in the testing phase and is not yet ready for deployment to the iOS store (that and I currently cannot afford an apple dev license)
+This project was assigned to be completed in less than 10 days requiring communication between Front End and Back End engineers. My partners and I all decided to take on two new languages to complete this task.
 
 ### Demo:
 
