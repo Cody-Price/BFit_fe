@@ -24,7 +24,7 @@ This application assumes that you have the following installed on your machine:
 
 1. Fork this repository by clicking on the "Fork" button on the top-right of this page.
 
-2. Open your terminal and navigate to the working directory (for instructions on how to navigate through your terminal see [here](https://ccrma.stanford.edu/guides/planetccrma/terminal.html) you want your new directory to be located, and enter the following command:
+2. Open your terminal and navigate to the working directory (for instructions on how to navigate through your terminal see [here](https://ccrma.stanford.edu/guides/planetccrma/terminal.html)) you want your new directory to be located, and enter the following command:
 `git clone https://github.com/YOUR_GITHUB_USERNAME_HERE/BFit_fe`
 
 3. Get into your new local copy of the BFit directory:
