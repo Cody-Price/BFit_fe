@@ -6,7 +6,7 @@ BFit is an iOS social media based application built for people who would like to
 
 This project was assigned to be completed in less than 10 days requiring communication between Front End and Back End engineers. My partners and I all decided to take on two new languages to complete this task.
 
-### Demo:
+### Demo
 
 <a href="https://imgflip.com/gif/2yr1qi"><img src="https://i.imgflip.com/2yr1qi.gif" title="made at imgflip.com"/></a>
 <a href="https://imgflip.com/gif/2yr21w"><img src="https://i.imgflip.com/2yr21w.gif" title="made at imgflip.com"/></a>
