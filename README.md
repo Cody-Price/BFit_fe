@@ -44,11 +44,11 @@ This application assumes that you have the following installed on your machine:
 
 ### Testing
 
-This application is not yet in the testing phase, however if you would like to contribute, please see the [Contributing]() section.
+This application is not yet in the testing phase, however if you would like to contribute, please see the <a href="#contributing">Contributing</a> section.
 
 ### Deployment
 
-This application is not yet in the deployment phase, however if you would like to contribute, please see the [Contributing]() section.
+This application is not yet in the deployment phase, however if you would like to contribute, please see the <a href="#contributing">Contributing</a> section.
 
 ### Built With
 
@@ -56,6 +56,8 @@ This application is not yet in the deployment phase, however if you would like t
 - [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON) JSON iOS protocol interface
 - [Alamofire](https://github.com/Alamofire/Alamofire) - Asynchronous HTTP request interface
 - [Cloudinary](https://cloudinary.com/) - Asynchronous asset-based HTTP request interface
+
+<p id="contributing"></p>
 
 ### Contributing
 
