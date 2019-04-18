@@ -63,7 +63,7 @@ The Back End of this application is deployed via [TravisCI](https://travis-ci.or
 ### Built With
 
 - [Swift 4](https://swift.org/) - Front End Logic
-- [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON) JSON iOS protocol interface
+- [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON) - JSON iOS protocol interface
 - [Alamofire](https://github.com/Alamofire/Alamofire) - Asynchronous HTTP request interface
 - [Cloudinary](https://cloudinary.com/) - Asynchronous asset-based HTTP request interface
 
