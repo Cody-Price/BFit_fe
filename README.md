@@ -10,7 +10,7 @@ This project was assigned to be completed in less than 10 days requiring communi
 
 <a href="https://imgflip.com/gif/2yr1qi"><img src="https://i.imgflip.com/2yr1qi.gif" title="made at imgflip.com"/></a>
 <a href="https://imgflip.com/gif/2yr21w"><img src="https://i.imgflip.com/2yr21w.gif" title="made at imgflip.com"/></a>
-<a href="https://imgflip.com/gif/2yr26e"><img src="https://i.imgflip.com/2yr26e.gif" title="made at imgflip.com"/ style="position: relative; top: -5px;"></a>
+<a href="https://imgflip.com/gif/2yr26e"><img src="https://i.imgflip.com/2yr26e.gif" title="made at imgflip.com" style="position: relative; top: -5px;"/></a>
 <a href="https://imgflip.com/gif/2yr2e6"><img src="https://i.imgflip.com/2yr2e6.gif" title="made at imgflip.com"/></a>
 <a href="https://imgflip.com/gif/2yr2jr"><img src="https://i.imgflip.com/2yr2jr.gif" title="made at imgflip.com"/></a>
 
