@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/mnhollandplum/BFit_be.svg?branch=master)](https://travis-ci.org/mnhollandplum/BFit_be)
+![Heroku](https://heroku-badge.herokuapp.com/?app=heroku-badge)
+
 
 # BFit
 
