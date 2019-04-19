@@ -1,6 +1,6 @@
-# BFit
+[![Build Status](https://travis-ci.org/mnhollandplum/BFit_be.svg?branch=master)](https://travis-ci.org/mnhollandplum/BFit_be)
 
-### Introduction
+# BFit
 
 BFit is an iOS social media based application built for people who would like to post/share meal plans, workouts and other fitness tips all while supporting eachother together in a fitness-only paradigm. 
 
